@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { buildWhatsAppUrl, type Company } from "@/lib/data";
 
 type ContactActionsProps = {
@@ -6,6 +5,9 @@ type ContactActionsProps = {
   heading?: string;
   id?: string;
 };
+
+const cardClass =
+  "flex h-full flex-col rounded-xl border border-border bg-surface p-5";
 
 export function ContactActions({
   company,
@@ -26,59 +28,38 @@ export function ContactActions({
         Phone, email, or WhatsApp—use whichever is easiest. We read every
         message.
       </p>
-      <ul className="mt-8 flex flex-col gap-4 max-sm:pl-16 sm:flex-row sm:flex-wrap sm:items-stretch sm:gap-4 sm:pl-0 sm:pb-6 sm:pr-[4.75rem]">
-        <li>
-          <Button
-            asChild
-            variant="outline"
-            className="h-auto min-h-11 w-full items-start justify-start bg-surface px-4 py-3 text-left whitespace-normal sm:w-auto"
+      <ul className="mt-8 grid gap-4 sm:grid-cols-3 sm:pr-[4.75rem]">
+        <li className={cardClass}>
+          <p className="text-sm font-medium text-muted-foreground">Phone</p>
+          <a
+            href={`tel:${company.phoneTel}`}
+            className="mt-3 text-lg font-semibold text-foreground hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
-            <a href={`tel:${company.phoneTel}`}>
-              <span className="flex flex-col items-start gap-0.5">
-                <span className="text-sm font-medium text-muted-foreground">
-                  Phone
-                </span>
-                <span className="text-lg font-semibold text-foreground">
-                  {company.phoneDisplay}
-                </span>
-              </span>
-            </a>
-          </Button>
+            {company.phoneDisplay}
+          </a>
         </li>
-        <li>
-          <Button
-            asChild
-            variant="outline"
-            className="h-auto min-h-11 w-full items-start justify-start bg-surface px-4 py-3 text-left whitespace-normal sm:w-auto"
+        <li className={cardClass}>
+          <p className="text-sm font-medium text-muted-foreground">Email</p>
+          <a
+            href={`mailto:${company.email}`}
+            className="mt-3 text-lg font-semibold break-all text-foreground hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
-            <a href={`mailto:${company.email}`}>
-              <span className="flex flex-col items-start gap-0.5">
-                <span className="text-sm font-medium text-muted-foreground">
-                  Email
-                </span>
-                <span className="text-lg font-semibold break-all text-foreground">
-                  {company.email}
-                </span>
-              </span>
-            </a>
-          </Button>
+            {company.email}
+          </a>
         </li>
-        <li>
-          <Button
-            asChild
-            className="h-auto min-h-11 w-full items-start justify-start bg-whatsapp px-4 py-3 text-left whitespace-normal text-white hover:bg-whatsapp/90 sm:w-auto"
+        <li className={cardClass}>
+          <p className="text-sm font-medium text-muted-foreground">WhatsApp</p>
+          <p className="mt-3 text-base leading-relaxed text-foreground">
+            Open a chat on your device.
+          </p>
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex min-h-11 items-center justify-center self-start rounded-md bg-whatsapp px-4 text-sm font-semibold text-white hover:bg-whatsapp/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
-            <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-              <span className="flex flex-col items-start gap-2">
-                <span className="text-sm font-medium text-white/90">
-                  WhatsApp
-                </span>
-                <span className="text-base font-semibold">
-                  Message on WhatsApp
-                </span>
-              </span>
-            </a>
-          </Button>
+            Message on WhatsApp
+          </a>
         </li>
       </ul>
     </section>

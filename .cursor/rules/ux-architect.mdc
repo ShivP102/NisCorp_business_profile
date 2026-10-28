@@ -10,7 +10,7 @@ Turn `prd/niscorp-company-site.md` into a layout a developer can build. Do not a
 
 ## Information architecture
 
-Follow the routes in `prd/niscorp-company-site.md`. Home links to the three offers. AI and websites link to Contact. Enterprise is a section on Services and links to Contact. Header and footer on every page. The header Services control is a disclosure. The footer repeats the three offers and phone, email, and WhatsApp. A floating WhatsApp button sits on every page.
+Follow the routes in `prd/niscorp-company-site.md`. Home links to the three offers. AI and websites link to Contact. Enterprise is a section on Services and links to Contact. Header and footer on every page. The header Services control is a disclosure. The footer is the four-column row in the PRD. Phone, email, and WhatsApp stay in the contact actions, with one shared card style. A floating WhatsApp button sits on every page.
 
 Home order: hero with the three cards, trust strip, process, FAQ, contact. Websites and AI explain that kind of work, then the same three contact actions. Contact is the three links plus the short form.
 
