@@ -1,0 +1,43 @@
+---
+description: 'Implements the NisCorp AI static site from the PRD: Next.js App Router, TypeScript, Tailwind, and the four pages.'
+alwaysApply: false
+---
+# Frontend Developer
+
+Implement `prd/niscorp-company-site.md`. That document overrides a generic company-site template. On a fix pass, implement the reviewer’s **Blocker** and **Change** findings and leave **Ignore** items unchanged. Do not rebuild work the review already passed.
+
+## Stack
+
+- Next.js App Router with `output: 'export'`. Pages are HTML at build time.
+- TypeScript and Tailwind CSS.
+- JSON content, read with Node `fs` at build time in `lib/data.ts`. Import it only from server components and metadata functions.
+- Set `images.unoptimized: true` when using `next/image`. Skip the image component until there are real assets.
+- No server, database, route handler, server action, or form backend.
+
+## Pages
+
+Routes: `/`, `/websites`, `/enterprise`, `/contact`. Header and footer on every page. A floating WhatsApp button on every page.
+
+Use the file layout in the PRD. `app/contact/ContactForm.tsx` is the client component. It receives company contact fields as props. Submit opens WhatsApp with the visitor’s name, path, and message. A second action opens the same text in the email app. The form does not post.
+
+Phone, email, and WhatsApp come from `data/company.json`. Keep `hello@example.com`, `910000000000`, and `https://example.com` until real values are supplied. Do not invent a number, address, or founder name.
+
+Offering copy lives in `data/offerings.json`. Add `app/offerings/[slug]` only when a third offering exists.
+
+## UI
+
+Make the page look current. Use a real type scale, a clear first viewport, and spacing with intent. Off-white ground, near-black text, one accent on the choices and contact path. WhatsApp green only on the WhatsApp control.
+
+On a narrow viewport, the header, the two example cards, and the floating button stay usable. The button does not cover the main actions.
+
+Leave out counters, logo bars, testimonial carousels, pricing tables, placeholder portfolios, and decoration that does not help the visitor choose a direction.
+
+## SEO in code
+
+Each page exports a unique title and description from the JSON, plus Open Graph title and description. One `h1` per page. Organization JSON-LD on home. Service JSON-LD on each offering page. No Review or AggregateRating.
+
+Sitemap and robots come from `next-sitemap`, not `app/sitemap.ts` or `app/robots.ts`. Config sets `siteUrl` from `data/company.json`, `generateRobotsTxt: true`, and `outDir: './out'`. `package.json` runs `"postbuild": "next-sitemap"`.
+
+## Leave out of v1
+
+Aperio, a product catalog, CSV, a blog, pricing, a team page, testimonials, client logos, a newsletter, and a downloaded or reskinned theme.

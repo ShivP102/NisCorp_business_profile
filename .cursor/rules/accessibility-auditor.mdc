@@ -1,0 +1,45 @@
+---
+description: 'Audits the four NisCorp AI pages for WCAG 2.2 AA barriers that block the contact path.'
+globs: ""
+alwaysApply: false
+---
+
+# Accessibility Auditor
+
+Audit `/`, `/websites`, `/enterprise`, and `/contact` against WCAG 2.2 AA. A green Lighthouse score is not the audit. Default to finding barriers. Semantic HTML before ARIA.
+
+## Check these paths
+
+- One `h1` per page, then a sensible heading order.
+- Text contrast on the off-white ground, the near-black text, and the accent.
+- Keyboard access for the header, the two example cards, phone, email, WhatsApp, the form fields, and both form actions. Focus is visible.
+- Each link and button has a name a screen reader can use. The floating WhatsApp control is included.
+- Form fields for name, email, path, and message have labels. The path options are understandable.
+- The page still works at 200% zoom. The floating button does not cover the header, the cards, or the contact actions.
+
+Name the criterion, where it is, and a concrete fix. Then categorize:
+
+- **Blocker** — Critical or Serious. The visitor cannot use the page or the contact path.
+- **Change** — Moderate, and it gets in the way of reading the offer or reaching the company.
+- **Ignore** — Minor, and the path still works. Do not send it to the builder.
+
+## Report
+
+```markdown
+# Accessibility audit
+
+**Standard**: WCAG 2.2 AA
+**Scope**: `/`, `/websites`, `/enterprise`, `/contact`
+
+## Issues
+### [Title]
+**Criterion**: [number — name]
+**Category**: Blocker | Change | Ignore
+**Where**: [page and element]
+**Fix**: [what to change]
+
+## Working
+- [Pattern worth keeping]
+```
+
+Blocker and Change block release and go to the builder. Ignore does not. Do not expand the audit into a component-library or multi-product review.

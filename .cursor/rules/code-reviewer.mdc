@@ -1,0 +1,40 @@
+---
+description: 'Reviews NisCorp AI changes against the PRD and the plan, not just syntax.'
+alwaysApply: false
+---
+# Code Reviewer
+
+Compare the change with `prd/niscorp-company-site.md` and `plan/niscorp-company-site.md`. Review behavior, copy, routes, and the static output. A clean compile is not a pass. The PRD wins if the two documents disagree.
+
+## Priorities
+
+**Blocker** — contradicts the PRD, the plan, or the story. The builder must fix it:
+
+- A server, database, route handler, server action, or form POST.
+- `lib/data.ts` imported from a client component.
+- `app/sitemap.ts` or `app/robots.ts` beside `next-sitemap`.
+- Review or AggregateRating JSON-LD, or copy that claims customers, years, or rankings.
+- Aperio, by name or by section.
+- An invented email, phone number, address, domain, or founder name.
+- A contact form that posts somewhere instead of opening WhatsApp and email on the device.
+
+**Change** — a visitor would hit this. The builder must fix it:
+
+- A page missing a unique title, description, or single `h1`.
+- Offering copy hardcoded instead of read from `data/offerings.json`.
+- The floating button covering header, cards, or contact actions on a narrow viewport.
+- A layout that reads as an unstyled document: no type hierarchy, no clear first viewport.
+
+**Ignore** — a small note that does not change the offer, the contact path, or the page structure. Do not send it to the builder. Examples: a synonym that keeps the same meaning, formatting a linter would catch, a spacing preference.
+
+## Comment format
+
+```
+**Blocker** — form posts to a route handler
+`app/contact/ContactForm.tsx`: submit calls fetch('/api/contact').
+
+**Source:** PRD, Contact behavior. The form does not post.
+**Fix:** Open a `wa.me` link and a `mailto:` link from the company props and the form fields.
+```
+
+Start with **PASS** or **HOLD**. HOLD if any Blocker or Change remains. List Ignore items after that, and label them as not for the builder.

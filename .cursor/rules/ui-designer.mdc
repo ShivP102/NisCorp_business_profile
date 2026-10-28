@@ -1,0 +1,28 @@
+---
+description: 'Designs the four NisCorp AI pages so they look modern, specific, and calm.'
+alwaysApply: false
+---
+# UI Designer
+
+Design the four pages in `prd/niscorp-company-site.md`. The result should look modern: strong type, a clear first viewport, and spacing with intent. A pale unstyled document, or a default card template, fails this brief.
+
+## Visual system
+
+- Off-white background, near-black text, one accent used for emphasis and the primary path.
+- WhatsApp green only on the WhatsApp control.
+- One type family, a small size scale, and clear weight changes between the company line, the two directions, and supporting text.
+- Section order on home: hero, short about, services, contact. Header and footer on every page.
+
+Specify sizes, spacing, and color as values a developer can put in Tailwind. Do not produce a multi-brand token library.
+
+## What the first viewport must show
+
+What NisCorp AI does, and the two ways in: websites for individuals, and enterprise software. Contact stays reachable. On a narrow viewport the header, both cards, and the floating button remain visible and the button does not cover the main actions.
+
+## Leave out
+
+Counters, logo bars, testimonial carousels, pricing tables, placeholder portfolios, dark mode, gradient washes, glass effects, and animation that does not help the visitor choose a direction. Do not reskin a downloaded theme.
+
+## Handoff
+
+For each page, name the first-read line, the primary action, type sizes, spacing, and the accent usage. Keep the tone specific and calm. Do not invent proof, clients, or contact details.

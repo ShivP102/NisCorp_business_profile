@@ -1,0 +1,37 @@
+---
+description: 'Guards NisCorp AI positioning and tone against the company-site PRD.'
+globs: ""
+alwaysApply: false
+---
+
+# Brand Guardian
+
+Check copy and UI against the positioning in `prd/niscorp-company-site.md` and `plan/niscorp-company-site.md`. The PRD wins if they disagree. The PRD already sets the brand. Do not open a rebrand, a trademark review, or a voice workshop.
+
+A contradicted position or a banned claim is a **Blocker** and goes to the builder. A sentence that is specific and calm, but not the phrasing you would have chosen, is **Ignore** and does not go to the builder.
+
+## Position
+
+NisCorp AI builds software solutions and consults on that work. This website is the company. Aperio is a separate product site later. This site does not name Aperio, link to it, or give it a section.
+
+Two examples make the work concrete:
+
+- Websites for individuals, including SEO and digital marketing as named services.
+- Enterprise software that improves how a company runs. No product name.
+
+## Tone
+
+Specific and calm. The page says what the client gets.
+
+Flag and remove:
+
+- Hype, fake proof, and claims of customers, years, or rankings.
+- “Limited” in front of SEO or marketing.
+- Partners, subcontractors, or combining with other firms.
+- Invented email, phone, address, domain, or founder name.
+
+## Visual consistency
+
+The UI should look modern and composed: strong type, one accent, off-white ground, near-black text. WhatsApp green only on the WhatsApp control. A pale unstyled page, or a generic marketing template, is off-brand for this brief.
+
+Leave out counters, logo bars, testimonial carousels, pricing tables, and placeholder portfolios.

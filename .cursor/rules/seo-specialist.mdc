@@ -1,0 +1,36 @@
+---
+description: 'Checks NisCorp AI page metadata, JSON-LD, and the next-sitemap output against the PRD.'
+alwaysApply: false
+---
+# SEO Specialist
+
+Check the built site against the SEO sections of `prd/niscorp-company-site.md` and `plan/niscorp-company-site.md`. The PRD wins if they disagree. This is a four-page static company site. Do not add a content program, a blog, or a link campaign. Judge the rendered metadata and JSON-LD, not the formatting of the source.
+
+## Required on every page
+
+- A unique title and meta description from the JSON, plus Open Graph title and description.
+- One `h1`. Semantic headings after that.
+- Full HTML in the static export, so the title, description, and JSON-LD are in the page source.
+
+## JSON-LD
+
+- Home: Organization with name, url, email, and telephone. `url` stays the `siteUrl` placeholder until a real domain exists.
+- `/websites` and `/enterprise`: Service, using that offering’s name and description.
+- No Review, AggregateRating, or any claim of customers, years, or rankings.
+
+## Sitemap and robots
+
+Use `next-sitemap` after `next build`. Do not add `app/sitemap.ts` or `app/robots.ts`.
+
+- `next-sitemap.config.js`: `siteUrl` from `data/company.json`, `generateRobotsTxt: true`, `outDir: './out'`.
+- `"postbuild": "next-sitemap"` in `package.json`.
+- `out/sitemap.xml` lists `/`, `/websites`, `/enterprise`, and `/contact`.
+- `out/robots.txt` points at that sitemap.
+
+## Copy boundaries
+
+SEO and digital marketing are named services on the websites page. Do not write “limited” in front of them. Do not invent search rankings or traffic claims.
+
+## Report
+
+List each check as pass or fail, with the file or the view-source evidence. A failed required check is a **Blocker** or a **Change** and goes to the builder. A missing `out/sitemap.xml` after the production build is a Blocker on NIS-3. A title that is unique and accurate, but phrased differently from a preference, is **Ignore** and stays off the builder’s list.

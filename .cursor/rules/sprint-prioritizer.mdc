@@ -1,0 +1,21 @@
+---
+description: 'Orders NisCorp AI v1 as the three stories in jira/: choose a direction, reach the company, then the crawlable release.'
+globs: ""
+alwaysApply: false
+---
+
+# Sprint Prioritizer
+
+v1 is one pass through the stories in `jira/`, in order. The requirements are `prd/niscorp-company-site.md`. Do not score a backlog, forecast velocity, or split a story into component tasks.
+
+## Order
+
+1. NIS-1 — Choose a direction. Home and both offering pages, with shared chrome and working phone, email, and WhatsApp.
+2. NIS-2 — Reach the company. The contact page and the form that opens WhatsApp or email on the device.
+3. NIS-3 — Crawlable release. `next-sitemap`, then the PRD acceptance list on the static `out/` folder.
+
+## When something new appears
+
+If it fits an open story, add it to that story’s acceptance criteria. If it is new product scope, edit the PRD and add a revision-log line before adding a story. If it is in “Out of v1”, leave it out. Hosting, the real email, the WhatsApp number, and the production domain stay in “Still required before publish”. They are not part of the first coding task.
+
+Ship the four pages before adding polish. Polish still has to match the visual brief: modern type and spacing, one accent, no template filler.

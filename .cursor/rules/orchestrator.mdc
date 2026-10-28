@@ -1,0 +1,67 @@
+---
+description: 'Runs one jira story in agent chat. Composer 2.5 builds from the repo rules. Grok 4.5 reviews from the review rules.'
+alwaysApply: false
+---
+# Orchestrator
+
+Run one story from `jira/` when this rule is called. You coordinate. You do not implement the story yourself, and you do not start the next story.
+
+## Pick up the ticket
+
+Read `jira/README.md`. Use the story the user named. If they did not name one, take the first story in that list whose status is To do and whose dependencies are Done.
+
+Stop if the story is already Done, or if a dependency is not Done. Say which story is blocking.
+
+Set that story’s status to In progress before the build starts.
+
+## Build
+
+Launch one Task subagent. Do not launch a second builder on the same files.
+
+- `subagent_type`: `generalPurpose`
+- `model`: `composer-2.5`
+- `run_in_background`: false
+- The prompt must include the repo path, the story path, the PRD path, and the build rules for that story. The subagent does not see this chat. Tell it to read those files and follow them, implement only that story, run the story’s exit checks, and verify rendered pages in the browser when the story changes UI. It must not commit, push, or edit the review.
+
+| Story | Build rules to read and follow |
+|---|---|
+| NIS-1 | `frontend-developer.mdc`, `content-creator.mdc`, `ux-architect.mdc`, `ui-designer.mdc`, `brand-guardian.mdc`, `seo-specialist.mdc` |
+| NIS-2 | `frontend-developer.mdc`, `content-creator.mdc`, `ux-architect.mdc` |
+| NIS-3 | `frontend-developer.mdc`, `seo-specialist.mdc` |
+
+Rules live in `.cursor/rules/`. The builder also reads the story and `prd/niscorp-company-site.md`.
+
+Ask the builder to return what changed, the exit-check results, and anything left unfinished.
+
+## Review
+
+After the build returns, launch one review subagent. It does not edit files.
+
+- `subagent_type`: `generalPurpose`
+- `model`: `cursor-grok-4.5-high-fast`
+- `run_in_background`: false
+- The prompt must include the story path, `prd/niscorp-company-site.md`, `plan/niscorp-company-site.md`, the builder’s report, and the review rules. Tell the reviewer to compare the built pages and behavior with the story, the PRD, and the plan. Syntax is not the review. The PRD wins if the plan and the PRD disagree.
+
+| Story | Review rules to read and follow |
+|---|---|
+| NIS-1 | `code-reviewer.mdc`, `reality-checker.mdc`, `ui-finish-gate-reviewer.mdc`, `accessibility-auditor.mdc`, `brand-guardian.mdc`, `seo-specialist.mdc` |
+| NIS-2 | `code-reviewer.mdc`, `reality-checker.mdc`, `ui-finish-gate-reviewer.mdc`, `accessibility-auditor.mdc` |
+| NIS-3 | `code-reviewer.mdc`, `reality-checker.mdc`, `seo-specialist.mdc` |
+
+The reviewer returns **PASS** or **HOLD**. Each finding is one of:
+
+- **Blocker** — the build contradicts the PRD, the plan, or the story. HOLD.
+- **Change** — a visitor would hit a real gap. HOLD.
+- **Ignore** — a small note that does not create a bigger problem. It does not cause HOLD, and it is not sent to the builder.
+
+PASS means there are no Blocker or Change findings. Ignore items may still be listed.
+
+A pass is one build and the review that follows it. The first pass is the initial build. On HOLD, resume the same builder and paste only the Blocker and Change findings, each with the file or page and the PRD or plan line it breaks. Tell the builder to fix those and leave Ignore items and already-passing work unchanged. Do not pass `model` on resume. Then review again. Stop at three passes, or sooner on PASS. Do not start a fourth build.
+
+## Close
+
+Set the story to Done only after a PASS. Leave it In progress when the third review is still HOLD, and report the remaining items.
+
+Do not commit or push unless the user asked in this chat. Do not deploy.
+
+Reply with the story, the build result, the review decision, which pass it stopped on, and the Ignore notes that were left out of the fix.

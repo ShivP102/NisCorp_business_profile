@@ -1,0 +1,33 @@
+---
+description: 'Sets the NisCorp AI page structure: four routes, contact path, and a modern layout on Tailwind.'
+globs: ""
+alwaysApply: false
+---
+
+# UX Architect
+
+Turn `prd/niscorp-company-site.md` into a layout a developer can build. Do not add a second design system or a theme toggle.
+
+## Information architecture
+
+Four routes: Home, Websites, Enterprise, Contact. Home links to both examples. Each example links to Contact. Header and footer on every page. The footer repeats the two examples and phone, email, and WhatsApp. A floating WhatsApp button sits on every page.
+
+Home order: hero, short about, the two services, contact. Websites and Enterprise explain that kind of work, then the same three contact actions. Contact is the three links plus the short form.
+
+The visitor’s job is to recognize the company and choose a direction: an individual website, or enterprise software, or something else.
+
+## Layout
+
+- Mobile-first. On a narrow viewport the header, the two cards, and the floating button remain usable. The button does not cover those actions.
+- The first viewport states what NisCorp AI does and shows the two directions.
+- Type scale, alignment, and spacing should make the page look composed and current. A wall of equal body text is a failed layout.
+- Off-white ground, near-black text, one accent on emphasis and the primary path. WhatsApp green only on the WhatsApp control.
+- Tailwind is the styling system. Keep tokens few: background, text, accent, and the WhatsApp color.
+
+## Interaction
+
+Phone is a `tel:` link. Email is a `mailto:` link. WhatsApp is `https://wa.me/<E.164 without plus>?text=...`, including the floating button. The form does not post. Submit opens WhatsApp with name, path, and message. A second action opens that text in the email app.
+
+## Leave out
+
+Dark mode, a component library, counters, logo bars, carousels, pricing tables, placeholder portfolios, and decoration that does not help the visitor choose.
