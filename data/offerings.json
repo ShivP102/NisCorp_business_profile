@@ -1,59 +1,174 @@
 [
   {
+    "slug": "ai-llm",
+    "title": "AI & LLM Solutions",
+    "summary": "RAG apps, internal AI assistants, and automation on AWS Bedrock/OpenAI with OpenSearch or Snowflake.",
+    "href": "/services/ai-llm",
+    "detail": true,
+    "overview": "We build RAG applications, internal assistants, and agentic workflows that reduce manual lookup and improve answer quality. Stack options include AWS Bedrock/OpenAI with OpenSearch or Snowflake, orchestrated with LangChain/LangGraph and shipped on AWS Serverless/Next.js.",
+    "overviewCta": "Explore AI & LLM Solutions",
+    "metaTitle": "AI & LLM Solutions — NisCorp AI",
+    "metaDescription": "RAG, agents, and automation that ship. Data connectors, retrieval, prompts, guardrails, evaluation, and handover.",
+    "sections": [
+      {
+        "heading": "What we build",
+        "paragraphs": [
+          "RAG applications and internal assistants with secure retrieval and tuned prompts.",
+          "Agentic workflows with tools and functions for lookups, updates, and actions.",
+          "Evaluation harnesses that track accuracy, latency, and cost.",
+          "Surfaces for the web and for Slack or Teams."
+        ]
+      },
+      {
+        "heading": "Stack options",
+        "paragraphs": [
+          "LLMs: AWS Bedrock (Claude, Llama) and OpenAI.",
+          "Retrieval: OpenSearch vector, Snowflake hybrid search, and pgvector.",
+          "Frameworks: LangChain/LangGraph, Next.js, and AWS Serverless with GitHub Actions CI/CD."
+        ]
+      },
+      {
+        "heading": "Outcomes",
+        "paragraphs": [
+          "Higher answer accuracy than a naïve chat, and less time spent on manual lookup.",
+          "Lower support load through self-serve answers and suggested replies.",
+          "Observability you can use for ongoing tuning."
+        ]
+      }
+    ],
+    "shapes": [
+      {
+        "name": "QuickStart",
+        "duration": "2 weeks",
+        "points": [
+          "Connect 1–2 sources, baseline retrieval, a simple UI, and an evaluation set."
+        ]
+      },
+      {
+        "name": "Pilot",
+        "duration": "4–6 weeks",
+        "points": [
+          "Multi-source ingestion, auth, improved prompts, a Slack or Teams app, and guardrails."
+        ]
+      },
+      {
+        "name": "Production",
+        "duration": "8–12 weeks",
+        "points": [
+          "Hybrid search, agents, observability, handover, and runbooks."
+        ]
+      }
+    ]
+  },
+  {
     "slug": "websites",
-    "title": "Websites for individuals",
-    "summary": "A site for you and your practice or private work, with search and marketing set up around it.",
-    "metaTitle": "Websites for individuals — NisCorp AI",
-    "metaDescription": "Sites for a person and their practice or private work, with SEO and digital marketing. A clear site, a way to reach you, and marketing built around it.",
+    "title": "Websites & SEO",
+    "summary": "Fast sites for individuals and small teams, with clear messaging and acquisition set up.",
+    "href": "/services/websites",
+    "detail": true,
+    "overview": "Fast, clear sites for individuals and small teams: messaging, contact and booking, analytics, and SEO foundations. That includes on-page SEO, Google Business Profile, and schema. Launch in 14 days, with options for growth and a care plan.",
+    "overviewCta": "See Websites & SEO",
+    "metaTitle": "Websites & SEO for individuals — NisCorp AI",
+    "metaDescription": "Launch a clear site with contact, booking, analytics, and SEO in 14 days. Ongoing content and optimization available.",
     "sections": [
       {
         "heading": "Who this is for",
         "paragraphs": [
-          "This work is for a person and the practice or private work they run online. A doctor’s practice is one example: patients need to understand who you are, what you offer, and how to get in touch.",
-          "The same pattern fits consultants, therapists, coaches, and others who work under their own name."
+          "Doctors, consultants, therapists, coaches, and independent practices.",
+          "Small teams that need a credible site and a steady way for people to reach them."
         ]
       },
       {
         "heading": "What you get",
         "paragraphs": [
-          "A site that explains who you are and what you do in plain language.",
-          "A clear way for people to reach you—phone, email, or message—without hunting through a generic template.",
-          "Search and marketing set up around that site: SEO and digital marketing as services, so people who need your work can find you."
+          "A clear site that explains who you are, what you offer, and how to reach you.",
+          "Conversion setup: WhatsApp, phone, email, booking links, and lead tracking.",
+          "Search and marketing foundations: on-page SEO, digital marketing, Google Business Profile, and analytics."
+        ]
+      }
+    ],
+    "shapes": [
+      {
+        "name": "Essentials",
+        "duration": "1–2 weeks",
+        "points": [
+          "3–5 pages, copy assist, contact and booking integration, and analytics."
         ]
       },
       {
-        "heading": "How we work",
-        "paragraphs": [
-          "We learn how you work and who you serve, then structure the site and the marketing around that. You review the proposal before build starts; we deliver a site you can maintain with your team or with us."
+        "name": "Growth",
+        "duration": "3–4 weeks",
+        "points": [
+          "A blog, FAQs, email capture, schema markup, and a starter content plan."
         ]
+      },
+      {
+        "name": "Care plan",
+        "duration": "Monthly",
+        "points": ["Updates, landing pages, SEO tune-ups, and reporting."]
       }
     ]
   },
   {
     "slug": "enterprise",
     "title": "Enterprise software",
-    "summary": "Software built for how your company runs, so your team keeps using it after we leave.",
-    "metaTitle": "Enterprise software — NisCorp AI",
-    "metaDescription": "Software for a company to improve how it runs operations. We understand the operation, build around it, and leave your team with a system they use.",
+    "summary": "Operations software that matches how your company runs—workflows, data, and integrations in one place.",
+    "href": "/services#enterprise",
+    "detail": false,
+    "overview": "Purpose-built operations software that matches how your company runs: fewer manual handoffs, clearer status, and integrations across your stack. Discovery, design, build in sprints, then transition with docs and runbooks.",
+    "overviewCta": "Discuss your operation",
+    "metaTitle": "Enterprise software for operations — NisCorp AI",
+    "metaDescription": "Purpose-built systems, integrations, and modernization. Fixed-scope sprints, weekly demos, and a clean handover.",
     "sections": [
       {
         "heading": "What this is",
         "paragraphs": [
-          "Enterprise software here means systems built for your company—not a generic product with your logo on it. The goal is to improve how work moves through your operation: fewer manual handoffs, clearer status, and tools that match how your team already thinks."
+          "Systems built around your operation: fewer manual handoffs, clearer status, and tools that match how your team thinks."
         ]
       },
       {
-        "heading": "The engagement",
+        "heading": "Typical projects",
         "paragraphs": [
-          "We start by understanding how the operation works today: where data lives, who decides what, and what breaks under load.",
-          "We design and build software around that reality, in steps you can review.",
-          "We leave your team with a system they use day to day, with documentation and handover so you are not dependent on a black box."
+          "Operations platforms for onboarding, fulfillment, or partner workflows.",
+          "Modernization from spreadsheets and legacy tools to auditable, scalable services.",
+          "Integrations and APIs across CRM, ERP, analytics, and identity."
         ]
       },
       {
-        "heading": "When it fits",
+        "heading": "Tech focus",
         "paragraphs": [
-          "This fits when spreadsheets and ad hoc tools are slowing you down, when a new process needs software behind it, or when an older system no longer matches how the business runs. We name no product; the work is shaped to your operation."
+          "Frontend: React/Next.js and Tailwind. Backend: Node.js and event-driven services.",
+          "Data: Snowflake and Postgres. Cloud: AWS Serverless. CI/CD: GitHub Actions."
+        ]
+      }
+    ],
+    "shapes": [
+      {
+        "name": "Discovery",
+        "duration": "Map the operation",
+        "points": [
+          "Today’s workflow, where data lives, slack points, and failure modes."
+        ]
+      },
+      {
+        "name": "Design",
+        "duration": "Set the boundaries",
+        "points": [
+          "Service boundaries, the data model, event flows, and integration contracts."
+        ]
+      },
+      {
+        "name": "Build",
+        "duration": "Weekly demos",
+        "points": [
+          "Working software each week, with value shipping in increments."
+        ]
+      },
+      {
+        "name": "Transition",
+        "duration": "Handover",
+        "points": [
+          "Documentation, runbooks, and capability transfer so your team can own it."
         ]
       }
     ]

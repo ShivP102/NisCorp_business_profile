@@ -4,7 +4,7 @@ alwaysApply: false
 ---
 # SEO Specialist
 
-Check the built site against the SEO sections of `prd/niscorp-company-site.md` and `plan/niscorp-company-site.md`. The PRD wins if they disagree. This is a four-page static company site. Do not add a content program, a blog, or a link campaign. Judge the rendered metadata and JSON-LD, not the formatting of the source.
+Check the built site against the SEO sections of `prd/niscorp-company-site.md`. The PRD wins if it disagrees with an older plan. Do not add a content program, a blog, or a link campaign. Judge the rendered metadata and JSON-LD, not the formatting of the source.
 
 ## Required on every page
 
@@ -14,9 +14,9 @@ Check the built site against the SEO sections of `prd/niscorp-company-site.md` a
 
 ## JSON-LD
 
-- Home: Organization with name, url, email, and telephone. `url` stays the `siteUrl` placeholder until a real domain exists.
-- `/websites` and `/enterprise`: Service, using that offering’s name and description.
-- No Review, AggregateRating, or any claim of customers, years, or rankings.
+- Home: Organization with name, url, email, and telephone, plus FAQPage for the home questions.
+- `/services/ai-llm` and `/services/websites`: Service, using that offering’s name and description.
+- No Review, AggregateRating, or any claim of customers or rankings.
 
 ## Sitemap and robots
 
@@ -24,7 +24,8 @@ Use `next-sitemap` after `next build`. Do not add `app/sitemap.ts` or `app/robot
 
 - `next-sitemap.config.js`: `siteUrl` from `data/company.json`, `generateRobotsTxt: true`, `outDir: './out'`.
 - `"postbuild": "next-sitemap"` in `package.json`.
-- `out/sitemap.xml` lists `/`, `/websites`, `/enterprise`, and `/contact`.
+- `out/sitemap.xml` lists `/`, `/services`, `/services/ai-llm`, `/services/websites`, `/about`, `/case-studies`, and `/contact`.
+- `out/sitemap.xml` does not list `/websites` or `/enterprise`.
 - `out/robots.txt` points at that sitemap.
 
 ## Copy boundaries

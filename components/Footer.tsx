@@ -11,6 +11,12 @@ type FooterProps = {
 const linkClass =
   "text-foreground hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
+const pageLinks = [
+  { href: "/about", label: "About" },
+  { href: "/case-studies", label: "Case studies" },
+  { href: "/contact", label: "Send a message" },
+] as const;
+
 export function Footer({ company, offerings }: FooterProps) {
   const whatsappHref = buildWhatsAppUrl(company);
 
@@ -18,13 +24,13 @@ export function Footer({ company, offerings }: FooterProps) {
     <footer className="surface-glass mt-auto">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          <p className="text-sm font-semibold tracking-wide text-muted-foreground uppercase">
             Work we do
           </p>
           <ul className="mt-4 space-y-2">
             {offerings.map((offering) => (
               <li key={offering.slug}>
-                <Link href={`/${offering.slug}`} className={linkClass}>
+                <Link href={offering.href} className={linkClass}>
                   {offering.title}
                 </Link>
               </li>
@@ -32,15 +38,17 @@ export function Footer({ company, offerings }: FooterProps) {
           </ul>
         </div>
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          <p className="text-sm font-semibold tracking-wide text-muted-foreground uppercase">
             Contact
           </p>
           <ul className="mt-4 space-y-3 text-base">
-            <li>
-              <Link href="/contact" className={`font-medium ${linkClass}`}>
-                Send a message
-              </Link>
-            </li>
+            {pageLinks.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className={`font-medium ${linkClass}`}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
             <li>
               <a href={`tel:${company.phoneTel}`} className={linkClass}>
                 {company.phoneDisplay}

@@ -4,16 +4,17 @@ alwaysApply: false
 ---
 # UI Designer
 
-Design the four pages in `prd/niscorp-company-site.md`. The result should look modern: strong type, a clear first viewport, and spacing with intent. A pale unstyled document, or a default card template, fails this brief.
+Design the pages in `prd/niscorp-company-site.md`. The result should look modern: strong type, a clear first viewport, and spacing with intent. A pale unstyled document, or a default card template, fails this brief.
 
 ## Visual system
 
 Follow the ten language roles in the PRD visual requirements. Do not give every surface every language.
 
 - **Minimalism** on the company line: large type, short measure, whitespace around the choice.
-- **Bento grid** for home and a lighter grid on the offering pages. The two directions are peer cells.
+- **Bento grid** for home and a lighter grid on the offering pages. The three directions are peer cells.
 - **Glassmorphism** on the header and the websites card: translucent fill, 16px blur, 1px light border.
 - **Claymorphism** on the enterprise card: soft radius, inner shadow, a pastel that keeps text at WCAG 2.2 AA.
+- The AI card is paper with a 2px near-black border. It does not take glass, clay, or the second hue.
 - **Neomorphism** only on the three process tiles. Near-black labels on a surface close to the page.
 - **Spatial UI** layers the company line over one liquid shape. Cards lift on hover and on focus.
 - **Liquid glass** is that one shape. Scroll moves it. `prefers-reduced-motion: reduce` freezes it.
@@ -23,13 +24,13 @@ Follow the ten language roles in the PRD visual requirements. Do not give every 
 
 Off-white paper, near-black text, one accent for emphasis and the primary path. WhatsApp green only on the WhatsApp control. shadcn/ui components are copied into `components/ui` and styled to this system. Do not add dark mode or a downloaded theme.
 
-Section order on home: hero, short about, services, contact. Header and footer on every page.
+Section order on home: hero with the three cards, trust strip, process, FAQ, contact. Header and footer on every page.
 
 Specify sizes, spacing, and color as values a developer can put in Tailwind.
 
 ## What the first viewport must show
 
-What NisCorp AI does, and the two ways in: websites for individuals, and enterprise software. Contact stays reachable. On a narrow viewport the header, both cards, and the floating button remain visible and the button does not cover the main actions.
+What NisCorp AI does, and the three ways in: AI and LLM, websites and SEO, and enterprise software. Contact stays reachable. On a narrow viewport the header, the three cards, and the floating button remain visible and the button does not cover the main actions.
 
 ## Leave out
 

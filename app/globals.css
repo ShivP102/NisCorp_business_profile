@@ -151,6 +151,13 @@ body {
     -8px -8px 16px #ffffff;
 }
 
+.surface-rule {
+  background: #fffdf8;
+  border: 2px solid #141414;
+  border-radius: 0.75rem;
+  box-shadow: none;
+}
+
 .surface-brutal {
   background: #fffdf8;
   border: 3px solid #141414;

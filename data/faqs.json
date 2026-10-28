@@ -1,0 +1,17 @@
+[
+  {
+    "question": "What’s your typical engagement model?",
+    "answer": "Fixed-scope sprints with weekly demos. Time-and-materials is available for discovery.",
+    "pages": ["home"]
+  },
+  {
+    "question": "Do you handle deployment and handover?",
+    "answer": "Yes. CI/CD, infrastructure as code, runbooks, and capability transfer.",
+    "pages": ["home"]
+  },
+  {
+    "question": "How do you protect data in AI projects?",
+    "answer": "Source-level access controls, PII redaction, retrieval scoping, and no training on your data unless you explicitly allow it.",
+    "pages": ["home", "ai-llm"]
+  }
+]

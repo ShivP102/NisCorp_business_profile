@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/websites",
+      "destination": "/services/websites",
+      "permanent": true
+    },
+    {
+      "source": "/enterprise",
+      "destination": "/services#enterprise",
+      "permanent": true
+    }
+  ]
+}

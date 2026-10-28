@@ -11,8 +11,10 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+const companyMeta = getCompany();
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL(companyMeta.siteUrl),
   openGraph: {
     images: [
       {
