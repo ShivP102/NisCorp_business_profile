@@ -11,6 +11,8 @@ export type Company = {
   siteUrl: string;
   metaTitle: string;
   metaDescription: string;
+  contactMetaTitle: string;
+  contactMetaDescription: string;
   heroLine: string;
   about: string;
   processSteps: string[];

@@ -35,6 +35,14 @@ export function Footer({ company, offerings }: FooterProps) {
           </p>
           <ul className="mt-4 space-y-3 text-base">
             <li>
+              <Link
+                href="/contact"
+                className="font-medium text-foreground hover:text-accent"
+              >
+                Send a message
+              </Link>
+            </li>
+            <li>
               <a
                 href={`tel:${company.phoneTel}`}
                 className="text-foreground hover:text-accent"

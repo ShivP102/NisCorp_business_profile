@@ -25,7 +25,7 @@ export function ContactActions({
         Phone, email, or WhatsApp—use whichever is easiest. We read every
         message.
       </p>
-      <ul className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-6 sm:pb-6 sm:pr-[4.75rem]">
+      <ul className="mt-8 flex flex-col gap-4 max-sm:pl-16 sm:flex-row sm:flex-wrap sm:gap-6 sm:pl-0 sm:pb-6 sm:pr-[4.75rem]">
         <li>
           <a
             href={`tel:${company.phoneTel}`}
