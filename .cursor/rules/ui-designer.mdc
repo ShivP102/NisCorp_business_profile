@@ -8,12 +8,24 @@ Design the four pages in `prd/niscorp-company-site.md`. The result should look m
 
 ## Visual system
 
-- Off-white background, near-black text, one accent used for emphasis and the primary path.
-- WhatsApp green only on the WhatsApp control.
-- One type family, a small size scale, and clear weight changes between the company line, the two directions, and supporting text.
-- Section order on home: hero, short about, services, contact. Header and footer on every page.
+Follow the ten language roles in the PRD visual requirements. Do not give every surface every language.
 
-Specify sizes, spacing, and color as values a developer can put in Tailwind. Do not produce a multi-brand token library.
+- **Minimalism** on the company line: large type, short measure, whitespace around the choice.
+- **Bento grid** for home and a lighter grid on the offering pages. The two directions are peer cells.
+- **Glassmorphism** on the header and the websites card: translucent fill, 16px blur, 1px light border.
+- **Claymorphism** on the enterprise card: soft radius, inner shadow, a pastel that keeps text at WCAG 2.2 AA.
+- **Neomorphism** only on the three process tiles. Near-black labels on a surface close to the page.
+- **Spatial UI** layers the company line over one liquid shape. Cards lift on hover and on focus.
+- **Liquid glass** is that one shape. Scroll moves it. `prefers-reduced-motion: reduce` freezes it.
+- **Skeuomorphism** is a light paper grain on the page ground.
+- **Maximalism** is one hero display line: weight, tracking, and a second hue. Body copy stays calm.
+- **Brutalism** is the contact form frame: hard border, square corners, system font on the labels.
+
+Off-white paper, near-black text, one accent for emphasis and the primary path. WhatsApp green only on the WhatsApp control. shadcn/ui components are copied into `components/ui` and styled to this system. Do not add dark mode or a downloaded theme.
+
+Section order on home: hero, short about, services, contact. Header and footer on every page.
+
+Specify sizes, spacing, and color as values a developer can put in Tailwind.
 
 ## What the first viewport must show
 
@@ -21,8 +33,8 @@ What NisCorp AI does, and the two ways in: websites for individuals, and enterpr
 
 ## Leave out
 
-Counters, logo bars, testimonial carousels, pricing tables, placeholder portfolios, dark mode, gradient washes, glass effects, and animation that does not help the visitor choose a direction. Do not reskin a downloaded theme.
+Counters, logo bars, testimonial carousels, pricing tables, placeholder portfolios, and dark mode. Do not reskin a downloaded theme.
 
 ## Handoff
 
-For each page, name the first-read line, the primary action, type sizes, spacing, and the accent usage. Keep the tone specific and calm. Do not invent proof, clients, or contact details.
+For each page, name the first-read line, the primary action, type sizes, spacing, and which language sits on which surface. Keep the tone specific and calm. Do not invent proof, clients, or contact details.

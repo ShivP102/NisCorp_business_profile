@@ -12,16 +12,17 @@ The product lens is fixed. A visitor learns that NisCorp AI builds software and 
 
 ## Modern, for this site
 
-The first viewport has a strong company line, the two directions as peer choices, and spacing that looks composed. Off-white, near-black, and one accent are the palette. The accent marks emphasis and the primary path. WhatsApp green is only on the WhatsApp control.
+The first viewport has a strong company line, the two directions as peer choices, and spacing that looks composed. The ten languages in the PRD visual requirements are each present in their assigned role. Off-white paper, near-black text, and one accent are the base. A second hue is only the maximalist display line. WhatsApp green is only on the WhatsApp control.
 
-**HOLD** a page that reads as a pale unstyled document or a default template: one body size, a stock hero, or cards with no relationship to the company line. Also **HOLD** decoration that does not help the choice: gradient washes, glass, counters, logo bars, carousels, pricing tables, and placeholder portfolios. Simple is acceptable when the choice is obvious.
+**HOLD** a page that reads as a pale unstyled document or a default template: one body size, a stock hero, or two identical cards with no language difference. **HOLD** a language used outside its role when that hides the choice, and **HOLD** a missing assigned language on the page that owns it. **HOLD** dark mode, a downloaded theme, counters, logo bars, carousels, pricing tables, and placeholder portfolios.
 
 ## Review order
 
 1. Can a new visitor name the company and see both directions in the first viewport?
 2. Does visual weight follow that choice, on desktop and on a narrow screen?
-3. Do header, footer, and the floating button stay consistent, with the button clear of the main actions?
-4. Are focus, form labels, and the contact actions intentional?
+3. Is each design language in its PRD role, and is motion frozen when reduced motion is requested?
+4. Do header, footer, and the floating button stay consistent, with the button clear of the main actions?
+5. Are focus, form labels, and the contact actions intentional?
 
 ## Report
 
@@ -43,4 +44,4 @@ The first viewport has a strong company line, the two directions as peer choices
 - [Choice that already works]
 ```
 
-**PASS** when the company line and both directions are obvious, the page looks composed, no forbidden default remains, and the narrow viewport still works.
+**PASS** when the company line and both directions are obvious, each assigned language is present, no forbidden default remains, and the narrow viewport still works.

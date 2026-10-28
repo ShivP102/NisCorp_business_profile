@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { ContactActions } from "@/components/ContactActions";
 import { DirectionCards } from "@/components/DirectionCards";
 import { JsonLd } from "@/components/JsonLd";
+import { LiquidGlass } from "@/components/LiquidGlass";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardHeader } from "@/components/ui/card";
 import { getCompany, getOfferings } from "@/lib/data";
 
 export function generateMetadata(): Metadata {
@@ -32,73 +35,80 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={organizationLd} />
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-28 pt-10 sm:px-6 sm:pb-32 sm:pt-14">
-        <section aria-labelledby="hero-heading">
-          <p className="text-sm font-semibold uppercase tracking-wide text-accent">
-            Software solutions and consulting
-          </p>
-          <h1
-            id="hero-heading"
-            className="mt-3 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl sm:leading-tight"
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-28 pt-8 max-sm:pl-16 sm:px-6 sm:pb-32 sm:pt-12">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-5">
+          <section
+            aria-labelledby="hero-heading"
+            className="relative isolate md:col-span-6"
           >
-            {company.heroLine}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted">
-            Choose the kind of work you need. Both paths start with a
-            conversation.
-          </p>
-          <DirectionCards offerings={offerings} />
-        </section>
-
-        <section
-          aria-labelledby="about-heading"
-          className="mt-16 border-t border-border pt-16 sm:mt-20 sm:pt-20"
-        >
-          <h2
-            id="about-heading"
-            className="text-xl font-semibold tracking-tight sm:text-2xl"
-          >
-            About
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-            {company.about}
-          </p>
-          <ol className="mt-10 grid gap-6 sm:grid-cols-3">
-            {company.processSteps.map((step, index) => (
-              <li
-                key={step}
-                className="rounded-lg border border-border bg-surface p-5"
+            <LiquidGlass />
+            <div className="relative z-10">
+              <p className="max-w-4xl text-3xl leading-none font-black tracking-[-0.045em] text-maximal sm:text-6xl">
+                Software solutions and consulting
+              </p>
+              <h1
+                id="hero-heading"
+                className="mt-6 max-w-3xl text-4xl leading-tight font-semibold tracking-tight text-foreground sm:mt-8 sm:text-6xl sm:leading-[1.05]"
               >
-                <span className="text-sm font-semibold text-accent">
-                  {index + 1}
-                </span>
-                <p className="mt-2 text-base font-medium text-foreground">
-                  {step}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </section>
+                {company.heroLine}
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                Choose the kind of work you need. Both paths start with a
+                conversation.
+              </p>
+              <DirectionCards offerings={offerings} />
+            </div>
+          </section>
 
-        <section
-          aria-labelledby="services-heading"
-          className="mt-16 border-t border-border pt-16 sm:mt-20 sm:pt-20"
-        >
-          <h2
-            id="services-heading"
-            className="text-xl font-semibold tracking-tight sm:text-2xl"
+          <section
+            aria-labelledby="about-heading"
+            className="px-1 py-8 md:col-span-6 md:px-2 md:py-12"
           >
-            Two ways we work
-          </h2>
-          <p className="mt-3 max-w-2xl text-base text-muted">
-            Individual websites and enterprise software are different
-            engagements. Each page describes what you get and how we proceed.
-          </p>
-          <DirectionCards offerings={offerings} />
-        </section>
+            <h2
+              id="about-heading"
+              className="text-xl font-semibold tracking-tight sm:text-2xl"
+            >
+              About
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              {company.about}
+            </p>
+            <ol className="mt-8 grid gap-4 sm:grid-cols-3">
+              {company.processSteps.map((step, index) => (
+                <li key={step}>
+                  <Card className="surface-neo h-full gap-3 py-5">
+                    <CardHeader className="px-5">
+                      <Badge>{index + 1}</Badge>
+                      <p className="text-base font-medium text-foreground">
+                        {step}
+                      </p>
+                    </CardHeader>
+                  </Card>
+                </li>
+              ))}
+            </ol>
+          </section>
 
-        <div className="mt-16 border-t border-border pt-16 sm:mt-20 sm:pt-20">
-          <ContactActions company={company} />
+          <section
+            aria-labelledby="services-heading"
+            className="md:col-span-6 md:px-2"
+          >
+            <h2
+              id="services-heading"
+              className="text-xl font-semibold tracking-tight sm:text-2xl"
+            >
+              Two ways we work
+            </h2>
+            <p className="mt-3 max-w-2xl text-base text-muted-foreground">
+              Individual websites and enterprise software are different
+              engagements. Each page describes what you get and how we proceed.
+            </p>
+            <DirectionCards offerings={offerings} />
+          </section>
+
+          <div className="md:col-span-6 md:px-2 md:pt-4">
+            <ContactActions company={company} />
+          </div>
         </div>
       </main>
     </>

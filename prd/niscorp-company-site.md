@@ -1,12 +1,12 @@
 # PRD: NisCorp AI company site
 
-| | |
-|---|---|
-| Status | Draft. Do not start the app until a coding agent is asked to implement this file. |
-| Version | 1.2 |
-| Updated | 28 October 2026 |
-| Source | Written from `plan/niscorp-company-site.md` |
-| Supersedes | That plan, for requirements. The plan stays as the original brief. |
+|            |                                                                                   |
+| ---------- | --------------------------------------------------------------------------------- |
+| Status     | Draft. Do not start the app until a coding agent is asked to implement this file. |
+| Version    | 1.3                                                                               |
+| Updated    | 28 October 2026                                                                   |
+| Source     | Written from `plan/niscorp-company-site.md`                                       |
+| Supersedes | That plan, for requirements. The plan stays as the original brief.                |
 
 This is the requirements document to refer to and update. When a requirement changes, edit the section below and add a line to the revision log. v1 stays inside this file.
 
@@ -38,7 +38,7 @@ Out of v1 until this PRD moves the item in:
 - Review or AggregateRating JSON-LD, and any claim of customers, years, or rankings
 - Downloading or reskinning a theme
 - Keyword clusters, link building, hreflang, programmatic SEO, and Article, Product, FAQ, or HowTo schema
-- Dark mode, a component library, gradient washes, glass effects, and animation that does not help the visitor choose
+- Dark mode
 
 Add `app/offerings/[slug]` only when a third offering exists. Until then the four routes stay explicit, and offering copy stays in JSON.
 
@@ -95,28 +95,43 @@ Primary action: send the message through WhatsApp or email.
 
 The site cannot receive a form into an inbox by itself. There is no form backend. All three links come from `data/company.json`.
 
-| Action | Behavior |
-|---|---|
-| Phone | `tel:` link. The number is shown as people dial it. |
-| Email | `mailto:` link. The address is shown on the page. |
-| WhatsApp | `https://wa.me/<E.164 without plus>?text=...`. A tap opens the WhatsApp app on a phone and WhatsApp Web on desktop. |
-| Floating button | Same number and the default message from `whatsappDefaultText`. |
-| Form submit | Does not post. Opens WhatsApp with the visitor’s name, path, and message filled in. |
-| Second form action | Opens the same text in the visitor’s email app. |
+| Action             | Behavior                                                                                                            |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| Phone              | `tel:` link. The number is shown as people dial it.                                                                 |
+| Email              | `mailto:` link. The address is shown on the page.                                                                   |
+| WhatsApp           | `https://wa.me/<E.164 without plus>?text=...`. A tap opens the WhatsApp app on a phone and WhatsApp Web on desktop. |
+| Floating button    | Same number and the default message from `whatsappDefaultText`.                                                     |
+| Form submit        | Does not post. Opens WhatsApp with the visitor’s name, path, and message filled in.                                 |
+| Second form action | Opens the same text in the visitor’s email app.                                                                     |
 
 Until real values are supplied, `data/company.json` holds obvious placeholders: `hello@example.com`, `910000000000`, and `https://example.com` for `siteUrl`.
 
 ## Visual requirements
 
-The UI is modern. Strong type, a clear first viewport, and spacing with intent. A pale unstyled document or a default template fails.
+The UI is modern and composed. The first viewport shows the company line and the two directions as peer choices. A pale unstyled document or a default template fails.
 
-- Off-white background, near-black text, one accent used for emphasis and the primary path.
-- One type family and a small size scale. The company line, the two directions, and supporting text are visually distinct. The two directions are peer choices.
+Ten design languages are in scope. Each has one job so the choice stays readable:
+
+- **Minimalism** carries the company line: large type, a short measure, and whitespace around the choice.
+- **Bento grid** is the home structure. The hero spans the grid. The two directions are peer cells. About, process, and contact fill the rest. Offering pages use the same grid at a smaller density.
+- **Glassmorphism** is the header and the websites direction card: a translucent fill, a 16px blur, and a 1px light border.
+- **Claymorphism** is the enterprise direction card: a soft radius, an inner shadow, and a pastel that still clears WCAG 2.2 AA with the text.
+- **Neomorphism** is only the three process tiles. Labels are near-black on a surface close to the page ground.
+- **Spatial UI** puts the company line above a liquid shape. Cards lift on hover and on focus.
+- **Liquid glass** is one organic shape behind the hero. Scroll moves it. `prefers-reduced-motion: reduce` freezes it.
+- **Skeuomorphism** is a light paper grain on the page background.
+- **Maximalism** is one display line in the hero: weight, tracking, and a second hue. It does not spread into body copy.
+- **Brutalism** is the contact form frame: a hard border, square corners, and a system font on the labels. Fields stay labeled and keyboard-reachable.
+
+Other visual rules:
+
+- Off-white paper ground and near-black text. One accent marks emphasis and the primary path. A second hue is allowed only on the maximalist display line.
 - WhatsApp green only on the WhatsApp control.
-- Tailwind is the styling system. Tokens stay few: background, text, accent, and the WhatsApp color.
+- Tailwind is the styling system. shadcn/ui components are copied into `components/ui` and styled to this system. They are source in this repo, not a downloaded theme.
+- Text on glass, clay, and neo surfaces meets WCAG 2.2 AA. Focus stays visible.
 - Mobile-first. On a narrow viewport the header, both example cards, and the floating button remain usable. The button does not cover those actions.
 
-Leave out counters, logo bars, testimonial carousels, pricing tables, placeholder portfolios, and decoration that does not help the visitor choose a direction.
+Leave out dark mode, downloaded or reskinned themes, counters, logo bars, testimonial carousels, pricing tables, and placeholder portfolios.
 
 ## SEO requirements
 
@@ -168,6 +183,10 @@ components/
   Header.tsx
   Footer.tsx
   WhatsAppButton.tsx
+  DirectionCards.tsx
+  ContactActions.tsx
+  LiquidGlass.tsx
+  ui/
 data/
   company.json
   offerings.json
@@ -212,13 +231,14 @@ Run the production build and open the static output. Walk Home, Websites, Enterp
 - The floating button and the form open a prefilled WhatsApp chat. The email action opens a prefilled message. The form does not post.
 - View source shows full HTML, a unique title and description per page, and JSON-LD without ratings.
 - After `next build`, `out/sitemap.xml` lists the four routes and `out/robots.txt` references the sitemap.
-- The first viewport shows the company line and the two directions. Type and spacing make the page look composed.
+- The first viewport shows the company line and the two directions. The ten design languages from Visual requirements are each present in their assigned role, and the choice stays obvious.
 - A narrow viewport still shows the header, the two example cards, and the floating button without covering the main actions.
 
 ## Revision log
 
-| Version | Date | Change |
-|---|---|---|
-| 1.0 | 28 October 2026 | Initial PRD, written from `plan/niscorp-company-site.md`. |
-| 1.1 | 28 October 2026 | Stories stay on their own branches and are not merged to `main`. Commits run ESLint and Prettier. |
-| 1.2 | 28 October 2026 | Every story branch starts from `main`. A human opens the pull request and merges it before the next story starts. |
+| Version | Date            | Change                                                                                                                     |
+| ------- | --------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| 1.0     | 28 October 2026 | Initial PRD, written from `plan/niscorp-company-site.md`.                                                                  |
+| 1.1     | 28 October 2026 | Stories stay on their own branches and are not merged to `main`. Commits run ESLint and Prettier.                          |
+| 1.2     | 28 October 2026 | Every story branch starts from `main`. A human opens the pull request and merges it before the next story starts.          |
+| 1.3     | 28 October 2026 | Visual system is a ten-language blend. Copied shadcn/ui components are in scope. Dark mode and downloaded themes stay out. |

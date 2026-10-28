@@ -13,7 +13,7 @@ export function WhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="fixed left-3 top-[calc(var(--site-header-height)+0.5rem)] z-50 flex h-11 w-11 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:bottom-6 sm:right-6 sm:left-auto sm:top-auto sm:h-14 sm:w-14"
+      className="fixed left-3 top-[calc(var(--site-header-height)+0.5rem)] z-50 flex h-11 w-11 items-center justify-center rounded-full bg-whatsapp text-white shadow-[0_12px_28px_rgba(13,110,69,0.35)] transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent motion-reduce:transition-none motion-reduce:hover:scale-100 sm:bottom-6 sm:left-auto sm:top-auto sm:right-6 sm:h-14 sm:w-14"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

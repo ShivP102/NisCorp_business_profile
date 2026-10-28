@@ -1,6 +1,18 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import { Textarea } from "@/components/ui/textarea";
 
 const PATH_OPTIONS = [
   { value: "website", label: "An individual website" },
@@ -14,6 +26,12 @@ export type ContactFormProps = {
   email: string;
   whatsappE164: string;
 };
+
+const brutalLabel =
+  "font-[family-name:ui-sans-serif,system-ui,sans-serif] text-xs font-bold tracking-[0.14em] text-foreground uppercase";
+
+const brutalField =
+  "mt-2 h-11 rounded-none border-2 border-foreground bg-white text-base text-foreground shadow-none focus-visible:border-accent focus-visible:ring-accent/40";
 
 function pathLabel(value: PathValue): string {
   return PATH_OPTIONS.find((option) => option.value === value)?.label ?? value;
@@ -77,33 +95,28 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
   };
 
   return (
-    <section
-      aria-labelledby="contact-form-heading"
-      className="mt-16 border-t border-border pt-16 sm:mt-20 sm:pt-20"
-    >
+    <section aria-labelledby="contact-form-heading" className="scroll-mt-24">
+      <Separator className="mb-10" />
       <h2
         id="contact-form-heading"
         className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
       >
         Send a message
       </h2>
-      <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">
+      <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
         Your message opens in WhatsApp or email on your device—we do not store
         it on this site.
       </p>
       <form
-        className="mt-8 max-w-xl space-y-6"
+        className="surface-brutal mt-8 max-w-xl space-y-6 p-5 sm:p-8"
         onSubmit={handleSubmit}
         noValidate
       >
         <div>
-          <label
-            htmlFor="contact-name"
-            className="block text-sm font-medium text-foreground"
-          >
+          <Label htmlFor="contact-name" className={brutalLabel}>
             Name
-          </label>
-          <input
+          </Label>
+          <Input
             id="contact-name"
             name="name"
             type="text"
@@ -111,17 +124,14 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
             required
             value={name}
             onChange={(event) => setName(event.target.value)}
-            className="mt-2 w-full rounded-md border border-border bg-surface px-3 py-2.5 text-base text-foreground shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className={brutalField}
           />
         </div>
         <div>
-          <label
-            htmlFor="contact-email"
-            className="block text-sm font-medium text-foreground"
-          >
+          <Label htmlFor="contact-email" className={brutalLabel}>
             Your email
-          </label>
-          <input
+          </Label>
+          <Input
             id="contact-email"
             name="email"
             type="email"
@@ -129,62 +139,62 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
             required
             value={visitorEmail}
             onChange={(event) => setVisitorEmail(event.target.value)}
-            className="mt-2 w-full rounded-md border border-border bg-surface px-3 py-2.5 text-base text-foreground shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className={brutalField}
           />
         </div>
         <div>
-          <label
-            htmlFor="contact-path"
-            className="block text-sm font-medium text-foreground"
-          >
+          <Label htmlFor="contact-path" className={brutalLabel}>
             Kind of work
-          </label>
-          <select
-            id="contact-path"
-            name="path"
-            required
+          </Label>
+          <Select
             value={path}
-            onChange={(event) => setPath(event.target.value as PathValue)}
-            className="mt-2 w-full rounded-md border border-border bg-surface px-3 py-2.5 text-base text-foreground shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            onValueChange={(value) => setPath(value as PathValue)}
           >
-            {PATH_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+            <SelectTrigger
+              id="contact-path"
+              aria-required
+              className={`${brutalField} data-[size=default]:h-11 w-full`}
+            >
+              <SelectValue>{pathLabel(path)}</SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              {PATH_OPTIONS.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
         <div>
-          <label
-            htmlFor="contact-message"
-            className="block text-sm font-medium text-foreground"
-          >
+          <Label htmlFor="contact-message" className={brutalLabel}>
             Message
-          </label>
-          <textarea
+          </Label>
+          <Textarea
             id="contact-message"
             name="message"
             required
             rows={5}
             value={message}
             onChange={(event) => setMessage(event.target.value)}
-            className="mt-2 w-full resize-y rounded-md border border-border bg-surface px-3 py-2.5 text-base text-foreground shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className={`${brutalField} field-sizing-fixed min-h-32`}
           />
         </div>
-        <div className="flex flex-col gap-3 max-sm:pl-16 sm:flex-row sm:flex-wrap sm:pl-0 sm:pb-6 sm:pr-[4.75rem]">
-          <button
+        <div className="flex flex-col gap-3 max-sm:pl-16 sm:flex-row sm:flex-wrap sm:pl-0 sm:pb-2 sm:pr-[4.75rem]">
+          <Button
             type="submit"
-            className="inline-flex min-h-11 items-center justify-center rounded-md bg-whatsapp px-5 py-2.5 text-base font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="min-h-11 rounded-none bg-whatsapp text-base font-semibold text-white hover:bg-whatsapp/90"
           >
             Send on WhatsApp
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
+            variant="outline"
             onClick={openEmail}
-            className="inline-flex min-h-11 items-center justify-center rounded-md border border-border bg-surface px-5 py-2.5 text-base font-semibold text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="min-h-11 rounded-none border-2 border-foreground bg-white font-[family-name:ui-sans-serif,system-ui,sans-serif] text-base font-bold tracking-wide text-foreground uppercase shadow-[4px_4px_0_#141414] hover:bg-foreground hover:text-white"
           >
             Send by email
-          </button>
+          </Button>
         </div>
       </form>
     </section>

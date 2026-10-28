@@ -1,13 +1,33 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #f7f6f3;
+  --background: #f3efe6;
   --foreground: #141414;
-  --muted: #525252;
+  --surface: #fffdf8;
+  --muted: #ebe4d6;
+  --muted-foreground: #3f3f46;
   --accent: #1e4a8c;
-  --whatsapp: #25d366;
-  --border: #e5e2dc;
-  --surface: #ffffff;
+  --accent-foreground: #ffffff;
+  --maximal: #9d174d;
+  /* Dark enough for white label text at WCAG 2.2 AA */
+  --whatsapp: #0d6e45;
+  --border: #d9d1c3;
+  --card: #fffdf8;
+  --card-foreground: #141414;
+  --popover: #fffdf8;
+  --popover-foreground: #141414;
+  --primary: #1e4a8c;
+  --primary-foreground: #ffffff;
+  --secondary: #ebe4d6;
+  --secondary-foreground: #141414;
+  --destructive: #9f1239;
+  --input: #cfc6b6;
+  --ring: #1e4a8c;
+  --radius: 0.75rem;
   /* Sticky header block; floating WhatsApp sits just below on narrow viewports */
   --site-header-height: 4.75rem;
   --floating-whatsapp-inset-x: 0.75rem;
@@ -15,6 +35,19 @@
   --floating-whatsapp-size: 2.75rem;
   /* Main-column inset so links stay clickable beside the fixed mobile button */
   --floating-whatsapp-clearance: 4rem;
+  --chart-1: #1e4a8c;
+  --chart-2: #0d6e45;
+  --chart-3: #9d174d;
+  --chart-4: #3f3f46;
+  --chart-5: #141414;
+  --sidebar: #fffdf8;
+  --sidebar-foreground: #141414;
+  --sidebar-primary: #1e4a8c;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ebe4d6;
+  --sidebar-accent-foreground: #141414;
+  --sidebar-border: #d9d1c3;
+  --sidebar-ring: #1e4a8c;
 }
 
 @media (max-width: 639px) {
@@ -28,15 +61,136 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-maximal: var(--maximal);
   --color-whatsapp: var(--whatsapp);
   --color-border: var(--border);
   --color-surface: var(--surface);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-destructive: var(--destructive);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
   --font-sans: var(--font-geist-sans);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply text-foreground;
+  }
+}
+
+/* Skeuomorphism: paper grain over the off-white ground */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--background);
+  background-image:
+    linear-gradient(rgba(243, 239, 230, 0.9), rgba(243, 239, 230, 0.9)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size:
+    auto,
+    180px 180px;
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Unlayered so these shadows beat shadcn card utilities. */
+.surface-glass {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 0 0 1px rgba(20, 20, 20, 0.06),
+    0 16px 40px rgba(20, 20, 20, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.surface-clay {
+  background: #f6d7c3;
+  border: 0;
+  border-radius: 1.75rem;
+  box-shadow:
+    inset 8px 8px 16px rgba(255, 255, 255, 0.75),
+    inset -8px -10px 16px rgba(176, 112, 72, 0.28),
+    0 12px 24px rgba(176, 112, 72, 0.16);
+}
+
+.surface-neo {
+  background: #ebe4d6;
+  border: 0;
+  box-shadow:
+    8px 8px 16px #cfc6b6,
+    -8px -8px 16px #ffffff;
+}
+
+.surface-brutal {
+  background: #fffdf8;
+  border: 3px solid #141414;
+  border-radius: 0;
+  box-shadow: 6px 6px 0 #141414;
+}
+
+.liquid-glass {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 42% 58% 63% 37% / 42% 38% 62% 58%;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.72),
+    rgba(30, 74, 140, 0.22) 48%,
+    rgba(255, 255, 255, 0.28)
+  );
+  box-shadow:
+    inset 0 0 36px rgba(255, 255, 255, 0.55),
+    0 24px 48px rgba(30, 74, 140, 0.16);
+  backdrop-filter: blur(16px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .liquid-glass {
+    animation: liquid-morph 16s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-glass {
+    animation: none;
+  }
+}
+
+@keyframes liquid-morph {
+  0%,
+  100% {
+    border-radius: 42% 58% 63% 37% / 42% 38% 62% 58%;
+  }
+  50% {
+    border-radius: 62% 38% 30% 70% / 58% 42% 58% 42%;
+  }
 }

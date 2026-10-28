@@ -32,6 +32,6 @@ Flag and remove:
 
 ## Visual consistency
 
-The UI should look modern and composed: strong type, one accent, off-white ground, near-black text. WhatsApp green only on the WhatsApp control. A pale unstyled page, or a generic marketing template, is off-brand for this brief.
+The UI should look modern and composed, using the ten language roles in the PRD visual requirements. Off-white paper, near-black text, and one accent. A second hue is only the maximalist display line. WhatsApp green only on the WhatsApp control. A pale unstyled page, or a generic marketing template, is off-brand for this brief. Body copy stays specific and calm even where a surface is expressive.
 
-Leave out counters, logo bars, testimonial carousels, pricing tables, and placeholder portfolios.
+Leave out counters, logo bars, testimonial carousels, pricing tables, placeholder portfolios, and dark mode.

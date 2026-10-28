@@ -19,23 +19,32 @@ export default function ContactPage() {
   const company = getCompany();
 
   return (
-    <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-28 pt-10 sm:px-6 sm:pb-32 sm:pt-14">
-      <p className="text-sm font-semibold uppercase tracking-wide text-accent">
-        Reach the company
-      </p>
-      <h1 className="mt-3 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
-        Contact
-      </h1>
-      <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
-        Tell us your name, the kind of work you need, and a short message. We
-        read every note that comes through phone, email, or WhatsApp.
-      </p>
-      <ContactActions
-        company={company}
-        heading="Phone, email, and WhatsApp"
-        id="contact-links"
-      />
-      <ContactForm email={company.email} whatsappE164={company.whatsappE164} />
+    <main className="mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 gap-4 px-4 pb-28 pt-10 max-sm:pl-16 sm:px-6 sm:pb-32 sm:pt-14 md:grid-cols-6 md:gap-5">
+      <header className="md:col-span-6">
+        <p className="text-sm font-semibold tracking-wide text-accent uppercase">
+          Reach the company
+        </p>
+        <h1 className="mt-3 max-w-3xl text-4xl leading-tight font-semibold tracking-tight text-foreground sm:text-5xl">
+          Contact
+        </h1>
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          Tell us your name, the kind of work you need, and a short message. We
+          read every note that comes through phone, email, or WhatsApp.
+        </p>
+      </header>
+      <div className="md:col-span-6">
+        <ContactActions
+          company={company}
+          heading="Phone, email, and WhatsApp"
+          id="contact-links"
+        />
+      </div>
+      <div className="md:col-span-6">
+        <ContactForm
+          email={company.email}
+          whatsappE164={company.whatsappE164}
+        />
+      </div>
     </main>
   );
 }

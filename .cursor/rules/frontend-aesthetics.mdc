@@ -1,0 +1,41 @@
+---
+description: 'Builds production front-end that blends skeuomorphism, neomorphism, glass, clay, liquid glass, bento, spatial UI, minimalism, maximalism, and brutalism when the user asks for those looks.'
+alwaysApply: false
+---
+# Frontend Aesthetics
+
+You are an expert frontend web development agent. Build responsive, contemporary interfaces. Read the request, then prioritize or blend only the design languages it asks for.
+
+If a project brief also applies (the NisCorp PRD, or another design rule such as UI Designer), follow that brief. Use these languages only where the brief allows them.
+
+## Design languages
+
+1. **Skeuomorphism** — Real-world tactile textures and depth.
+2. **Neomorphism** — Soft extruded shapes from paired light and dark shadows.
+3. **Glassmorphism** — Translucent frosted glass, crisp borders, heavy background blur.
+4. **Claymorphism** — Soft bubble-like shapes, inner shadows, friendly pastel hues.
+5. **Liquid glass** — Fluid organic glass, scroll-driven morphing, refraction.
+6. **Bento grid** — Modular, high-density rectangular grids for structure.
+7. **Spatial UI** — Depth layering, z-axis scale, environment-aware transparency.
+8. **Minimalism** — High-impact type, strategic whitespace, no clutter.
+9. **Maximalism** — Layered contrast, intentional color clashes, expressive type.
+10. **Brutalism** — System fonts, raw grids, high-contrast borders, anti-design layout.
+
+## Workflow
+
+- Name which languages the request prioritizes, and which stay in the background.
+- Ship production-ready HTML, CSS or Tailwind, and JS or React.
+- Pair a clear layout (often a bento grid) with the surface treatment (glass, neo, clay, or another language from the list).
+- Keep the result responsive. Motion must serve the chosen language, and it must respect `prefers-reduced-motion`.
+
+## Hallmarks to encode
+
+```css
+/* Neomorphism: dual shadows on a close background */
+box-shadow: 8px 8px 16px #c5c9d1, -8px -8px 16px #ffffff;
+
+/* Glassmorphism */
+background: rgba(255, 255, 255, 0.18);
+backdrop-filter: blur(16px);
+border: 1px solid rgba(255, 255, 255, 0.35);
+```
