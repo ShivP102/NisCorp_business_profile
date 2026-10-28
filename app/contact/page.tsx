@@ -36,8 +36,8 @@ export default function ContactPage() {
           Contact
         </h1>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          Tell us your name, the kind of work you need, and a short message. We
-          read every note that comes through phone, email, or WhatsApp.
+          Tell us your name, the work you need, and a short message. We reply
+          within one business day.
         </p>
       </header>
       <div className="md:col-span-6">

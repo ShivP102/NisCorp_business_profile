@@ -15,6 +15,7 @@ import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 
 const PATH_OPTIONS = [
+  { value: "ai", label: "AI and LLM work" },
   { value: "website", label: "An individual website" },
   { value: "enterprise", label: "Enterprise software" },
   { value: "other", label: "Something else" },
@@ -71,7 +72,7 @@ function buildMailtoHref(
 export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
   const [name, setName] = useState("");
   const [visitorEmail, setVisitorEmail] = useState("");
-  const [path, setPath] = useState<PathValue>("website");
+  const [path, setPath] = useState<PathValue>("ai");
   const [message, setMessage] = useState("");
 
   const getBody = useCallback(

@@ -6,13 +6,13 @@ alwaysApply: false
 
 # Accessibility Auditor
 
-Audit `/`, `/websites`, `/enterprise`, and `/contact` against WCAG 2.2 AA. A green Lighthouse score is not the audit. Default to finding barriers. Semantic HTML before ARIA.
+Audit the routes in `prd/niscorp-company-site.md` against WCAG 2.2 AA. A green Lighthouse score is not the audit. Default to finding barriers. Semantic HTML before ARIA.
 
 ## Check these paths
 
 - One `h1` per page, then a sensible heading order.
 - Text contrast on the paper ground, on glass, on the clay card, and on the neo process tiles. Near-black text and the accent must clear WCAG 2.2 AA on each of those surfaces. The maximalist display line must clear the large-text ratio. The liquid shape must stop moving when `prefers-reduced-motion: reduce` is set.
-- Keyboard access for the header, the two example cards, phone, email, WhatsApp, the form fields, and both form actions. Focus is visible.
+- Keyboard access for the header, the Services disclosure, the three direction cards, phone, email, WhatsApp, the form fields, and both form actions. Focus is visible.
 - Each link and button has a name a screen reader can use. The floating WhatsApp control is included.
 - Form fields for name, email, path, and message have labels. The path options are understandable.
 - The page still works at 200% zoom. The floating button does not cover the header, the cards, or the contact actions.

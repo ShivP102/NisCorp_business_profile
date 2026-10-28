@@ -1,0 +1,29 @@
+{
+  "title": "Case studies",
+  "summary": "One operations platform, described without a product name.",
+  "metaTitle": "Case studies — NisCorp AI",
+  "metaDescription": "A B2B operations platform case study from NisCorp AI.",
+  "items": [
+    {
+      "title": "B2B operations platform",
+      "context": "Advertising agencies needed a single place to run campaign workflows, client reporting, and day-to-day operations.",
+      "problem": "Spreadsheets and ad-hoc tools created manual handoffs, unclear status, and reporting delays.",
+      "approach": [
+        "Designed the product architecture and domain model around core agency operations.",
+        "Built a secure, self-hosted MVP using Next.js and Supabase, with data schemas for campaign performance and reporting.",
+        "Set up CI/CD and a handover so the team can operate the system."
+      ],
+      "impact": [
+        "Centralized workflows and status.",
+        "Reduced manual coordination across teams.",
+        "Left a foundation for later features and automations."
+      ],
+      "stack": [
+        "Next.js",
+        "Supabase",
+        "TypeScript",
+        "CI/CD with GitHub Actions"
+      ]
+    }
+  ]
+}

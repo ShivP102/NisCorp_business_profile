@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ContactActions } from "@/components/ContactActions";
 import { DirectionCards } from "@/components/DirectionCards";
+import { DiscoveryLink } from "@/components/DiscoveryLink";
+import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { LiquidGlass } from "@/components/LiquidGlass";
+import { TrustStrip } from "@/components/TrustStrip";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader } from "@/components/ui/card";
-import { getCompany, getOfferings } from "@/lib/data";
+import {
+  buildWhatsAppUrl,
+  getCompany,
+  getFaqs,
+  getOfferings,
+} from "@/lib/data";
 
 export function generateMetadata(): Metadata {
   const company = getCompany();
@@ -30,6 +39,7 @@ export function generateMetadata(): Metadata {
 export default function HomePage() {
   const company = getCompany();
   const offerings = getOfferings();
+  const faqs = getFaqs("home");
 
   const organizationLd = {
     "@context": "https://schema.org",
@@ -40,9 +50,23 @@ export default function HomePage() {
     telephone: company.phoneTel,
   };
 
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <JsonLd data={organizationLd} />
+      <JsonLd data={faqLd} />
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-28 pt-8 max-sm:pl-16 sm:px-6 sm:pb-32 sm:pt-12">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-5">
           <section
@@ -61,12 +85,29 @@ export default function HomePage() {
                 {company.heroLine}
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                An individual website, or software for how a company runs. Both
-                start with a conversation.
+                {company.heroSubhead}
               </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <DiscoveryLink
+                  company={company}
+                  label="Book a 20-minute discovery call"
+                />
+                <a
+                  href={buildWhatsAppUrl(company)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-whatsapp px-4 text-base font-semibold text-white hover:bg-whatsapp/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  WhatsApp us
+                </a>
+              </div>
               <DirectionCards offerings={offerings} />
             </div>
           </section>
+
+          <div className="md:col-span-6 md:px-2 md:pt-4">
+            <TrustStrip facts={company.trustFacts} />
+          </div>
 
           <section
             aria-labelledby="about-heading"
@@ -76,10 +117,16 @@ export default function HomePage() {
               id="about-heading"
               className="text-xl font-semibold tracking-tight sm:text-2xl"
             >
-              About
+              How a project starts
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              {company.about}
+              {company.about}{" "}
+              <Link
+                href="/about"
+                className="font-semibold text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                About the founder
+              </Link>
             </p>
             <ol className="mt-8 grid gap-4 sm:grid-cols-3">
               {company.processSteps.map((step, index) => (
@@ -97,22 +144,9 @@ export default function HomePage() {
             </ol>
           </section>
 
-          <section
-            aria-labelledby="services-heading"
-            className="md:col-span-6 md:px-2"
-          >
-            <h2
-              id="services-heading"
-              className="text-xl font-semibold tracking-tight sm:text-2xl"
-            >
-              Two ways we work
-            </h2>
-            <p className="mt-3 max-w-2xl text-base text-muted-foreground">
-              Individual websites and enterprise software are different
-              engagements. Each page describes what you get and how we proceed.
-            </p>
-            <DirectionCards offerings={offerings} />
-          </section>
+          <div className="md:col-span-6 md:px-2">
+            <FaqList faqs={faqs} />
+          </div>
 
           <div className="md:col-span-6 md:px-2 md:pt-4">
             <ContactActions company={company} />

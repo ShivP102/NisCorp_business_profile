@@ -12,12 +12,13 @@ A contradicted position or a banned claim is a **Blocker** and goes to the build
 
 ## Position
 
-NisCorp AI builds software solutions and consults on that work. This website is the company. Aperio is a separate product site later. This site does not name Aperio, link to it, or give it a section.
+NisCorp AI builds software, practical AI, and consults on that work. This website is the company. Aperio is a separate product site later. This site does not name Aperio, link to it, or give it a section.
 
-Two examples make the work concrete:
+Three offers make the work concrete:
 
-- Websites for individuals, including SEO and digital marketing as named services.
-- Enterprise software that improves how a company runs. No product name.
+- AI and LLM, on `/services/ai-llm`.
+- Websites and SEO, including SEO and digital marketing as named services, on `/services/websites`.
+- Enterprise software that improves how a company runs, as a section on `/services`. No product name.
 
 ## Tone
 
@@ -25,10 +26,11 @@ Specific and calm. The page says what the client gets.
 
 Flag and remove:
 
-- Hype, fake proof, and claims of customers, years, or rankings.
+- Hype, fake proof, and claims of customers or rankings.
 - “Limited” in front of SEO or marketing.
 - Partners, subcontractors, or combining with other firms.
-- Invented email, phone, address, domain, or founder name.
+- Invented email, phone, address, domain, calendar link, or social profile.
+- Employer or client names. The founder name in `data/about.json` is allowed.
 
 ## Visual consistency
 

@@ -6,22 +6,25 @@ alwaysApply: false
 
 # Content Creator
 
-Write the copy for `prd/niscorp-company-site.md`. The company line stays general: NisCorp AI builds software solutions and consults on that work. Two examples make that concrete.
+Write the copy for `prd/niscorp-company-site.md`. The company builds software, practical AI, and consults on that work. Three offers make that concrete. Enterprise stays a section on `/services` until the PRD gives it a page.
 
 ## Pages
 
-- **Home:** the company line, two example cards, a short sequence (you tell us the work, we propose it, we build it), then phone, email, and WhatsApp.
-- **Websites:** sites for a person and their practice or private work. A doctor’s practice is one kind of client, written inside the page. Say what the client gets: a site that explains who they are, a clear way for people to reach them, and search and marketing set up around that site. Name SEO and digital marketing as services. Close with the three contact actions.
-- **Enterprise:** software built for a company to improve how it runs. Describe the engagement: understand the operation, build the software around it, and leave the team with a system they use. No product name. Same contact close.
-- **Contact:** phone, email, WhatsApp, and a short form (name, email, path, message). Paths: an individual website, enterprise software, or something else. One line says the message opens in WhatsApp or email on the visitor’s device.
+- **Home:** the company line, three offer cards, a short sequence (you tell us the work, we propose it, we build it), the supplied trust lines, FAQs, then phone, email, and WhatsApp.
+- **Services:** teasers for AI and websites, and the full enterprise section.
+- **AI:** RAG, agents, scopes, and outcomes. Durations, not fees.
+- **Websites:** sites for a person and their practice or private work. A doctor’s practice is one kind of client, written inside the page. Say what the client gets: a site that explains who they are, a clear way for people to reach them, and search and marketing set up around that site. Name SEO and digital marketing as services.
+- **About:** the founder name and working style from `data/about.json`. Do not invent social URLs.
+- **Case study:** one unnamed operations platform. Do not name Aperio.
+- **Contact:** phone, email, WhatsApp, and a short form (name, email, path, message). Paths: AI and LLM work, an individual website, enterprise software, or something else. One line says the message opens in WhatsApp or email on the visitor’s device.
 
-Put offering copy in `data/offerings.json`. Home reads the summaries for the two cards.
+Put offering copy in `data/offerings.json`. Home reads the summaries and hrefs for the cards.
 
 ## Tone
 
 Specific and calm. Name the work and the result.
 
-Leave out hype, fake proof, public apologies that shrink the offer, the word “limited” in front of SEO or marketing, partners, subcontractors, and other firms. Do not name Aperio or give it a section. Do not invent an email, phone number, address, domain, or founder name. Placeholders stay in `data/company.json` until real values are supplied.
+Leave out hype, fake proof, public apologies that shrink the offer, the word “limited” in front of SEO or marketing, partners, subcontractors, and other firms. Do not name Aperio or give it a section. Do not invent an email, phone number, address, domain, calendar link, or social profile. The founder name in `data/about.json` is supplied.
 
 ## Leave out of v1
 

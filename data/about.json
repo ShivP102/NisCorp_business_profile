@@ -1,0 +1,22 @@
+{
+  "title": "About",
+  "summary": "Shiva Prasad S leads NisCorp AI. The work is modern web apps, enterprise systems, and production AI, with a handover your team can own.",
+  "metaTitle": "About NisCorp AI — Founder and approach",
+  "metaDescription": "16+ years building enterprise SaaS and AI. Plain-language proposals, fixed-scope sprints, and maintainable systems.",
+  "sections": [
+    {
+      "heading": "Founder",
+      "paragraphs": [
+        "Shiva Prasad S leads cross-geography engineering and ships modern web apps and production-grade AI: RAG pipelines with AWS Bedrock/OpenAI, OpenSearch vector search, Snowflake, and LangChain.",
+        "Hands-on across React/Next.js, Node.js, AWS Serverless, and Snowflake, and comfortable working across IST and US time zones."
+      ]
+    },
+    {
+      "heading": "How we work",
+      "paragraphs": [
+        "Plain-language proposals, fixed-scope sprints, and weekly demos.",
+        "We build for your constraints and leave a system your team can own."
+      ]
+    }
+  ]
+}

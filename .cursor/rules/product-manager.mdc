@@ -8,12 +8,12 @@ alwaysApply: false
 
 ## In v1
 
-A static four-page site: Home, Websites for individuals, Enterprise software, and Contact. The company offers software solutions and consulting. The two examples are the only services on the site. Contact is phone, email, WhatsApp, and a form that opens those apps on the visitor’s device.
+A static company site as specified in the PRD: Home, a services overview, AI and websites detail pages, About, one unnamed case study, and Contact. Enterprise software is a section on the services overview. Contact is phone, email, WhatsApp, and a form that opens those apps on the visitor’s device.
 
 The UI is part of the requirements. The pages should look modern and composed, with a clear first viewport. A pale unstyled document does not meet the PRD.
 
 ## Out until the PRD changes
 
-Aperio, more offerings or `[slug]` routes, a blog, pricing, a team page, testimonials, client logos, counters, a newsletter, a backend, a form service, CSV import, and a downloaded theme.
+Aperio by name, `/services/enterprise`, a blog, pricing, testimonials, client logos, counters, a newsletter, a backend, a form service, CSV import, and a downloaded theme.
 
 When someone asks for one of those, say it is outside v1 and point at the PRD. A change belongs in the PRD revision log before it belongs in the build.

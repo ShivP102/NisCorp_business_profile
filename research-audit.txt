@@ -1,0 +1,454 @@
+Thanks for the details, resume, and the in-progress site. Here’s a focused plan to turn NisCorp AI into a clear, conversion-ready offering with copy you can drop into your site immediately.
+
+Quick audit of your current site
+
+Current structure: Home, Websites for individuals, Enterprise software, Contact. Messaging is plain and clean. Good start. (niscorpbusinessprofile.vercel.app)
+Gaps/opportunities:
+No dedicated AI/LLM offering page (RAG, agents, Bedrock/OpenAI, evaluation).
+Contact details on pages show placeholders (+91 00000 00000, hello@example.com); replace with your real phone and email so CTAs work. (niscorpbusinessprofile.vercel.app)
+No About/Founder section on site (your resume is strong; bring it forward).
+No portfolio/case studies, testimonials, pricing signals, or FAQs (all help conversion and SEO).
+Metadata and schema can be expanded (Organization, Service, FAQPage) for SEO.
+Positioning statement (use on Home and social profiles)
+
+AI-first full‑stack engineering for operatiosns. We design and ship modern web apps, enterprise systems, and practical AI (RAG, agents) that teams keep using after we leave.
+What to add to the site (information architecture)
+
+Home
+Services
+AI & LLM Solutions (RAG, agents, automation) — new
+Enterprise Software (operations platforms, integrations)
+Websites & SEO (individuals and small teams)
+Case Studies — new
+About — new
+Contact
+Ready-to-use page copy
+
+Home
+Hero H1: Build software and practical AI for how your team already works
+Subhead: We design and deliver modern web apps, enterprise systems, and AI assistants that reduce manual work and make status clear—then we leave you with a system your team can own.
+Primary CTA: Book a 20‑minute discovery call
+Secondary CTA: WhatsApp us
+Trust strip:
+16+ years shipping enterprise SaaS across EdTech, retail, and traffic engineering
+Hands-on with React/Next.js, Node.js, AWS Serverless, Snowflake
+Production-grade AI: RAG pipelines, OpenSearch vector search, AWS Bedrock/OpenAI, LangChain/LangSmith
+What we build (bullets):
+AI/LLM: RAG apps, internal AI assistants, agentic workflows, knowledge search
+Enterprise: workflow and operations platforms, system integrations, data pipelines
+Websites & SEO: fast sites for individuals and small teams with acquisition set up
+Our approach:
+You tell us the work → We propose it → We build it (fixed-scope sprints, weekly demos)
+Closing CTA: Get a proposal for your project this week
+2. Services: AI & LLM Solutions (new page)
+
+H1: AI & LLM Solutions — RAG, agents, and automation that ship
+Who this is for:
+Teams with fragmented knowledge (docs, tickets, wikis) who need fast, accurate answers
+Ops and support leaders who want to deflect repetitive queries and speed up resolution
+Product teams exploring AI features in existing SaaS
+Outcomes we target:
+Higher answer accuracy vs. naïve chat (retrieval tuned, hallucinations reduced)
+Measurable time saved on lookup and triage
+Lower support load through self‑serve answers and suggested replies
+What we deliver:
+Data readiness: connect docs, wikis, tickets, DBs; clean and chunk content
+Retrieval: embeddings, vector index (OpenSearch/Snowflake/pgvector), hybrid search
+Orchestration: prompts, tools, functions, guardrails, evaluation harness
+App surfaces: web widget, internal console, Slack/Teams
+Observability: prompt/version tracking (LangSmith), cost/latency monitoring
+Security & compliance: data residency options, PII handling, redaction
+Tech stack options:
+LLMs: AWS Bedrock (Claude, Llama), OpenAI
+Retrieval: OpenSearch vector, Snowflake Cortex/Hybrid Search, pgvector
+Frameworks: LangChain, LangGraph, serverless on AWS (Lambda/API Gateway), Next.js
+Fixed‑scope sprints (example timelines):
+RAG QuickStart (2 weeks): connect 1–2 sources, baseline retrieval, simple UI, eval suite
+Pilot (4–6 weeks): multi-source ingestion, auth, improved prompts, Slack/Teams app, eval & guardrails
+Production (8–12 weeks): scale ingestion, hybrid search, agents/tools, observability, handover
+How we measure quality:
+Define target queries/journeys; build eval sets; track accuracy, latency, and helpfulness; weekly reviews
+CTA: Ask for the RAG QuickStart scope
+3. Services: Enterprise Software (replace/expand the current copy)
+
+H1: Enterprise software for operations
+What this is:
+Purpose-built systems that match how your operation runs—workflows, rules, and data all in one place.
+Typical projects:
+Operations platforms for onboarding, fulfillment, or partner management
+Modernization of legacy tools; migrate spreadsheets to auditable workflows
+System integration and APIs across CRM, ERP, analytics, and identity
+Delivery approach:
+Discovery: map today’s workflow, data lineage, slack points, and failure modes
+Design: service boundaries, data model, event flows, integration contracts
+Build in sprints: show working software weekly; ship value incrementally
+Transition: documentation, runbooks, capability transfer; your team can own it
+Tech focus:
+Frontend: React/Next.js (SSR/SSG), Tailwind, micro frontends when needed
+Backend: Node.js, Express, microservices, event-driven patterns
+Data: Snowflake, Postgres, streaming to analytics; dashboards with D3.js
+Cloud: AWS Serverless, CI/CD with GitHub Actions, IaC
+CTA: Review a sample architecture and proposal
+4. Services: Websites & SEO (rename “Websites for individuals” to “Websites & SEO”)
+
+H1: Websites & SEO for individuals and small teams
+Who this is for: doctors, consultants, therapists, coaches, and independent practices
+What you get:
+A clear site that explains who you are, what you offer, and how to reach you
+Conversion setup: WhatsApp/phone/email, booking links, lead tracking
+Search & marketing: on‑page SEO, Google Business Profile, basic analytics, newsletter/signup
+Packages:
+Essentials (1–2 weeks): 3–5 pages, copy assist, contact/booking integration, analytics
+Growth (3–4 weeks): blog, FAQs, email capture, schema markup, starter content plan
+Care plan (monthly): updates, landing pages, SEO tune‑ups, reporting
+Tech: Next.js, Tailwind CSS, lightweight CMS options, n8n/Make for automation
+CTA: Get your site live in 14 days
+5. About (new)
+
+H1: About NisCorp AI
+Founder: Shiva Prasad S — Engineering Manager and hands‑on full‑stack/AI engineer with 16+ years shipping enterprise SaaS across EdTech, retail, and traffic engineering. Led cross‑geo teams (US/India), improved delivery velocity by 35%+ at PowerSchool, and built production‑grade AI (RAG with Bedrock/OpenAI, OpenSearch, Snowflake, LangChain).
+Working style:
+Plain‑language proposals, fixed‑scope sprints, weekly demos
+Build with your constraints; leave maintainable systems behind
+Comfortable across IST and US time zones
+Links: LinkedIn, GitHub, email, WhatsApp
+6. Case Studies (new — anonymize or attribute where allowed)
+
+PowerBuddy (EdTech): designed and shipped RAG pipeline with Bedrock embeddings, OpenSearch vector index, prompt design, and evaluations; integrated into existing SaaS
+Operations platform (Advertising): architected a self‑hosted B2B platform on Next.js + Supabase for campaign/workflow orchestration
+Traffic engineering SaaS: led team building analytics dashboards (D3.js), Node.js APIs, and testing discipline that reduced deployment errors
+Each case: context → problem → approach → impact → stack → a single image of the system
+FAQs (sitewide section you can include on Home or Services)
+
+What’s your typical engagement model? Fixed‑scope sprints with weekly demos; T&M available for discovery.
+Do you handle deployment and handover? Yes—CI/CD, infra as code, runbooks, and capability transfer.
+Where do you host? AWS preferred; can work with your cloud and constraints.
+How do you protect data in AI projects? Source‑level access controls, PII redaction, retrieval scoping, and no-training on your data unless explicitly allowed.
+Calls‑to‑action and contact cleanup
+
+Replace placeholders with your real details everywhere; add a “Book a call” button that opens your scheduling link.
+Keep WhatsApp as a secondary CTA (it already features across pages). (niscorpbusinessprofile.vercel.app)
+SEO and metadata
+
+Titles:
+NisCorp AI — AI & software consulting for modern operations
+AI & LLM Solutions — NisCorp AI
+Enterprise software for operations — NisCorp AI
+Websites & SEO for individuals — NisCorp AI
+Descriptions (examples):
+NisCorp AI designs and ships modern web apps, enterprise systems, and practical AI (RAG, agents). Plain‑language proposals, fixed‑scope sprints, weekly demos.
+AI & LLM: RAG apps, internal AI assistants, evaluation harnesses, and guardrails on AWS Bedrock/OpenAI with OpenSearch/Snowflake.
+Keywords to target:
+ai consulting india, rag implementation, bedrock openai consultant, enterprise software modernization, next.js development india, operations software, internal ai assistant
+Structured data (JSON‑LD to add where relevant):
+Organization, Service (for each service page), FAQPage (FAQs), Article (blog posts), LocalBusiness if you want local discovery
+Accessibility and performance quick wins
+
+Use descriptive alt text and clear button labels (e.g., “Book a 20‑minute call”).
+Avoid placeholder numbers in contact blocks; it hurts trust. (niscorpbusinessprofile.vercel.app)
+Image optimization and preconnect for fonts; sitemap.xml and robots.txt tuned.
+Lead generation assets (lightweight)
+
+AI Readiness Checklist (PDF, 1 page) — gate with email
+RAG Evaluation Template — how to create a small test set and measure accuracy/latency
+7‑day content plan for small practices — simple blog + GBP updates
+Implementation-ready content objects (you can paste/adapt)
+
+Implementation‑ready content (copy/paste)
+
+Site settings
+{
+"name": "NisCorp AI",
+"email": "shivp.102@gmail.com",
+"phoneDisplay": "+91 9535206010",
+"phoneTel": "+919535206010",
+"whatsappE164": "919535206010",
+"whatsappDefaultText": "Hello, I would like to talk with NisCorp AI about a project.",
+"siteUrl": "https://niscorpai.com",
+"metaTitle": "NisCorp AI — AI & software consulting for modern operations",
+"metaDescription": "We design and ship modern web apps, enterprise systems, and practical AI (RAG, agents). Plain‑language proposals, fixed‑scope sprints, weekly demos.",
+"contactMetaTitle": "Contact NisCorp AI — Book a 20‑minute call",
+"contactMetaDescription": "Reach us by phone, email, or WhatsApp, or book a discovery call via Google Calendar.",
+"heroLine": "Build software and practical AI for how your team already works",
+"about": "We design and deliver modern web apps, enterprise systems, and AI assistants that reduce manual work and make status clear—then we leave you with a system your team can own.",
+"processSteps": ["You tell us the work", "We propose it", "We build it"],
+"calendarUrl": "https://calendar.app/your-scheduling-link"
+}
+
+Services: AI & LLM Solutions
+{
+"slug": "ai-llm",
+"title": "AI & LLM Solutions",
+"summary": "RAG apps, internal AI assistants, and automation on AWS Bedrock/OpenAI with OpenSearch or Snowflake.",
+"metaTitle": "AI & LLM Solutions — NisCorp AI",
+"metaDescription": "RAG, agents, and automation that ship. Data connectors, retrieval, prompts, guardrails, evaluation, and handover.",
+"sections": [
+{
+"heading": "What we build",
+"paragraphs": [
+"RAG applications and internal assistants with secure retrieval and tuned prompts.",
+"Agentic workflows with tools/functions for lookups, updates, and actions.",
+"Evaluation harnesses that track accuracy, latency, and cost."
+]
+},
+{
+"heading": "How it works",
+"paragraphs": [
+"QuickStart (2 weeks): connect 1–2 sources, baseline retrieval, simple UI, evaluation.",
+"Pilot (4–6 weeks): multi-source ingestion, auth, improved prompts, Slack/Teams app, guardrails.",
+"Production (8–12 weeks): hybrid search, agents, observability, handover and runbooks."
+]
+},
+{
+"heading": "Stack options",
+"paragraphs": [
+"LLMs: AWS Bedrock (Claude, Llama), OpenAI.",
+"Retrieval: OpenSearch vector, Snowflake hybrid search, pgvector.",
+"Frameworks: LangChain/LangGraph, Next.js, AWS Serverless with GitHub Actions CI/CD."
+]
+},
+{
+"heading": "Outcomes",
+"paragraphs": [
+"Higher answer accuracy vs. naïve chat; reduced manual lookup.",
+"Lower support load via self‑serve answers and suggested replies.",
+"Clear observability and ongoing tuning."
+]
+}
+]
+}
+
+Services: Enterprise software
+{
+"slug": "enterprise",
+"title": "Enterprise software",
+"summary": "Operations software that matches how your company runs—workflows, data, and integrations in one place.",
+"metaTitle": "Enterprise software for operations — NisCorp AI",
+"metaDescription": "Purpose-built systems, integrations, and modernization. Fixed-scope sprints, weekly demos, and clean handover.",
+"sections": [
+{
+"heading": "What this is",
+"paragraphs": [
+"Systems built around your operation: fewer manual handoffs, clearer status, and tools that match how your team thinks."
+]
+},
+{
+"heading": "Typical projects",
+"paragraphs": [
+"Operations platforms for onboarding, fulfillment, or partner workflows.",
+"Modernization: from spreadsheets/legacy to auditable, scalable services.",
+"Integrations and APIs across CRM, ERP, analytics, and identity."
+]
+},
+{
+"heading": "How we work",
+"paragraphs": [
+"Discovery → Design → Build in sprints → Transition with docs and runbooks.",
+"Show working software weekly; ship value incrementally."
+]
+},
+{
+"heading": "Tech focus",
+"paragraphs": [
+"Frontend: React/Next.js, Tailwind; Backend: Node.js, event-driven services.",
+"Data: Snowflake, Postgres; Cloud: AWS Serverless; CI/CD: GitHub Actions."
+]
+}
+]
+}
+
+Services: Websites & SEO
+{
+"slug": "websites",
+"title": "Websites & SEO",
+"summary": "Fast sites for individuals and small teams with clear messaging and acquisition set up.",
+"metaTitle": "Websites & SEO for individuals — NisCorp AI",
+"metaDescription": "Launch a clear site with contact, booking, analytics, and SEO in 14 days. Ongoing content and optimization available.",
+"sections": [
+{
+"heading": "Who this is for",
+"paragraphs": [
+"Doctors, consultants, therapists, coaches, and independent practices.",
+"Small teams that need a credible site and steady inbound leads."
+]
+},
+{
+"heading": "What you get",
+"paragraphs": [
+"A clear site that explains who you are, what you offer, and how to reach you.",
+"Conversion setup: WhatsApp/phone/email, booking links, lead tracking.",
+"Search and marketing foundations: on‑page SEO, Google Business Profile, analytics."
+]
+},
+{
+"heading": "Packages",
+"paragraphs": [
+"Essentials (1–2 weeks): 3–5 pages, copy assist, contact/booking integration, analytics.",
+"Growth (3–4 weeks): blog, FAQs, schema markup, starter content plan.",
+"Care plan (monthly): updates, landing pages, SEO tune‑ups, reporting."
+]
+}
+]
+}
+
+About
+{
+"slug": "about",
+"title": "About",
+"summary": "Shiva Prasad S — Engineering Manager and hands‑on full‑stack/AI engineer with 16+ years shipping enterprise SaaS.",
+"metaTitle": "About NisCorp AI — Founder and approach",
+"metaDescription": "16+ years building enterprise SaaS and AI. Plain‑language proposals, fixed-scope sprints, and maintainable systems.",
+"sections": [
+{
+"heading": "Founder",
+"paragraphs": [
+"Shiva Prasad S leads cross‑geography engineering and ships modern web apps and production‑grade AI: RAG pipelines with AWS Bedrock/OpenAI, OpenSearch vector search, Snowflake, and LangChain.",
+"Hands‑on across React/Next.js, Node.js, AWS Serverless, and Snowflake; comfortable working across IST and US time zones."
+]
+},
+{
+"heading": "How we work",
+"paragraphs": [
+"Plain‑language proposals, fixed‑scope sprints, and weekly demos.",
+"We build for your constraints and leave a system your team can own."
+]
+}
+]
+}
+
+Case studies (Aperio only)
+{
+"slug": "case-studies",
+"title": "Case studies",
+"summary": "Selected projects delivered by NisCorp AI.",
+"metaTitle": "Case studies — NisCorp AI",
+"metaDescription": "Aperio operations platform case study from NisCorp AI.",
+"items": [
+{
+"title": "Aperio — B2B Operations Platform",
+"context": "Advertising agencies needed a single place to run campaign workflows, client reporting, and day‑to‑day operations.",
+"problem": "Spreadsheets and ad‑hoc tools created manual handoffs, unclear status, and reporting delays.",
+"approach": [
+"Designed product architecture and domain model around core agency operations.",
+"Built a secure, self‑hosted MVP using Next.js and Supabase; implemented data schemas for campaign performance and reporting.",
+"Set up CI/CD and a clear handover so the team can operate independently."
+],
+"impact": [
+"Centralized workflows and status.",
+"Reduced manual coordination across teams.",
+"Foundation for incremental features and automations."
+],
+"stack": ["Next.js", "Supabase", "TypeScript", "CI/CD with GitHub Actions"]
+}
+]
+}
+
+Contact page copy
+
+Headline: Contact
+Body: Tell us your name, the work you need, and a short message. We reply within one business day.
+Phone: +91 9535206010
+Email: shivp.102@gmail.com
+WhatsApp: +91 9535206010 (tap to message)
+Booking CTA: Book a 20‑minute discovery call on Google Calendar
+Calendar link: use the value in site settings → calendarUrl
+Home page copy (for your hero and highlights)
+
+H1: Build software and practical AI for how your team already works
+Subhead: We design and deliver modern web apps, enterprise systems, and AI assistants that reduce manual work and make status clear—then we leave your team with a system it can own.
+Primary CTA: Book a 20‑minute discovery call
+Secondary CTA: WhatsApp us
+Highlights:
+16+ years shipping enterprise SaaS across multiple domains
+Hands‑on with React/Next.js, Node.js, AWS Serverless, Snowflake
+Production‑grade AI: RAG pipelines, OpenSearch vector search, AWS Bedrock/OpenAI, LangChain/LangSmith
+FAQs (no external orgs referenced)
+
+What’s your typical engagement model? Fixed‑scope sprints with weekly demos; time‑and‑materials available for discovery.
+Do you handle deployment and handover? Yes—CI/CD, infra as code, runbooks, and capability transfer.
+How do you protect data in AI projects? Source‑level access controls, PII redaction, retrieval scoping, and no training on your data unless explicitly allowed.
+Notes
+
+Replace calendarUrl with your actual Google Calendar booking link once created.
+All project mentions are limited to your own work. Publish the operations-platform case study without a product name. Do not name Aperio, PowerSchool, PowerBuddy, or other employers. No other employer/client names appear.
+
+The information architecture above (top-level /ai-llm, /enterprise, and /websites) is superseded by the hybrid decision below.
+
+Decision: hybrid services IA (28 October 2026)
+
+Chosen over three peer top-level service URLs, and over one combined page with no detail URLs.
+
+Why this shape
+- AI & LLM and Websites & SEO already have enough distinct copy, scopes, and buyer intent for their own URLs.
+- Enterprise copy is real, and one unnamed case study exists, but that offer stays a section on the overview for this pass. A later page at /services/enterprise waits until that section is promoted on purpose.
+- A single overview gives referrals one URL. The two detail pages can take their own titles, Service schema, and CTAs.
+
+URL and nav
+- /services — overview. H1: Services. Three anchored sections and jump links: #ai-llm, #websites, #enterprise.
+- /services/ai-llm — detail page now.
+- /services/websites — detail page now. Replaces /websites.
+- /enterprise is removed as a page. The offer lives at /services#enterprise.
+- Later, not this pass: /services/enterprise.
+- Header: logo (Home), Services (disclosure to the two detail pages), About, Contact. Case studies stay out of the header.
+- Home cards: AI → /services/ai-llm, Websites → /services/websites, Enterprise → /services#enterprise.
+- Permanent redirects: /websites → /services/websites, /enterprise → /services#enterprise. Static export does not apply next.config redirects, so these live in vercel.json. A Hostinger upload of out/ needs the same two redirects on that host.
+- Do not leave /websites or /enterprise as indexable copies of the new URLs.
+
+Overview copy (/services)
+
+H1: Services
+Intro: We design and deliver modern web apps, enterprise systems, and practical AI. Plain-language proposals, fixed-scope sprints, weekly demos, and a clean handover.
+
+Section: AI & LLM Solutions (#ai-llm)
+We build RAG applications, internal assistants, and agentic workflows that reduce manual lookup and improve answer quality. Stack options include AWS Bedrock/OpenAI with OpenSearch or Snowflake, orchestrated with LangChain/LangGraph and shipped on AWS Serverless/Next.js.
+CTA: Explore AI & LLM Solutions → /services/ai-llm
+This section is a teaser. The detail page holds QuickStart, Pilot, and Production.
+
+Section: Websites & SEO (#websites)
+Fast, clear sites for individuals and small teams: messaging, contact/booking, analytics, and SEO foundations (on-page SEO, Google Business Profile, schema). Launch in 14 days with options for growth and care plans.
+CTA: See Websites & SEO → /services/websites
+This section is a teaser. Packages stay on the detail page.
+
+Section: Enterprise software (#enterprise)
+This is the full enterprise offer for now, not a teaser. Lead: Purpose-built operations software that matches how your company runs—fewer manual handoffs, clearer status, and integrations across the stack. Discovery, Design, Build in sprints, Transition with docs and runbooks.
+Also use the earlier Enterprise software sections (what this is, typical projects, how we work, tech focus) so the section is not a single paragraph.
+CTA: Discuss your operation — Book a call → /contact
+Link the unnamed B2B operations platform case study from this section.
+
+Detail copy
+
+/services/ai-llm uses the AI & LLM Solutions object already in this file (what we build, how it works, stack, outcomes, three scopes). Do not repeat that full text on /services.
+H1: AI & LLM Solutions — RAG, agents, and automation that ship
+CTA: Book a 20-minute discovery call | WhatsApp
+
+/services/websites uses the Websites & SEO object already in this file (who it is for, what you get, packages).
+H1: Websites & SEO for individuals and small teams
+CTA: Get your site live in 14 days — Book a call
+Packages name durations, not fees.
+
+Meta
+- /services title: Services — AI & LLM, Enterprise Software, Websites & SEO | NisCorp AI
+- /services description: Practical AI (RAG, agents), operations software, and fast websites with SEO. Plain-language proposals, fixed-scope sprints, weekly demos.
+- Detail pages keep their own titles and descriptions from the service objects above.
+- Service schema on /services/ai-llm and /services/websites. Organization on Home. FAQPage on Home. Do not mark the enterprise section up as its own Service URL until it has a page.
+
+CTAs (sitewide)
+- Phone: +91 9535206010
+- Email: shivp.102@gmail.com
+- Primary: Book a 20-minute discovery call. Links to /contact until calendarUrl is a real https URL. Do not publish the placeholder calendar.app link.
+- Secondary: WhatsApp us
+
+Still in this pass, unchanged by the hybrid choice
+- /about with the founder copy in this file. No invented LinkedIn or GitHub URLs.
+- /case-studies with one unnamed B2B operations platform. No screenshot.
+- Home hero, trust strip, process, and the three FAQs.
+- Contact form path adds AI and LLM work. The form still opens WhatsApp or email on the device.
+
+Later, not this build
+- /services/enterprise once that section is promoted.
+- GA4 events for the discovery CTA, WhatsApp clicks, and the form’s WhatsApp and email actions. Add the script only when a measurement ID is in site settings. Do not invent an ID.
+- Google Business Profile is an off-site listing task, not a page.
+- Gated PDFs stay out. There is no inbox to collect addresses.
+
+When to split enterprise onto /services/enterprise
+Each offer that gets its own URL should have unique copy, its own CTA, and a reason to rank or advertise alone. Enterprise already has a case study. Keep it on /services anyway until a deliberate follow-up. Do not split it in the same change as the overview.

@@ -10,7 +10,7 @@ You certify the site only when the acceptance checks in `prd/niscorp-company-sit
 
 ## What to inspect
 
-Run the production build and open the static `out/` files. Walk Home, Websites, Enterprise, and Contact.
+Run the production build and open the static `out/` files. Walk the routes in the PRD acceptance list.
 
 - The company reads as software solutions and consulting.
 - Aperio does not appear.
@@ -18,9 +18,9 @@ Run the production build and open the static `out/` files. Walk Home, Websites, 
 - Phone, email, and WhatsApp links use `data/company.json`. Placeholders are still the obvious placeholders if real values were not supplied.
 - The floating button and the form open a prefilled WhatsApp chat. The email action opens a prefilled message. The form does not post to a server.
 - View source shows full HTML, a unique title and description per page, and JSON-LD without ratings.
-- After `next build`, `out/sitemap.xml` lists the four routes and `out/robots.txt` references the sitemap.
-- The first viewport shows the company line and the two directions. Type and spacing make the page look composed, not like an unstyled document.
-- A narrow viewport still shows the header, the two example cards, and the floating button without covering the main actions.
+- After `next build`, `out/sitemap.xml` lists the routes in the PRD and `out/robots.txt` references the sitemap.
+- The first viewport shows the company line and the three directions. Type and spacing make the page look composed, not like an unstyled document.
+- A narrow viewport still shows the header, the three direction cards, and the floating button without covering the main actions.
 
 Quote the PRD or plan line, then quote or describe what the built page actually shows. Mark each item pass or fail.
 
