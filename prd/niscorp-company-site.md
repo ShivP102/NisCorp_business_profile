@@ -3,7 +3,7 @@
 |            |                                                                                   |
 | ---------- | --------------------------------------------------------------------------------- |
 | Status     | Draft. Do not start the app until a coding agent is asked to implement this file. |
-| Version    | 1.4                                                                               |
+| Version    | 1.5                                                                               |
 | Updated    | 28 October 2026                                                                   |
 | Source     | `plan/niscorp-company-site.md`, then `plan/website-content-enhancement.md`        |
 | Supersedes | Those plans, for requirements. The plans stay as the briefs.                      |
@@ -70,7 +70,7 @@ flowchart TD
   cases --> contact
 ```
 
-Header and footer on every page. The header is logo (Home), a Services disclosure, About, and Contact. The disclosure lists All services, AI and LLM, and Websites and SEO. It is a `details` element, not a hover-only menu. Case studies stay out of the header. The footer lists the three offers, About, the case study, and phone, email, and WhatsApp. A floating WhatsApp button sits on every page.
+Header and footer on every page. The header is logo (Home), a Services disclosure, About, and Contact. The disclosure lists All services, AI and LLM, and Websites and SEO. It is a `details` element, not a hover-only menu. Case studies stay out of the header. The footer is four columns in one row: the mark and a one-sentence tagline with the copyright under it, the three offers, Company (About and the case study), and Support (a link to Contact). Phone, email, and WhatsApp stay on the contact actions above the footer, not repeated as plain text under it. Those three actions share one card style. WhatsApp green is only the button inside the WhatsApp card. A floating WhatsApp button sits on every page.
 
 Home order: hero with the three direction cards, trust strip, how a project starts, FAQ, contact. The cards are not repeated lower on the page.
 
@@ -294,3 +294,4 @@ Run the production build and open the static output. Walk Home, Services, AI, We
 | 1.2     | 28 October 2026 | Every story branch starts from `main`. A human opens the pull request and merges it before the next story starts.                               |
 | 1.3     | 28 October 2026 | Visual system is a ten-language blend. Copied shadcn/ui components are in scope. Dark mode and downloaded themes stay out.                      |
 | 1.4     | 28 October 2026 | Hybrid services: overview, AI and websites detail pages, enterprise as a section, About, one unnamed case study, FAQPage, and supplied contact. |
+| 1.5     | 28 October 2026 | Footer is a four-column row with a small mark. Contact actions share one card; WhatsApp green is only its button.                                |
