@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Type | Story |
-| Status | To do |
+| Status | Ready for PR |
 | Depends on | NIS-1, NIS-2 |
 | Branch | `nis-3-crawlable-release` from `main` |
 | PRD | `prd/niscorp-company-site.md` |
