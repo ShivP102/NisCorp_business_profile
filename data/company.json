@@ -8,6 +8,8 @@
   "siteUrl": "https://example.com",
   "metaTitle": "NisCorp AI — Software solutions and consulting",
   "metaDescription": "NisCorp AI builds software and consults on that work. Choose an individual website or enterprise software, then reach us by phone, email, or WhatsApp.",
+  "contactMetaTitle": "Contact NisCorp AI — Send a message",
+  "contactMetaDescription": "Reach NisCorp AI by phone, email, or WhatsApp. Send your name, the kind of work you need, and a message from your device.",
   "heroLine": "NisCorp AI builds software and consults",
   "about": "We work with people and companies who need software built around how they actually operate. You describe the work; we shape a clear proposal and build what you agreed to.",
   "processSteps": ["You tell us the work", "We propose it", "We build it"]

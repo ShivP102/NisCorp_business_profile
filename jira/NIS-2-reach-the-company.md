@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Type | Story |
-| Status | To do |
+| Status | Ready for PR |
 | Depends on | NIS-1 |
 | Branch | `nis-2-reach-the-company` from `main` |
 | PRD | `prd/niscorp-company-site.md` |

@@ -10,6 +10,11 @@
   --surface: #ffffff;
   /* Sticky header block; floating WhatsApp sits just below on narrow viewports */
   --site-header-height: 4.75rem;
+  --floating-whatsapp-inset-x: 0.75rem;
+  --floating-whatsapp-inset-y: 0.5rem;
+  --floating-whatsapp-size: 2.75rem;
+  /* Main-column inset so links stay clickable beside the fixed mobile button */
+  --floating-whatsapp-clearance: 4rem;
 }
 
 @media (max-width: 639px) {

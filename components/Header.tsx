@@ -4,6 +4,7 @@ const nav = [
   { href: "/", label: "Home" },
   { href: "/websites", label: "Websites" },
   { href: "/enterprise", label: "Enterprise" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 type HeaderProps = {
