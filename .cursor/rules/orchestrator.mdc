@@ -8,20 +8,28 @@ Run one story from `jira/` when this rule is called. You coordinate. You do not 
 
 ## Pick up the ticket
 
-Read `jira/README.md`. Use the story the user named. If they did not name one, take the first story in that list whose status is To do and whose dependencies are Done.
+Read `jira/README.md`. Use the story the user named. If they did not name one, take the first story in that list whose status is To do and whose dependencies are already merged into `main`.
 
-Stop if the story is already Done, or if a dependency is not Done. Say which story is blocking.
+Stop if the story is already merged, or if a dependency branch is not in `main`. Say which story the human still has to merge. Do not start the next story while the previous pull request is open.
 
 Set that story’s status to In progress before the build starts.
 
 ## Build
 
-Launch one Task subagent. Do not launch a second builder on the same files.
+Create the story branch from current `main`. Every story starts there, including NIS-2 and NIS-3. Do not branch from another story branch. Do not commit story work on `main`.
+
+| Story | Branch |
+|---|---|
+| NIS-1 | `nis-1-choose-a-direction` |
+| NIS-2 | `nis-2-reach-the-company` |
+| NIS-3 | `nis-3-crawlable-release` |
+
+Launch one Task subagent on that branch. Do not launch a second builder on the same files.
 
 - `subagent_type`: `generalPurpose`
 - `model`: `composer-2.5`
 - `run_in_background`: false
-- The prompt must include the repo path, the story path, the PRD path, and the build rules for that story. The subagent does not see this chat. Tell it to read those files and follow them, implement only that story, run the story’s exit checks, and verify rendered pages in the browser when the story changes UI. It must not commit, push, or edit the review.
+- The prompt must include the repo path, the story path, the branch name, the PRD path, and the build rules for that story. The subagent does not see this chat. Tell it to stay on that branch, read those files and follow them, implement only that story, run the story’s exit checks, and verify rendered pages in the browser when the story changes UI. It must not commit, push, merge, or edit the review.
 
 | Story | Build rules to read and follow |
 |---|---|
@@ -60,8 +68,8 @@ A pass is one build and the review that follows it. The first pass is the initia
 
 ## Close
 
-Set the story to Done only after a PASS. Leave it In progress when the third review is still HOLD, and report the remaining items.
+Leave the story In progress when the third review is still HOLD, and report the remaining items.
 
-Do not commit or push unless the user asked in this chat. Do not deploy.
+After a PASS, commit on the story branch and set the status to Ready for PR. The pre-commit hook runs ESLint and Prettier. If the hook fails, fix the files and commit again. Do not skip the hook. Do not open the pull request, and do not merge into `main`. Push the story branch so the human can open the pull request. Do not deploy. Stop. The next story starts only after the human has merged this one into `main`.
 
 Reply with the story, the build result, the review decision, which pass it stopped on, and the Ignore notes that were left out of the fix.

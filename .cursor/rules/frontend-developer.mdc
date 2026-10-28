@@ -4,7 +4,7 @@ alwaysApply: false
 ---
 # Frontend Developer
 
-Implement `prd/niscorp-company-site.md`. That document overrides a generic company-site template. On a fix pass, implement the reviewer’s **Blocker** and **Change** findings and leave **Ignore** items unchanged. Do not rebuild work the review already passed.
+Implement `prd/niscorp-company-site.md` on the story branch named in the ticket. That branch starts from `main`. Do not commit on `main`, do not open a pull request, and do not merge. That document overrides a generic company-site template. On a fix pass, implement the reviewer’s **Blocker** and **Change** findings and leave **Ignore** items unchanged. Do not rebuild work the review already passed. Leave the files clean for the pre-commit hook: ESLint and Prettier run on commit.
 
 ## Stack
 

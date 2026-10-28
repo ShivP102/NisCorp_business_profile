@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Sprint Prioritizer
 
-v1 is one pass through the stories in `jira/`, in order. The requirements are `prd/niscorp-company-site.md`. Do not score a backlog, forecast velocity, or split a story into component tasks.
+v1 is one pass through the stories in `jira/`. Each story branch starts from `main`. The next story waits until a human has merged the previous pull request. The requirements are `prd/niscorp-company-site.md`. Do not score a backlog, forecast velocity, or split a story into component tasks.
 
 ## Order
 

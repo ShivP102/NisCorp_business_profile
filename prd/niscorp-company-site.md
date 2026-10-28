@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Status | Draft. Do not start the app until a coding agent is asked to implement this file. |
-| Version | 1.0 |
+| Version | 1.2 |
 | Updated | 28 October 2026 |
 | Source | Written from `plan/niscorp-company-site.md` |
 | Supersedes | That plan, for requirements. The plan stays as the original brief. |
@@ -136,6 +136,14 @@ Sitemap and robots come from `next-sitemap` after the production build, written 
 
 Do not add `app/sitemap.ts` or `app/robots.ts`. Those files would emit a second pair.
 
+## Source control
+
+Each story is committed on its own branch, and every branch starts from `main`. The agent does not open the pull request and does not merge. A human opens the pull request and merges it into `main`. The next story does not start until that merge is on `main`.
+
+Branch names: `nis-1-choose-a-direction`, `nis-2-reach-the-company`, `nis-3-crawlable-release`.
+
+A commit runs ESLint and Prettier through the pre-commit hook. A commit that fails the hook is not done.
+
 ## Technical requirements
 
 Static Next.js site. No Node server is required to serve the result. `output: 'export'` is required so the same build can be served by Vercel or uploaded as static files. Pushing JSON or code rebuilds the pages. Nothing runs at request time.
@@ -212,3 +220,5 @@ Run the production build and open the static output. Walk Home, Websites, Enterp
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 28 October 2026 | Initial PRD, written from `plan/niscorp-company-site.md`. |
+| 1.1 | 28 October 2026 | Stories stay on their own branches and are not merged to `main`. Commits run ESLint and Prettier. |
+| 1.2 | 28 October 2026 | Every story branch starts from `main`. A human opens the pull request and merges it before the next story starts. |

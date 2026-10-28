@@ -5,6 +5,7 @@
 | Type | Story |
 | Status | To do |
 | Depends on | NIS-1 |
+| Branch | `nis-2-reach-the-company` from `main` |
 | PRD | `prd/niscorp-company-site.md` |
 
 ## User story
@@ -19,7 +20,7 @@ The three links already work from NIS-1. This story adds the page where a visito
 
 ## Entry
 
-- NIS-1 has exited. `/`, `/websites`, and `/enterprise` build to static HTML.
+- NIS-1 is merged into `main`. `/`, `/websites`, and `/enterprise` are on `main` and build to static HTML.
 - `data/company.json` already holds the contact fields, including the placeholders until real values exist.
 - No route handler, server action, or form service has been added.
 

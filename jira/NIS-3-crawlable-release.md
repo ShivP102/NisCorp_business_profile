@@ -5,6 +5,7 @@
 | Type | Story |
 | Status | To do |
 | Depends on | NIS-1, NIS-2 |
+| Branch | `nis-3-crawlable-release` from `main` |
 | PRD | `prd/niscorp-company-site.md` |
 
 ## User story
@@ -19,7 +20,7 @@ This is the last coding story before publish. It does not choose a host or inven
 
 ## Entry
 
-- NIS-1 and NIS-2 have exited.
+- NIS-1 and NIS-2 are merged into `main`.
 - `out/` contains `/`, `/websites`, `/enterprise`, and `/contact` after `next build`.
 - `siteUrl` in `data/company.json` is still the placeholder unless a real domain has been supplied.
 

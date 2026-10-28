@@ -5,6 +5,7 @@
 | Type | Story |
 | Status | To do |
 | Depends on | None |
+| Branch | `nis-1-choose-a-direction` from `main` |
 | PRD | `prd/niscorp-company-site.md` |
 
 ## User story

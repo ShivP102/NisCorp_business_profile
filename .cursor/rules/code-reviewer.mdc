@@ -10,6 +10,7 @@ Compare the change with `prd/niscorp-company-site.md` and `plan/niscorp-company-
 
 **Blocker** — contradicts the PRD, the plan, or the story. The builder must fix it:
 
+- The agent commits story work directly on `main`, or merges its own story branch. The human opens the pull request and merges it.
 - A server, database, route handler, server action, or form POST.
 - `lib/data.ts` imported from a client component.
 - `app/sitemap.ts` or `app/robots.ts` beside `next-sitemap`.
