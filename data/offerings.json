@@ -1,0 +1,61 @@
+[
+  {
+    "slug": "websites",
+    "title": "Websites for individuals",
+    "summary": "A site for you and your practice or private work, with search and marketing set up around it.",
+    "metaTitle": "Websites for individuals — NisCorp AI",
+    "metaDescription": "Sites for a person and their practice or private work, with SEO and digital marketing. A clear site, a way to reach you, and marketing built around it.",
+    "sections": [
+      {
+        "heading": "Who this is for",
+        "paragraphs": [
+          "This work is for a person and the practice or private work they run online. A doctor’s practice is one example: patients need to understand who you are, what you offer, and how to get in touch.",
+          "The same pattern fits consultants, therapists, coaches, and others who work under their own name."
+        ]
+      },
+      {
+        "heading": "What you get",
+        "paragraphs": [
+          "A site that explains who you are and what you do in plain language.",
+          "A clear way for people to reach you—phone, email, or message—without hunting through a generic template.",
+          "Search and marketing set up around that site: SEO and digital marketing as services, so people who need your work can find you."
+        ]
+      },
+      {
+        "heading": "How we work",
+        "paragraphs": [
+          "We learn how you work and who you serve, then structure the site and the marketing around that. You review the proposal before build starts; we deliver a site you can maintain with your team or with us."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "enterprise",
+    "title": "Enterprise software",
+    "summary": "Software built for how your company runs, so your team keeps using it after we leave.",
+    "metaTitle": "Enterprise software — NisCorp AI",
+    "metaDescription": "Software for a company to improve how it runs operations. We understand the operation, build around it, and leave your team with a system they use.",
+    "sections": [
+      {
+        "heading": "What this is",
+        "paragraphs": [
+          "Enterprise software here means systems built for your company—not a generic product with your logo on it. The goal is to improve how work moves through your operation: fewer manual handoffs, clearer status, and tools that match how your team already thinks."
+        ]
+      },
+      {
+        "heading": "The engagement",
+        "paragraphs": [
+          "We start by understanding how the operation works today: where data lives, who decides what, and what breaks under load.",
+          "We design and build software around that reality, in steps you can review.",
+          "We leave your team with a system they use day to day, with documentation and handover so you are not dependent on a black box."
+        ]
+      },
+      {
+        "heading": "When it fits",
+        "paragraphs": [
+          "This fits when spreadsheets and ad hoc tools are slowing you down, when a new process needs software behind it, or when an older system no longer matches how the business runs. We name no product; the work is shaped to your operation."
+        ]
+      }
+    ]
+  }
+]
