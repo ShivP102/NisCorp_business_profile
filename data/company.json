@@ -1,0 +1,14 @@
+{
+  "name": "NisCorp AI",
+  "email": "hello@example.com",
+  "phoneDisplay": "+91 00000 00000",
+  "phoneTel": "+910000000000",
+  "whatsappE164": "910000000000",
+  "whatsappDefaultText": "Hello, I would like to talk with NisCorp AI about a project.",
+  "siteUrl": "https://example.com",
+  "metaTitle": "NisCorp AI — Software solutions and consulting",
+  "metaDescription": "NisCorp AI builds software and consults on that work. Choose an individual website or enterprise software, then reach us by phone, email, or WhatsApp.",
+  "heroLine": "NisCorp AI builds software and consults",
+  "about": "We work with people and companies who need software built around how they actually operate. You describe the work; we shape a clear proposal and build what you agreed to.",
+  "processSteps": ["You tell us the work", "We propose it", "We build it"]
+}
