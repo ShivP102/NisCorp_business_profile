@@ -16,6 +16,14 @@ export function generateMetadata(): Metadata {
     openGraph: {
       title: offering.metaTitle,
       description: offering.metaDescription,
+      images: [
+        {
+          url: "/img/niscorp_logo.jpg",
+          width: 1251,
+          height: 848,
+          alt: "NisCorp AI. Software solutions and consulting.",
+        },
+      ],
     },
   };
 }

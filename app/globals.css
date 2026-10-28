@@ -5,14 +5,14 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #f3efe6;
+  --background: #f4f6f5;
   --foreground: #141414;
   --surface: #fffdf8;
   --muted: #ebe4d6;
   --muted-foreground: #3f3f46;
-  --accent: #1e4a8c;
+  --accent: #16386b;
   --accent-foreground: #ffffff;
-  --maximal: #9d174d;
+  --maximal: #0f6e7d;
   /* Dark enough for white label text at WCAG 2.2 AA */
   --whatsapp: #0d6e45;
   --border: #d9d1c3;
@@ -20,40 +20,40 @@
   --card-foreground: #141414;
   --popover: #fffdf8;
   --popover-foreground: #141414;
-  --primary: #1e4a8c;
+  --primary: #16386b;
   --primary-foreground: #ffffff;
   --secondary: #ebe4d6;
   --secondary-foreground: #141414;
   --destructive: #9f1239;
   --input: #cfc6b6;
-  --ring: #1e4a8c;
+  --ring: #16386b;
   --radius: 0.75rem;
   /* Sticky header block; floating WhatsApp sits just below on narrow viewports */
-  --site-header-height: 4.75rem;
+  --site-header-height: 5.25rem;
   --floating-whatsapp-inset-x: 0.75rem;
   --floating-whatsapp-inset-y: 0.5rem;
   --floating-whatsapp-size: 2.75rem;
   /* Main-column inset so links stay clickable beside the fixed mobile button */
   --floating-whatsapp-clearance: 4rem;
-  --chart-1: #1e4a8c;
+  --chart-1: #16386b;
   --chart-2: #0d6e45;
-  --chart-3: #9d174d;
+  --chart-3: #0f6e7d;
   --chart-4: #3f3f46;
   --chart-5: #141414;
   --sidebar: #fffdf8;
   --sidebar-foreground: #141414;
-  --sidebar-primary: #1e4a8c;
+  --sidebar-primary: #16386b;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #ebe4d6;
   --sidebar-accent-foreground: #141414;
   --sidebar-border: #d9d1c3;
-  --sidebar-ring: #1e4a8c;
+  --sidebar-ring: #16386b;
 }
 
 @media (max-width: 639px) {
   :root {
     /* Wrapped nav on very narrow / high-zoom layouts */
-    --site-header-height: 6.75rem;
+    --site-header-height: 7.25rem;
   }
 }
 
@@ -115,7 +115,7 @@
 body {
   background-color: var(--background);
   background-image:
-    linear-gradient(rgba(243, 239, 230, 0.9), rgba(243, 239, 230, 0.9)),
+    linear-gradient(rgba(244, 246, 245, 0.9), rgba(244, 246, 245, 0.9)),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
   background-size:
     auto,
@@ -164,12 +164,12 @@ body {
   background: linear-gradient(
     145deg,
     rgba(255, 255, 255, 0.72),
-    rgba(30, 74, 140, 0.22) 48%,
+    rgba(22, 56, 107, 0.22) 48%,
     rgba(255, 255, 255, 0.28)
   );
   box-shadow:
     inset 0 0 36px rgba(255, 255, 255, 0.55),
-    0 24px 48px rgba(30, 74, 140, 0.16);
+    0 24px 48px rgba(22, 56, 107, 0.16);
   backdrop-filter: blur(16px);
 }
 

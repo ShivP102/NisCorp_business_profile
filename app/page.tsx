@@ -15,6 +15,14 @@ export function generateMetadata(): Metadata {
     openGraph: {
       title: company.metaTitle,
       description: company.metaDescription,
+      images: [
+        {
+          url: "/img/niscorp_logo.jpg",
+          width: 1251,
+          height: 848,
+          alt: "NisCorp AI. Software solutions and consulting.",
+        },
+      ],
     },
   };
 }
@@ -43,18 +51,18 @@ export default function HomePage() {
           >
             <LiquidGlass />
             <div className="relative z-10">
-              <p className="max-w-4xl text-3xl leading-none font-black tracking-[-0.045em] text-maximal sm:text-6xl">
-                Software solutions and consulting
+              <p className="text-lg leading-none font-black tracking-[-0.04em] text-maximal sm:text-2xl">
+                Choose the work.
               </p>
               <h1
                 id="hero-heading"
-                className="mt-6 max-w-3xl text-4xl leading-tight font-semibold tracking-tight text-foreground sm:mt-8 sm:text-6xl sm:leading-[1.05]"
+                className="mt-4 max-w-3xl text-4xl leading-tight font-semibold tracking-tight text-foreground sm:mt-5 sm:text-6xl sm:leading-[1.05]"
               >
                 {company.heroLine}
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                Choose the kind of work you need. Both paths start with a
-                conversation.
+                An individual website, or software for how a company runs. Both
+                start with a conversation.
               </p>
               <DirectionCards offerings={offerings} />
             </div>

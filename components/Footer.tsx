@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { buildWhatsAppUrl, type Company, type Offering } from "@/lib/data";
@@ -68,9 +69,18 @@ export function Footer({ company, offerings }: FooterProps) {
       </div>
       <Separator />
       <div className="px-4 py-6 sm:px-6">
-        <p className="mx-auto max-w-6xl text-sm text-muted-foreground">
-          © {new Date().getFullYear()} {company.name}
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-col gap-4">
+          <Image
+            src="/img/niscorp-logo.png"
+            alt="NisCorp AI. Software solutions and consulting."
+            width={800}
+            height={520}
+            className="h-auto w-40 sm:w-48"
+          />
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} {company.name}
+          </p>
+        </div>
       </div>
     </footer>
   );
