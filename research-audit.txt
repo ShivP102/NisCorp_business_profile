@@ -111,7 +111,7 @@ CTA: Get your site live in 14 days
 
 H1: About NisCorp AI
 Summary: Software and AI engineering focused on outcomes your team can own.
-Sections: What we do; How we work; Capabilities (AI & LLM, full-stack, data, cloud, delivery quality); Principles; Where we work (remote-first, IST and US); Get in touch.
+Sections: What we do; How we work; Capabilities (AI & LLM, full-stack, data, cloud, delivery quality); Principles; Where we work (remote-first, IST and US). Contact closes with shared ContactActions only.
 CTA: Book a 20‑minute discovery call, email, or WhatsApp. Reply within one business day.
 6. Case Studies (new — anonymize or attribute where allowed)
 
@@ -345,12 +345,6 @@ About
 "heading": "Where we work",
 "paragraphs": [
 "Remote-first with coverage across IST and US time zones; comfortable collaborating with distributed product, data, and operations teams."
-]
-},
-{
-"heading": "Get in touch",
-"paragraphs": [
-"Book a 20-minute discovery call, email, or message on WhatsApp. We reply within one business day."
 ]
 }
 ]

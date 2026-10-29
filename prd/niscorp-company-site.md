@@ -3,7 +3,7 @@
 |            |                                                                                   |
 | ---------- | --------------------------------------------------------------------------------- |
 | Status     | Draft. Do not start the app until a coding agent is asked to implement this file. |
-| Version    | 1.6                                                                               |
+| Version    | 1.8                                                                               |
 | Updated    | 29 October 2026                                                                   |
 | Source     | `plan/niscorp-company-site.md`, then `plan/website-content-enhancement.md`        |
 | Supersedes | Those plans, for requirements. The plans stay as the briefs.                      |
@@ -70,7 +70,7 @@ flowchart TD
   cases --> contact
 ```
 
-Header and footer on every page. The header is logo (Home), a Services menu, About, and Contact. The menu lists All services, AI and LLM, and Websites and SEO. It opens from the keyboard and from a tap, closes on an outside click and on Escape, and does not rely on hover alone. Case studies stay out of the header. The footer is four columns in one row: the mark and a one-sentence tagline with the copyright under it, the three offers, Company (About and the case study), and Support (a link to Contact). Phone, email, and WhatsApp stay on the contact actions above the footer, not repeated as plain text under it. Contact actions use a quiet label-and-value layout, not heavy card boxes. WhatsApp green is only the WhatsApp button. A floating WhatsApp button sits on every page.
+Header and footer on every page. The header is logo (Home), a Services menu, About, and Contact. The menu lists All services, AI and LLM, and Websites and SEO. It is a **relative dropdown** (not inline links): closed by default, toggled from the Services control, dismissed on outside click and Escape. On viewports below `md`, primary links live in a **menu button panel** (hidden until opened); desktop keeps a single-row nav. Case studies stay out of the header. The footer is four columns in one row: the mark and a one-sentence tagline with the copyright under it, the three offers, Company (About and the case study), and Support (a link to Contact). Phone, email, and WhatsApp stay on the contact actions above the footer, not repeated as plain text under it. Contact actions use a quiet label-and-value layout, not heavy card boxes. WhatsApp green is only the WhatsApp button. A floating WhatsApp button sits on every page.
 
 Home order: hero (company line, H1, subhead, CTAs, company intro, three direction cards), **What we're good at** from `trustFacts`, how a project starts, FAQ, contact. The direction cards are not repeated lower on the page.
 
@@ -81,7 +81,7 @@ Home order: hero (company line, H1, subhead, CTAs, company intro, three directio
 - First viewport: the company line (`heroLine`), H1, subhead (`heroSubhead`), discovery-call action, WhatsApp, company intro (`companyIntro`), and the three direction cards.
 - Cards use `href` from `data/offerings.json`: AI to `/services/ai-llm`, websites to `/services/websites`, enterprise to `/services#enterprise`.
 - **What we're good at:** capability lines from `trustFacts` (stack and delivery themes, not a founder résumé).
-- **How a project starts:** `processSteps` and a short company snippet from `about`, with a link to About labeled **About NisCorp AI**.
+- **How a project runs** (`processHeading`): five steps from `processSections` (or `processSteps` labels) in **`ProcessChevronBanner`** (3–5 interlocking chevrons on `md+`; full detail in the mobile list). **`processAssurance`** line under the banner states scope completion and optional ongoing support. Company snippet from `about` with link **About NisCorp AI**.
 - FAQ from `data/faqs.json`, with FAQPage JSON-LD.
 - Phone, email, and WhatsApp.
 
@@ -107,7 +107,16 @@ Primary action: book a call to get a site live.
 
 ### About `/about`
 
-Company-first copy from `data/about.json`: title **About NisCorp AI**, summary, and sections for what we do, how we work, capabilities, principles, where we work (remote-first, IST and US coverage at company level), and get in touch. No individual names or founder section. No social links until real URLs are in JSON. Link to the case study. Same contact close.
+Company-first copy from `data/about.json`: title **About NisCorp AI**, summary, and sections for what we do, how we work, capabilities, principles, and where we work (remote-first, IST and US coverage at company level). No individual names or founder section. No **Get in touch** body section—contact closes with the shared `ContactActions` block only. No social links until real URLs are in JSON. Link to the case study.
+
+**Layout (lighter bento + one disclosure block):**
+
+- **What we do:** one glass hero cell (wide on large screens).
+- **Principles:** accent-left list in a **three-column row** from `sm`—not glass cards, not squeezed beside What we do on `lg`.
+- **How we work:** full-width **`ProcessChevronBanner`** on `md+`: three interlocking chevron ribbons left-to-right, liquid-glass fill, accent→maximal gradient on the top edge (stronger on later steps). Ordered **`steps`** in JSON (`title`, `description`); semantic `<ol>`. Below `md`, the same steps stack as bordered rows (no chevron clip).
+- **Where we work:** open typography **below** How we work (full width)—not a two-column pair with How we work.
+- **Capabilities:** full-width **`DisclosureList`** (same pattern as Home FAQ): `border-y` rows, `details`/`summary`, chevron affordance—**not** a glass card grid. Body text is the detail after the label colon.
+- Still **liquid glass** behind the page title. Same six-column grid as other inner pages.
 
 ### Case studies `/case-studies`
 
@@ -147,7 +156,7 @@ The UI is modern and composed. The first viewport shows the company line and the
 Ten design languages are in scope. Each has one job so the choice stays readable:
 
 - **Minimalism** carries the company line: large type, a short measure, and whitespace around the choice.
-- **Bento grid** is the home structure. The hero spans the grid. The three directions are peer cells. Process, FAQ, and contact fill the rest. Offering pages use the same grid at a smaller density.
+- **Bento grid** is the home structure. The hero spans the grid. The three directions are peer cells. Process, FAQ, and contact fill the rest. Offering pages use the same grid at a smaller density. About uses a **lighter bento**: full-width and half-width glass cells for narrative sections, three peer cells for principles, and a single disclosure block for capabilities—not a uniform card grid.
 - **Glassmorphism** is the header and the websites direction card: a translucent fill, a 16px blur, and a 1px light border.
 - **Claymorphism** is the enterprise direction card and enterprise section cards on `/services`: a soft radius, inner shadow, and a **muted warm paper** pastel that still clears WCAG 2.2 AA with the text—not a loud terracotta fill.
 - The AI direction card is paper fill with a 2px near-black border. AI detail sections on `/services/ai-llm` use a quiet frosted glass surface. They do not use clay or the maximalist hue.
@@ -222,9 +231,12 @@ app/
   globals.css
 components/
   Header.tsx
-  ServicesMenu.tsx
+  SiteNav.tsx
   Footer.tsx
   WhatsAppButton.tsx
+  AboutSections.tsx
+  ProcessChevronBanner.tsx
+  DisclosureList.tsx
   DirectionCards.tsx
   ContactActions.tsx
   DiscoveryLink.tsx
@@ -250,11 +262,11 @@ vercel.json
 
 ### `data/company.json`
 
-Fields include `name`, `email`, `phoneDisplay`, `phoneTel`, `whatsappE164`, `whatsappDefaultText`, `siteUrl`, home and contact and services metadata, `heroLine`, `heroSubhead`, `companyIntro`, `about` (short company snippet for the process block on Home), `processSteps`, `trustFacts` (capability lines for **What we're good at**), `calendarUrl`, and `gaMeasurementId`. `next-sitemap` reads `siteUrl`. `calendarUrl` and `gaMeasurementId` may be empty.
+Fields include `name`, `email`, `phoneDisplay`, `phoneTel`, `whatsappE164`, `whatsappDefaultText`, `siteUrl`, home and contact and services metadata, `heroLine`, `heroSubhead`, `companyIntro`, `about` (short company snippet for the process block on Home), `processHeading`, `processAssurance`, `processSteps` (fallback labels), optional **`processSections`** (`heading` + `paragraphs` for Home process steps), `trustFacts` (capability lines for **What we're good at**), `calendarUrl`, and `gaMeasurementId`. `next-sitemap` reads `siteUrl`. `calendarUrl` and `gaMeasurementId` may be empty.
 
 ### `data/about.json`
 
-Fields include `title`, `summary`, `metaTitle`, `metaDescription`, and `sections` (each with `heading` and `paragraphs`). Content is company-first: capabilities, principles, working style, and coverage—no founder or individual names.
+Fields include `title`, `summary`, `metaTitle`, `metaDescription`, and `sections` (each with `heading` and `paragraphs`). The **How we work** section also has optional ordered **`steps`**: `{ "title", "description" }[]` (three steps). Content is company-first: capabilities, principles, working style, and coverage—no founder or individual names. Expected section headings: What we do, How we work, Capabilities, Principles, Where we work. Do not add a Get in touch section; contact is only `ContactActions` on the page.
 
 ### `data/offerings.json`
 
@@ -301,3 +313,5 @@ Run the production build and open the static output. Walk Home, Services, AI, We
 | 1.4     | 28 October 2026 | Hybrid services: overview, AI and websites detail pages, enterprise as a section, About, one unnamed case study, FAQPage, and supplied contact. |
 | 1.5     | 28 October 2026 | Footer is a four-column row with a small mark. Contact actions share one card; WhatsApp green is only its button.                                |
 | 1.6     | 29 October 2026 | Company-first Home and About copy in JSON; **What we're good at** on Home; Services menu with outside dismiss; muted enterprise clay; contact and AI detail use quiet glass; still title glass on inner pages. |
+| 1.7     | 29 October 2026 | About layout: bento glass for narrative sections, three principle cells, capabilities in FAQ-style disclosure; remove duplicate Get in touch section. |
+| 1.8     | 29 October 2026 | About **How we work**: chevron progression banner (`ProcessChevronBanner`), JSON `steps`; **Where we work** full width below; mobile nav panel (`SiteNav`). Home **How a project starts** uses the same chevron banner for `processSteps`. |

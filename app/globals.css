@@ -52,8 +52,7 @@
 
 @media (max-width: 639px) {
   :root {
-    /* Wrapped nav on very narrow / high-zoom layouts */
-    --site-header-height: 7.25rem;
+    --site-header-height: 4.75rem;
   }
 }
 

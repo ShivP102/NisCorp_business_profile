@@ -12,10 +12,20 @@
     },
     {
       "heading": "How we work",
-      "paragraphs": [
-        "Discovery and scoping in plain language.",
-        "Fixed-scope sprints with weekly demos and measurable outcomes.",
-        "Production hardening, documentation, runbooks, and capability transfer so you are not dependent on a black box."
+      "paragraphs": [],
+      "steps": [
+        {
+          "title": "Discovery",
+          "description": "Discovery and scoping in plain language."
+        },
+        {
+          "title": "Delivery sprints",
+          "description": "Fixed-scope sprints with weekly demos and measurable outcomes."
+        },
+        {
+          "title": "Handover",
+          "description": "Production hardening, documentation, runbooks, and capability transfer so you are not dependent on a black box."
+        }
       ]
     },
     {
@@ -40,12 +50,6 @@
       "heading": "Where we work",
       "paragraphs": [
         "Remote-first with coverage across IST and US time zones; comfortable collaborating with distributed product, data, and operations teams."
-      ]
-    },
-    {
-      "heading": "Get in touch",
-      "paragraphs": [
-        "Book a 20-minute discovery call, email, or message on WhatsApp. We reply within one business day."
       ]
     }
   ]

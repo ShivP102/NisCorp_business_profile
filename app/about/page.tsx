@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AboutSections } from "@/components/AboutSections";
 import { ContactActions } from "@/components/ContactActions";
 import { LiquidGlass } from "@/components/LiquidGlass";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { getAbout, getCompany } from "@/lib/data";
 
 export function generateMetadata(): Metadata {
@@ -46,34 +46,9 @@ export default function AboutPage() {
         </div>
       </header>
 
-      {about.sections.map((section) => (
-        <section
-          key={section.heading}
-          aria-labelledby={section.heading}
-          className="md:col-span-3"
-        >
-          <Card className="surface-glass h-full gap-4 py-5">
-            <CardHeader className="px-5">
-              <h2
-                id={section.heading}
-                className="text-xl font-semibold tracking-tight"
-              >
-                {section.heading}
-              </h2>
-            </CardHeader>
-            <CardContent className="space-y-4 px-5">
-              {section.paragraphs.map((paragraph) => (
-                <p
-                  key={paragraph}
-                  className="text-base leading-relaxed text-foreground"
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </CardContent>
-          </Card>
-        </section>
-      ))}
+      <div className="md:col-span-6">
+        <AboutSections sections={about.sections} />
+      </div>
 
       <p className="md:col-span-6">
         <Link
