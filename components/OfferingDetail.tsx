@@ -102,6 +102,7 @@ export function OfferingDetail({
           <EngagementShapes
             id={`${offering.slug}-shapes`}
             heading={offering.slug === "websites" ? "Packages" : "How it works"}
+            mode={offering.slug === "websites" ? "peers" : "sequence"}
             shapes={offering.shapes}
           />
         </div>

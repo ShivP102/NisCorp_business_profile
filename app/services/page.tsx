@@ -131,6 +131,7 @@ export default function ServicesPage() {
                   id="enterprise-shapes"
                   heading="How we work"
                   level={3}
+                  mode="sequence"
                   shapes={offering.shapes}
                 />
                 <p>
