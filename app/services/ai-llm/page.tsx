@@ -40,7 +40,7 @@ export default function AiLlmPage() {
       offering={offering}
       heading="AI & LLM Solutions — RAG, agents, and automation that ship"
       eyebrow="Practical AI"
-      surface="rule"
+      surface="glass"
       ctaLabel="Book a 20-minute discovery call"
       contactHeading="Talk about an AI project"
       faqs={getFaqs("ai-llm")}

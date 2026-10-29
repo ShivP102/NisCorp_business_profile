@@ -28,11 +28,10 @@ export type ContactFormProps = {
   whatsappE164: string;
 };
 
-const brutalLabel =
-  "font-[family-name:ui-sans-serif,system-ui,sans-serif] text-xs font-bold tracking-[0.14em] text-foreground uppercase";
+const fieldLabel = "text-muted-foreground";
 
-const brutalField =
-  "mt-2 h-11 rounded-none border-2 border-foreground bg-white text-base text-foreground shadow-none focus-visible:border-accent focus-visible:ring-accent/40";
+const fieldClass =
+  "mt-2 h-11 bg-white text-base text-foreground shadow-none md:text-base";
 
 function pathLabel(value: PathValue): string {
   return PATH_OPTIONS.find((option) => option.value === value)?.label ?? value;
@@ -109,12 +108,12 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
         it on this site.
       </p>
       <form
-        className="surface-brutal mt-8 max-w-xl space-y-6 p-5 sm:p-8"
+        className="surface-glass mt-8 max-w-xl space-y-6 rounded-xl p-5 sm:p-8"
         onSubmit={handleSubmit}
         noValidate
       >
         <div>
-          <Label htmlFor="contact-name" className={brutalLabel}>
+          <Label htmlFor="contact-name" className={fieldLabel}>
             Name
           </Label>
           <Input
@@ -125,11 +124,11 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
             required
             value={name}
             onChange={(event) => setName(event.target.value)}
-            className={brutalField}
+            className={fieldClass}
           />
         </div>
         <div>
-          <Label htmlFor="contact-email" className={brutalLabel}>
+          <Label htmlFor="contact-email" className={fieldLabel}>
             Your email
           </Label>
           <Input
@@ -140,11 +139,11 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
             required
             value={visitorEmail}
             onChange={(event) => setVisitorEmail(event.target.value)}
-            className={brutalField}
+            className={fieldClass}
           />
         </div>
         <div>
-          <Label htmlFor="contact-path" className={brutalLabel}>
+          <Label htmlFor="contact-path" className={fieldLabel}>
             Kind of work
           </Label>
           <Select
@@ -154,7 +153,7 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
             <SelectTrigger
               id="contact-path"
               aria-required
-              className={`${brutalField} data-[size=default]:h-11 w-full`}
+              className={`${fieldClass} w-full data-[size=default]:h-11`}
             >
               <SelectValue>{pathLabel(path)}</SelectValue>
             </SelectTrigger>
@@ -168,7 +167,7 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
           </Select>
         </div>
         <div>
-          <Label htmlFor="contact-message" className={brutalLabel}>
+          <Label htmlFor="contact-message" className={fieldLabel}>
             Message
           </Label>
           <Textarea
@@ -178,13 +177,13 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
             rows={5}
             value={message}
             onChange={(event) => setMessage(event.target.value)}
-            className={`${brutalField} field-sizing-fixed min-h-32`}
+            className={`${fieldClass} field-sizing-fixed min-h-32`}
           />
         </div>
-        <div className="flex flex-col gap-3 max-sm:pl-16 sm:flex-row sm:flex-wrap sm:pl-0 sm:pb-2 sm:pr-[4.75rem]">
+        <div className="flex flex-col gap-3 max-sm:pl-16 sm:flex-row sm:flex-wrap sm:pr-[4.75rem] sm:pb-2 sm:pl-0">
           <Button
             type="submit"
-            className="min-h-11 rounded-none bg-whatsapp text-base font-semibold text-white hover:bg-whatsapp/90"
+            className="min-h-11 bg-whatsapp px-4 text-base font-semibold text-white hover:bg-whatsapp/90"
           >
             Send on WhatsApp
           </Button>
@@ -192,7 +191,7 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
             type="button"
             variant="outline"
             onClick={openEmail}
-            className="min-h-11 rounded-none border-2 border-foreground bg-white font-[family-name:ui-sans-serif,system-ui,sans-serif] text-base font-bold tracking-wide text-foreground uppercase shadow-[4px_4px_0_#141414] hover:bg-foreground hover:text-white"
+            className="min-h-11 border-border bg-white px-4 text-base font-semibold text-foreground shadow-none hover:bg-foreground/5 hover:text-foreground"
           >
             Send by email
           </Button>

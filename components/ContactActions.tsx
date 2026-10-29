@@ -6,8 +6,8 @@ type ContactActionsProps = {
   id?: string;
 };
 
-const cardClass =
-  "flex h-full flex-col rounded-xl border border-border bg-surface p-5";
+const valueLink =
+  "mt-1 inline-block text-lg font-semibold text-foreground underline-offset-4 hover:text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
 export function ContactActions({
   company,
@@ -28,35 +28,31 @@ export function ContactActions({
         Phone, email, or WhatsApp—use whichever is easiest. We read every
         message.
       </p>
-      <ul className="mt-8 grid gap-4 sm:grid-cols-3 sm:pr-[4.75rem]">
-        <li className={cardClass}>
+      <ul className="mt-8 grid gap-8 sm:grid-cols-3 sm:pr-[4.75rem]">
+        <li>
           <p className="text-sm font-medium text-muted-foreground">Phone</p>
-          <a
-            href={`tel:${company.phoneTel}`}
-            className="mt-3 text-lg font-semibold text-foreground hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
+          <a href={`tel:${company.phoneTel}`} className={valueLink}>
             {company.phoneDisplay}
           </a>
         </li>
-        <li className={cardClass}>
+        <li>
           <p className="text-sm font-medium text-muted-foreground">Email</p>
-          <a
-            href={`mailto:${company.email}`}
-            className="mt-3 text-lg font-semibold break-all text-foreground hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            {company.email}
+          <a href={`mailto:${company.email}`} className={valueLink}>
+            {company.email.slice(0, company.email.indexOf("@"))}
+            <wbr />
+            {company.email.slice(company.email.indexOf("@"))}
           </a>
         </li>
-        <li className={cardClass}>
+        <li>
           <p className="text-sm font-medium text-muted-foreground">WhatsApp</p>
-          <p className="mt-3 text-base leading-relaxed text-foreground">
+          <p className="mt-1 text-base leading-relaxed text-muted-foreground">
             Open a chat on your device.
           </p>
           <a
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex min-h-11 items-center justify-center self-start rounded-md bg-whatsapp px-4 text-sm font-semibold text-white hover:bg-whatsapp/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="mt-3 inline-flex min-h-11 items-center justify-center rounded-md bg-whatsapp px-4 text-sm font-semibold text-white hover:bg-whatsapp/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             Message on WhatsApp
           </a>
