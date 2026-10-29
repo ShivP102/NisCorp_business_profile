@@ -1,14 +1,18 @@
 type TrustStripProps = {
   facts: string[];
+  heading?: string;
 };
 
-export function TrustStrip({ facts }: TrustStripProps) {
+export function TrustStrip({ facts, heading = "Experience" }: TrustStripProps) {
   return (
     <section aria-labelledby="trust-heading">
-      <h2 id="trust-heading" className="sr-only">
-        Experience
+      <h2
+        id="trust-heading"
+        className="text-xl font-semibold tracking-tight sm:text-2xl"
+      >
+        {heading}
       </h2>
-      <ul className="grid gap-4 md:grid-cols-3">
+      <ul className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {facts.map((fact) => (
           <li
             key={fact}

@@ -18,6 +18,7 @@ export type Company = {
   servicesIntro: string;
   heroLine: string;
   heroSubhead: string;
+  companyIntro: string;
   about: string;
   processSteps: string[];
   calendarUrl: string;

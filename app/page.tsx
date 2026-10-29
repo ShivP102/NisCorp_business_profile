@@ -101,12 +101,18 @@ export default function HomePage() {
                   WhatsApp us
                 </a>
               </div>
+              <p className="mt-8 max-w-2xl text-base leading-relaxed text-foreground">
+                {company.companyIntro}
+              </p>
               <DirectionCards offerings={offerings} />
             </div>
           </section>
 
           <div className="md:col-span-6 md:px-2 md:pt-4">
-            <TrustStrip facts={company.trustFacts} />
+            <TrustStrip
+              facts={company.trustFacts}
+              heading="What we're good at"
+            />
           </div>
 
           <section
@@ -125,7 +131,7 @@ export default function HomePage() {
                 href="/about"
                 className="font-semibold text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
-                About the founder
+                About NisCorp AI
               </Link>
             </p>
             <ol className="mt-8 grid gap-4 sm:grid-cols-3">

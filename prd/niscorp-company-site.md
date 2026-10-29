@@ -3,8 +3,8 @@
 |            |                                                                                   |
 | ---------- | --------------------------------------------------------------------------------- |
 | Status     | Draft. Do not start the app until a coding agent is asked to implement this file. |
-| Version    | 1.5                                                                               |
-| Updated    | 28 October 2026                                                                   |
+| Version    | 1.6                                                                               |
+| Updated    | 29 October 2026                                                                   |
 | Source     | `plan/niscorp-company-site.md`, then `plan/website-content-enhancement.md`        |
 | Supersedes | Those plans, for requirements. The plans stay as the briefs.                      |
 
@@ -22,7 +22,7 @@ Three offers make the work concrete:
 - **Websites and SEO.** Sites for a person and their practice or private work. A doctor’s practice is one kind of client, written inside the websites page, not as its own brand. SEO and digital marketing are named as services. The page says what the client gets: a site that explains who they are, a clear way for people to reach them, and search and marketing set up around that site. This offer has its own page.
 - **Enterprise software.** Software built for a company to improve how it runs its operations. For this revision it is a section on the services overview, not its own URL. No product name. One unnamed case study may describe a B2B operations platform.
 
-Tone is specific and calm. Name the work and the result. Leave out hype, fake proof, public apologies that shrink the offer, the word “limited” in front of SEO or marketing, partners, subcontractors, and other firms. Do not invent an email, phone number, address, domain, calendar link, or social profile. The founder name and the experience lines in `data/company.json` and `data/about.json` are supplied. Do not add employer names, client names, or rankings.
+Tone is specific and calm. Name the work and the result. Leave out hype, fake proof, public apologies that shrink the offer, the word “limited” in front of SEO or marketing, partners, subcontractors, and other firms. Do not invent an email, phone number, address, domain, calendar link, or social profile. Home and About speak as **NisCorp AI the company**. Do not use individual names, founder bios, or personal résumé lines on any page. Copy for Home and About lives in `data/company.json` and `data/about.json`. Do not add employer names, client names, or rankings.
 
 ## v1 scope
 
@@ -70,18 +70,18 @@ flowchart TD
   cases --> contact
 ```
 
-Header and footer on every page. The header is logo (Home), a Services disclosure, About, and Contact. The disclosure lists All services, AI and LLM, and Websites and SEO. It is a `details` element, not a hover-only menu. Case studies stay out of the header. The footer is four columns in one row: the mark and a one-sentence tagline with the copyright under it, the three offers, Company (About and the case study), and Support (a link to Contact). Phone, email, and WhatsApp stay on the contact actions above the footer, not repeated as plain text under it. Those three actions share one card style. WhatsApp green is only the button inside the WhatsApp card. A floating WhatsApp button sits on every page.
+Header and footer on every page. The header is logo (Home), a Services menu, About, and Contact. The menu lists All services, AI and LLM, and Websites and SEO. It opens from the keyboard and from a tap, closes on an outside click and on Escape, and does not rely on hover alone. Case studies stay out of the header. The footer is four columns in one row: the mark and a one-sentence tagline with the copyright under it, the three offers, Company (About and the case study), and Support (a link to Contact). Phone, email, and WhatsApp stay on the contact actions above the footer, not repeated as plain text under it. Contact actions use a quiet label-and-value layout, not heavy card boxes. WhatsApp green is only the WhatsApp button. A floating WhatsApp button sits on every page.
 
-Home order: hero with the three direction cards, trust strip, how a project starts, FAQ, contact. The cards are not repeated lower on the page.
+Home order: hero (company line, H1, subhead, CTAs, company intro, three direction cards), **What we're good at** from `trustFacts`, how a project starts, FAQ, contact. The direction cards are not repeated lower on the page.
 
 ## Pages
 
 ### Home `/`
 
-- First viewport: the company line, a discovery-call action, WhatsApp, and the three direction cards.
+- First viewport: the company line (`heroLine`), H1, subhead (`heroSubhead`), discovery-call action, WhatsApp, company intro (`companyIntro`), and the three direction cards.
 - Cards use `href` from `data/offerings.json`: AI to `/services/ai-llm`, websites to `/services/websites`, enterprise to `/services#enterprise`.
-- Trust facts from `trustFacts`.
-- A short sequence: you tell us the work, we propose it, we build it. A link to About.
+- **What we're good at:** capability lines from `trustFacts` (stack and delivery themes, not a founder résumé).
+- **How a project starts:** `processSteps` and a short company snippet from `about`, with a link to About labeled **About NisCorp AI**.
 - FAQ from `data/faqs.json`, with FAQPage JSON-LD.
 - Phone, email, and WhatsApp.
 
@@ -107,7 +107,7 @@ Primary action: book a call to get a site live.
 
 ### About `/about`
 
-Founder and working style from `data/about.json`. No social links until real URLs are in JSON. Link to the case study. Same contact close.
+Company-first copy from `data/about.json`: title **About NisCorp AI**, summary, and sections for what we do, how we work, capabilities, principles, where we work (remote-first, IST and US coverage at company level), and get in touch. No individual names or founder section. No social links until real URLs are in JSON. Link to the case study. Same contact close.
 
 ### Case studies `/case-studies`
 
@@ -149,14 +149,14 @@ Ten design languages are in scope. Each has one job so the choice stays readable
 - **Minimalism** carries the company line: large type, a short measure, and whitespace around the choice.
 - **Bento grid** is the home structure. The hero spans the grid. The three directions are peer cells. Process, FAQ, and contact fill the rest. Offering pages use the same grid at a smaller density.
 - **Glassmorphism** is the header and the websites direction card: a translucent fill, a 16px blur, and a 1px light border.
-- **Claymorphism** is the enterprise direction card: a soft radius, an inner shadow, and a pastel that still clears WCAG 2.2 AA with the text.
-- The AI direction card is paper fill with a 2px near-black border. It does not use glass, clay, or the maximalist hue.
+- **Claymorphism** is the enterprise direction card and enterprise section cards on `/services`: a soft radius, inner shadow, and a **muted warm paper** pastel that still clears WCAG 2.2 AA with the text—not a loud terracotta fill.
+- The AI direction card is paper fill with a 2px near-black border. AI detail sections on `/services/ai-llm` use a quiet frosted glass surface. They do not use clay or the maximalist hue.
 - **Neomorphism** is only the three process tiles. Labels are near-black on a surface close to the page ground.
 - **Spatial UI** puts the company line above a liquid shape. Cards lift on hover and on focus.
-- **Liquid glass** is one organic shape behind the hero. Scroll moves it. `prefers-reduced-motion: reduce` freezes it.
+- **Liquid glass** is one organic shape behind the home hero. Scroll moves it. Inner pages may use a **still, smaller** echo behind the page title (lower opacity, no scroll travel, no morph). `prefers-reduced-motion: reduce` freezes morph and scroll-driven motion.
 - **Skeuomorphism** is a light paper grain on the page background.
 - **Maximalism** is one display line in the hero: weight, tracking, and a second hue. It does not spread into body copy.
-- **Brutalism** is the contact form frame: a hard border, square corners, and a system font on the labels. Fields stay labeled and keyboard-reachable.
+- **Brutalism** is not used on the contact form in this revision. The contact form and shared contact row use the same quiet **glass** family as other softened surfaces: rounded panel, sentence-case labels, and reachable fields.
 
 Other visual rules:
 
@@ -222,6 +222,7 @@ app/
   globals.css
 components/
   Header.tsx
+  ServicesMenu.tsx
   Footer.tsx
   WhatsAppButton.tsx
   DirectionCards.tsx
@@ -249,7 +250,11 @@ vercel.json
 
 ### `data/company.json`
 
-Fields include `name`, `email`, `phoneDisplay`, `phoneTel`, `whatsappE164`, `whatsappDefaultText`, `siteUrl`, home and contact and services metadata, `heroLine`, `heroSubhead`, `about`, `processSteps`, `trustFacts`, `calendarUrl`, and `gaMeasurementId`. `next-sitemap` reads `siteUrl`. `calendarUrl` and `gaMeasurementId` may be empty.
+Fields include `name`, `email`, `phoneDisplay`, `phoneTel`, `whatsappE164`, `whatsappDefaultText`, `siteUrl`, home and contact and services metadata, `heroLine`, `heroSubhead`, `companyIntro`, `about` (short company snippet for the process block on Home), `processSteps`, `trustFacts` (capability lines for **What we're good at**), `calendarUrl`, and `gaMeasurementId`. `next-sitemap` reads `siteUrl`. `calendarUrl` and `gaMeasurementId` may be empty.
+
+### `data/about.json`
+
+Fields include `title`, `summary`, `metaTitle`, `metaDescription`, and `sections` (each with `heading` and `paragraphs`). Content is company-first: capabilities, principles, working style, and coverage—no founder or individual names.
 
 ### `data/offerings.json`
 
@@ -274,7 +279,7 @@ Not part of the first coding task. When the site is deployed:
 
 Run the production build and open the static output. Walk Home, Services, AI, Websites, About, Case studies, and Contact.
 
-- The company reads as software, practical AI, and consulting.
+- The company reads as software, practical AI, and consulting. Home and About do not name an individual or show a founder bio.
 - Aperio does not appear. Neither do PowerSchool or PowerBuddy.
 - SEO and digital marketing read as services on the websites page.
 - Phone, email, and WhatsApp links use `company.json`. The email is not `hello@example.com`.
@@ -283,7 +288,7 @@ Run the production build and open the static output. Walk Home, Services, AI, We
 - View source shows full HTML, a unique title and description per page, Organization and FAQPage on Home, Service on the two detail pages, and no ratings.
 - After `next build`, `out/sitemap.xml` lists `/`, `/services`, `/services/ai-llm`, `/services/websites`, `/about`, `/case-studies`, and `/contact`. It does not list `/websites` or `/enterprise`. `out/robots.txt` references the sitemap.
 - The first viewport shows the company line and the three directions. The ten design languages from Visual requirements are each present in their assigned role, and the AI card uses the paper rule. The choice stays obvious.
-- A narrow viewport still shows the header, the three direction cards, and the floating button without covering the main actions. The Services disclosure opens from the keyboard and from a tap.
+- A narrow viewport still shows the header, the three direction cards, and the floating button without covering the main actions. The Services menu opens from the keyboard and from a tap, closes on an outside click, and does not block the main actions when dismissed.
 
 ## Revision log
 
@@ -295,3 +300,4 @@ Run the production build and open the static output. Walk Home, Services, AI, We
 | 1.3     | 28 October 2026 | Visual system is a ten-language blend. Copied shadcn/ui components are in scope. Dark mode and downloaded themes stay out.                      |
 | 1.4     | 28 October 2026 | Hybrid services: overview, AI and websites detail pages, enterprise as a section, About, one unnamed case study, FAQPage, and supplied contact. |
 | 1.5     | 28 October 2026 | Footer is a four-column row with a small mark. Contact actions share one card; WhatsApp green is only its button.                                |
+| 1.6     | 29 October 2026 | Company-first Home and About copy in JSON; **What we're good at** on Home; Services menu with outside dismiss; muted enterprise clay; contact and AI detail use quiet glass; still title glass on inner pages. |

@@ -1,21 +1,51 @@
 {
-  "title": "About",
-  "summary": "Shiva Prasad S leads NisCorp AI. The work is modern web apps, enterprise systems, and production AI, with a handover your team can own.",
-  "metaTitle": "About NisCorp AI — Founder and approach",
-  "metaDescription": "16+ years building enterprise SaaS and AI. Plain-language proposals, fixed-scope sprints, and maintainable systems.",
+  "title": "About NisCorp AI",
+  "summary": "Software and AI engineering focused on outcomes your team can own.",
+  "metaTitle": "About NisCorp AI — Company, capabilities, and approach",
+  "metaDescription": "NisCorp AI builds practical AI, web apps, and operations software with clear proposals, fixed-scope sprints, and clean handover.",
   "sections": [
     {
-      "heading": "Founder",
+      "heading": "What we do",
       "paragraphs": [
-        "Shiva Prasad S leads cross-geography engineering and ships modern web apps and production-grade AI: RAG pipelines with AWS Bedrock/OpenAI, OpenSearch vector search, Snowflake, and LangChain.",
-        "Hands-on across React/Next.js, Node.js, AWS Serverless, and Snowflake, and comfortable working across IST and US time zones."
+        "NisCorp AI designs and delivers modern web apps, enterprise operations software, and AI solutions such as RAG applications and internal assistants. The goal is simple: reduce manual work, make status clear, and leave you with a system that fits how your team already works."
       ]
     },
     {
       "heading": "How we work",
       "paragraphs": [
-        "Plain-language proposals, fixed-scope sprints, and weekly demos.",
-        "We build for your constraints and leave a system your team can own."
+        "Discovery and scoping in plain language.",
+        "Fixed-scope sprints with weekly demos and measurable outcomes.",
+        "Production hardening, documentation, runbooks, and capability transfer so you are not dependent on a black box."
+      ]
+    },
+    {
+      "heading": "Capabilities",
+      "paragraphs": [
+        "AI & LLM: RAG pipeline design, prompt design and evaluation, agentic workflows, guardrails; AWS Bedrock and OpenAI; OpenSearch vector search; Snowflake; LangChain/LangGraph; LangSmith.",
+        "Full-stack engineering: React/Next.js, Vue; Node.js/Express; REST/RPC; microservices; .NET MVC when needed.",
+        "Data & integration: Snowflake, Postgres, data modeling, event flows, dashboards with D3.js; integrations across CRM/ERP/analytics/identity.",
+        "Cloud & DevOps: AWS Serverless, Docker, GitHub Actions CI/CD, automated testing, IaC-aligned workflows.",
+        "Delivery quality: Agile, code reviews, TDD (Jest/NUnit), release discipline."
+      ]
+    },
+    {
+      "heading": "Principles",
+      "paragraphs": [
+        "Clarity over jargon; working software over slideware.",
+        "Build for maintainability and handover from day one.",
+        "Security and data responsibility: source-level access controls, PII handling, retrieval scoping, and opt-in data retention only."
+      ]
+    },
+    {
+      "heading": "Where we work",
+      "paragraphs": [
+        "Remote-first with coverage across IST and US time zones; comfortable collaborating with distributed product, data, and operations teams."
+      ]
+    },
+    {
+      "heading": "Get in touch",
+      "paragraphs": [
+        "Book a 20-minute discovery call, email, or message on WhatsApp. We reply within one business day."
       ]
     }
   ]
