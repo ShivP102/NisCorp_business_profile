@@ -2,10 +2,18 @@
 
 import { useEffect, useRef } from "react";
 
-export function LiquidGlass() {
+type LiquidGlassProps = {
+  variant?: "hero" | "title";
+};
+
+export function LiquidGlass({ variant = "hero" }: LiquidGlassProps) {
   const shapeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (variant !== "hero") {
+      return;
+    }
+
     const node = shapeRef.current;
     if (!node) {
       return;
@@ -37,7 +45,18 @@ export function LiquidGlass() {
       window.removeEventListener("scroll", onScroll);
       media.removeEventListener("change", place);
     };
-  }, []);
+  }, [variant]);
+
+  if (variant === "title") {
+    return (
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-0 right-0 z-0 h-28 w-40 sm:h-36 sm:w-56"
+      >
+        <div className="liquid-glass liquid-glass-still h-full w-full" />
+      </div>
+    );
+  }
 
   return (
     <div

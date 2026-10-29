@@ -6,15 +6,16 @@ import { DiscoveryLink } from "@/components/DiscoveryLink";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { LiquidGlass } from "@/components/LiquidGlass";
+import { ProcessChevronBanner } from "@/components/ProcessChevronBanner";
 import { TrustStrip } from "@/components/TrustStrip";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardHeader } from "@/components/ui/card";
 import {
   buildWhatsAppUrl,
   getCompany,
   getFaqs,
   getOfferings,
+  type Company,
 } from "@/lib/data";
+import type { ProcessStepContent } from "@/components/ProcessChevronBanner";
 
 export function generateMetadata(): Metadata {
   const company = getCompany();
@@ -34,6 +35,16 @@ export function generateMetadata(): Metadata {
       ],
     },
   };
+}
+
+function homeProcessSteps(company: Company): ProcessStepContent[] {
+  if (company.processSections?.length) {
+    return company.processSections.map((section) => ({
+      title: section.heading,
+      description: section.paragraphs[0],
+    }));
+  }
+  return company.processSteps.map((title) => ({ title }));
 }
 
 export default function HomePage() {
@@ -101,12 +112,18 @@ export default function HomePage() {
                   WhatsApp us
                 </a>
               </div>
+              <p className="mt-8 max-w-2xl text-base leading-relaxed text-foreground">
+                {company.companyIntro}
+              </p>
               <DirectionCards offerings={offerings} />
             </div>
           </section>
 
           <div className="md:col-span-6 md:px-2 md:pt-4">
-            <TrustStrip facts={company.trustFacts} />
+            <TrustStrip
+              facts={company.trustFacts}
+              heading="What we're good at"
+            />
           </div>
 
           <section
@@ -117,7 +134,7 @@ export default function HomePage() {
               id="about-heading"
               className="text-xl font-semibold tracking-tight sm:text-2xl"
             >
-              How a project starts
+              {company.processHeading ?? "How a project starts"}
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
               {company.about}{" "}
@@ -125,23 +142,19 @@ export default function HomePage() {
                 href="/about"
                 className="font-semibold text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
-                About the founder
+                About NisCorp AI
               </Link>
             </p>
-            <ol className="mt-8 grid gap-4 sm:grid-cols-3">
-              {company.processSteps.map((step, index) => (
-                <li key={step}>
-                  <Card className="surface-neo h-full gap-3 py-5">
-                    <CardHeader className="px-5">
-                      <Badge>{index + 1}</Badge>
-                      <p className="text-base font-medium text-foreground">
-                        {step}
-                      </p>
-                    </CardHeader>
-                  </Card>
-                </li>
-              ))}
-            </ol>
+            <ProcessChevronBanner
+              idPrefix="home-process"
+              compact
+              steps={homeProcessSteps(company)}
+            />
+            {company.processAssurance ? (
+              <p className="mt-6 max-w-3xl text-sm leading-relaxed text-foreground sm:text-base">
+                {company.processAssurance}
+              </p>
+            ) : null}
           </section>
 
           <div className="md:col-span-6 md:px-2">

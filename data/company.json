@@ -14,14 +14,57 @@
   "servicesMetaDescription": "Practical AI (RAG, agents), operations software, and fast websites with SEO. Plain-language proposals, fixed-scope sprints, weekly demos.",
   "servicesIntro": "We design and deliver modern web apps, enterprise systems, and practical AI. Plain-language proposals, fixed-scope sprints, weekly demos, and a clean handover.",
   "heroLine": "Build software and practical AI for how your team already works",
-  "heroSubhead": "We design and deliver modern web apps, enterprise systems, and AI assistants that reduce manual work and make status clear—then we leave you with a system your team can own.",
-  "about": "Shiva Prasad S leads the work across IST and US time zones. Proposals stay in plain language, sprints are fixed-scope, and demos are weekly.",
-  "processSteps": ["You tell us the work", "We propose it", "We build it"],
+  "heroSubhead": "NisCorp AI designs and ships modern web apps, enterprise systems, and AI assistants (RAG, agents) on stacks like React/Next.js, Node.js, AWS Serverless, Snowflake, and Bedrock/OpenAI—then hands over a system your team can own.",
+  "companyIntro": "We turn real-world workflows into reliable software. Our work spans AI & LLM solutions, operations platforms, and fast websites with SEO. We plan in plain language, build in fixed-scope sprints, demo weekly, and leave clean handover.",
+  "about": "NisCorp AI is a software and AI engineering company. We build practical AI (RAG, agents), modern web apps, and operations software on proven stacks—then hand over systems your team can run.",
+  "processHeading": "How your project runs",
+  "processAssurance": "We complete the agreed scope, document what we deliver, and hand it over cleanly—then stay available for support and future improvements on your terms.",
+  "processSteps": [
+    "Discover the work",
+    "Scope & proposal",
+    "Build in sprints",
+    "Launch & handover",
+    "Stabilize & support"
+  ],
+  "processSections": [
+    {
+      "heading": "Discover the work",
+      "paragraphs": [
+        "A short call to understand goals, users, and constraints."
+      ]
+    },
+    {
+      "heading": "Scope & proposal",
+      "paragraphs": [
+        "Plain-language scope, timeline, and acceptance criteria. You know exactly what will be delivered."
+      ]
+    },
+    {
+      "heading": "Build in sprints",
+      "paragraphs": [
+        "Weekly demos and feedback. We ship working software incrementally."
+      ]
+    },
+    {
+      "heading": "Launch & handover",
+      "paragraphs": [
+        "Production deploy, docs, and a handover so your team can run it. You keep the code and credentials."
+      ]
+    },
+    {
+      "heading": "Stabilize & support",
+      "paragraphs": [
+        "30-day stabilization window for fixes. Optional care plan for enhancements, monitoring, and small improvements—cancel anytime."
+      ]
+    }
+  ],
   "calendarUrl": "",
   "gaMeasurementId": "",
   "trustFacts": [
-    "16+ years shipping enterprise SaaS across EdTech, retail, and traffic engineering",
-    "Hands-on with React/Next.js, Node.js, AWS Serverless, and Snowflake",
-    "Production AI: RAG, OpenSearch, AWS Bedrock/OpenAI, and LangChain/LangSmith"
+    "AI & LLM: RAG pipelines, hybrid search, prompt design and evaluation, agentic workflows, LangChain/LangGraph, LangSmith",
+    "Web & Services: React/Next.js, Vue, Node.js/Express, REST/RPC, microservices, .NET MVC where required",
+    "Data & Search: OpenSearch vector search, Snowflake, data modeling, analytics, D3.js",
+    "Cloud & DevOps: AWS Serverless, Docker, GitHub Actions CI/CD, automation with n8n",
+    "Quality: Agile delivery, code reviews, TDD with Jest/NUnit, release discipline"
   ]
 }

@@ -18,8 +18,13 @@ export type Company = {
   servicesIntro: string;
   heroLine: string;
   heroSubhead: string;
+  companyIntro: string;
   about: string;
   processSteps: string[];
+  /** Home: titled steps with detail (preferred over `processSteps` when set). */
+  processSections?: { heading: string; paragraphs: string[] }[];
+  processHeading?: string;
+  processAssurance?: string;
   calendarUrl: string;
   gaMeasurementId: string;
   trustFacts: string[];
@@ -56,12 +61,23 @@ export type Faq = {
   pages: string[];
 };
 
+export type AboutProcessStep = {
+  title: string;
+  description: string;
+};
+
+export type AboutSection = {
+  heading: string;
+  paragraphs: string[];
+  steps?: AboutProcessStep[];
+};
+
 export type AboutPage = {
   title: string;
   summary: string;
   metaTitle: string;
   metaDescription: string;
-  sections: OfferingSection[];
+  sections: AboutSection[];
 };
 
 export type CaseStudy = {

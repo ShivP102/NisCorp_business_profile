@@ -6,7 +6,7 @@ Current structure: Home, Websites for individuals, Enterprise software, Contact.
 Gaps/opportunities:
 No dedicated AI/LLM offering page (RAG, agents, Bedrock/OpenAI, evaluation).
 Contact details on pages show placeholders (+91 00000 00000, hello@example.com); replace with your real phone and email so CTAs work. (niscorpbusinessprofile.vercel.app)
-No About/Founder section on site (your resume is strong; bring it forward).
+No About page with company capabilities on site (add company-first About with stack and approach).
 No portfolio/case studies, testimonials, pricing signals, or FAQs (all help conversion and SEO).
 Metadata and schema can be expanded (Organization, Service, FAQPage) for SEO.
 Positioning statement (use on Home and social profiles)
@@ -26,13 +26,17 @@ Ready-to-use page copy
 
 Home
 Hero H1: Build software and practical AI for how your team already works
-Subhead: We design and deliver modern web apps, enterprise systems, and AI assistants that reduce manual work and make status clear—then we leave you with a system your team can own.
+Subhead: NisCorp AI designs and ships modern web apps, enterprise systems, and AI assistants (RAG, agents) on stacks like React/Next.js, Node.js, AWS Serverless, Snowflake, and Bedrock/OpenAI—then hands over a system your team can own.
 Primary CTA: Book a 20‑minute discovery call
 Secondary CTA: WhatsApp us
-Trust strip:
-16+ years shipping enterprise SaaS across EdTech, retail, and traffic engineering
-Hands-on with React/Next.js, Node.js, AWS Serverless, Snowflake
-Production-grade AI: RAG pipelines, OpenSearch vector search, AWS Bedrock/OpenAI, LangChain/LangSmith
+Company intro:
+We turn real-world workflows into reliable software. Our work spans AI & LLM solutions, operations platforms, and fast websites with SEO. We plan in plain language, build in fixed‑scope sprints, demo weekly, and leave clean handover.
+What we're good at:
+AI & LLM: RAG pipelines, hybrid search, prompt design and evaluation, agentic workflows, LangChain/LangGraph, LangSmith
+Web & Services: React/Next.js, Vue, Node.js/Express, REST/RPC, microservices, .NET MVC where required
+Data & Search: OpenSearch vector search, Snowflake, data modeling, analytics, D3.js
+Cloud & DevOps: AWS Serverless, Docker, GitHub Actions CI/CD, automation with n8n
+Quality: Agile delivery, code reviews, TDD with Jest/NUnit, release discipline
 What we build (bullets):
 AI/LLM: RAG apps, internal AI assistants, agentic workflows, knowledge search
 Enterprise: workflow and operations platforms, system integrations, data pipelines
@@ -103,15 +107,12 @@ Growth (3–4 weeks): blog, FAQs, email capture, schema markup, starter content 
 Care plan (monthly): updates, landing pages, SEO tune‑ups, reporting
 Tech: Next.js, Tailwind CSS, lightweight CMS options, n8n/Make for automation
 CTA: Get your site live in 14 days
-5. About (new)
+5. About (company-first; no individual names)
 
 H1: About NisCorp AI
-Founder: Shiva Prasad S — Engineering Manager and hands‑on full‑stack/AI engineer with 16+ years shipping enterprise SaaS across EdTech, retail, and traffic engineering. Led cross‑geo teams (US/India), improved delivery velocity by 35%+ at PowerSchool, and built production‑grade AI (RAG with Bedrock/OpenAI, OpenSearch, Snowflake, LangChain).
-Working style:
-Plain‑language proposals, fixed‑scope sprints, weekly demos
-Build with your constraints; leave maintainable systems behind
-Comfortable across IST and US time zones
-Links: LinkedIn, GitHub, email, WhatsApp
+Summary: Software and AI engineering focused on outcomes your team can own.
+Sections: What we do; How we work; Capabilities (AI & LLM, full-stack, data, cloud, delivery quality); Principles; Where we work (remote-first, IST and US). Contact closes with shared ContactActions only.
+CTA: Book a 20‑minute discovery call, email, or WhatsApp. Reply within one business day.
 6. Case Studies (new — anonymize or attribute where allowed)
 
 PowerBuddy (EdTech): designed and shipped RAG pipeline with Bedrock embeddings, OpenSearch vector index, prompt design, and evaluations; integrated into existing SaaS
@@ -170,7 +171,16 @@ Site settings
 "contactMetaTitle": "Contact NisCorp AI — Book a 20‑minute call",
 "contactMetaDescription": "Reach us by phone, email, or WhatsApp, or book a discovery call via Google Calendar.",
 "heroLine": "Build software and practical AI for how your team already works",
-"about": "We design and deliver modern web apps, enterprise systems, and AI assistants that reduce manual work and make status clear—then we leave you with a system your team can own.",
+"heroSubhead": "NisCorp AI designs and ships modern web apps, enterprise systems, and AI assistants (RAG, agents) on stacks like React/Next.js, Node.js, AWS Serverless, Snowflake, and Bedrock/OpenAI—then hands over a system your team can own.",
+"companyIntro": "We turn real-world workflows into reliable software. Our work spans AI & LLM solutions, operations platforms, and fast websites with SEO. We plan in plain language, build in fixed-scope sprints, demo weekly, and leave clean handover.",
+"about": "NisCorp AI is a software and AI engineering company. We build practical AI (RAG, agents), modern web apps, and operations software on proven stacks—then hand over systems your team can run. Clear proposals, fixed-scope sprints, weekly demos, and maintainable results.",
+"trustFacts": [
+"AI & LLM: RAG pipelines, hybrid search, prompt design and evaluation, agentic workflows, LangChain/LangGraph, LangSmith",
+"Web & Services: React/Next.js, Vue, Node.js/Express, REST/RPC, microservices, .NET MVC where required",
+"Data & Search: OpenSearch vector search, Snowflake, data modeling, analytics, D3.js",
+"Cloud & DevOps: AWS Serverless, Docker, GitHub Actions CI/CD, automation with n8n",
+"Quality: Agile delivery, code reviews, TDD with Jest/NUnit, release discipline"
+],
 "processSteps": ["You tell us the work", "We propose it", "We build it"],
 "calendarUrl": "https://calendar.app/your-scheduling-link"
 }
@@ -294,23 +304,47 @@ Services: Websites & SEO
 About
 {
 "slug": "about",
-"title": "About",
-"summary": "Shiva Prasad S — Engineering Manager and hands‑on full‑stack/AI engineer with 16+ years shipping enterprise SaaS.",
-"metaTitle": "About NisCorp AI — Founder and approach",
-"metaDescription": "16+ years building enterprise SaaS and AI. Plain‑language proposals, fixed-scope sprints, and maintainable systems.",
+"title": "About NisCorp AI",
+"summary": "Software and AI engineering focused on outcomes your team can own.",
+"metaTitle": "About NisCorp AI — Company, capabilities, and approach",
+"metaDescription": "NisCorp AI builds practical AI, web apps, and operations software with clear proposals, fixed-scope sprints, and clean handover.",
 "sections": [
 {
-"heading": "Founder",
+"heading": "What we do",
 "paragraphs": [
-"Shiva Prasad S leads cross‑geography engineering and ships modern web apps and production‑grade AI: RAG pipelines with AWS Bedrock/OpenAI, OpenSearch vector search, Snowflake, and LangChain.",
-"Hands‑on across React/Next.js, Node.js, AWS Serverless, and Snowflake; comfortable working across IST and US time zones."
+"NisCorp AI designs and delivers modern web apps, enterprise operations software, and AI solutions such as RAG applications and internal assistants. The goal is simple: reduce manual work, make status clear, and leave you with a system that fits how your team already works."
 ]
 },
 {
 "heading": "How we work",
 "paragraphs": [
-"Plain‑language proposals, fixed‑scope sprints, and weekly demos.",
-"We build for your constraints and leave a system your team can own."
+"Discovery and scoping in plain language.",
+"Fixed-scope sprints with weekly demos and measurable outcomes.",
+"Production hardening, documentation, runbooks, and capability transfer so you are not dependent on a black box."
+]
+},
+{
+"heading": "Capabilities",
+"paragraphs": [
+"AI & LLM: RAG pipeline design, prompt design and evaluation, agentic workflows, guardrails; AWS Bedrock and OpenAI; OpenSearch vector search; Snowflake; LangChain/LangGraph; LangSmith.",
+"Full-stack engineering: React/Next.js, Vue; Node.js/Express; REST/RPC; microservices; .NET MVC when needed.",
+"Data & integration: Snowflake, Postgres, data modeling, event flows, dashboards with D3.js; integrations across CRM/ERP/analytics/identity.",
+"Cloud & DevOps: AWS Serverless, Docker, GitHub Actions CI/CD, automated testing, IaC-aligned workflows.",
+"Delivery quality: Agile, code reviews, TDD (Jest/NUnit), release discipline."
+]
+},
+{
+"heading": "Principles",
+"paragraphs": [
+"Clarity over jargon; working software over slideware.",
+"Build for maintainability and handover from day one.",
+"Security and data responsibility: source-level access controls, PII handling, retrieval scoping, and opt-in data retention only."
+]
+},
+{
+"heading": "Where we work",
+"paragraphs": [
+"Remote-first with coverage across IST and US time zones; comfortable collaborating with distributed product, data, and operations teams."
 ]
 }
 ]
@@ -355,13 +389,20 @@ Calendar link: use the value in site settings → calendarUrl
 Home page copy (for your hero and highlights)
 
 H1: Build software and practical AI for how your team already works
-Subhead: We design and deliver modern web apps, enterprise systems, and AI assistants that reduce manual work and make status clear—then we leave your team with a system it can own.
+Subhead: NisCorp AI designs and ships modern web apps, enterprise systems, and AI assistants (RAG, agents) on stacks like React/Next.js, Node.js, AWS Serverless, Snowflake, and Bedrock/OpenAI—then hands over a system your team can own.
 Primary CTA: Book a 20‑minute discovery call
 Secondary CTA: WhatsApp us
-Highlights:
-16+ years shipping enterprise SaaS across multiple domains
-Hands‑on with React/Next.js, Node.js, AWS Serverless, Snowflake
-Production‑grade AI: RAG pipelines, OpenSearch vector search, AWS Bedrock/OpenAI, LangChain/LangSmith
+Company intro:
+We turn real-world workflows into reliable software. Our work spans AI & LLM solutions, operations platforms, and fast websites with SEO. We plan in plain language, build in fixed‑scope sprints, demo weekly, and leave clean handover.
+What we're good at:
+AI & LLM: RAG pipelines, hybrid search, prompt design and evaluation, agentic workflows, LangChain/LangGraph, LangSmith
+Web & Services: React/Next.js, Vue, Node.js/Express, REST/RPC, microservices, .NET MVC where required
+Data & Search: OpenSearch vector search, Snowflake, data modeling, analytics, D3.js
+Cloud & DevOps: AWS Serverless, Docker, GitHub Actions CI/CD, automation with n8n
+Quality: Agile delivery, code reviews, TDD with Jest/NUnit, release discipline
+Process:
+You tell us the work → We propose it → We build it (fixed-scope sprints, weekly demos)
+Link under process: About NisCorp AI → /about
 FAQs (no external orgs referenced)
 
 What’s your typical engagement model? Fixed‑scope sprints with weekly demos; time‑and‑materials available for discovery.
@@ -439,10 +480,14 @@ CTAs (sitewide)
 - Secondary: WhatsApp us
 
 Still in this pass, unchanged by the hybrid choice
-- /about with the founder copy in this file. No invented LinkedIn or GitHub URLs.
+- /about with company-first copy in this file (capabilities, principles, remote IST/US). No individual names.
 - /case-studies with one unnamed B2B operations platform. No screenshot.
-- Home hero, trust strip, process, and the three FAQs.
+- Home hero, company intro, what we're good at, process, and the three FAQs.
 - Contact form path adds AI and LLM work. The form still opens WhatsApp or email on the device.
+
+Decision: company-first About and Home copy (29 October 2026)
+
+Home and About no longer lead with a founder name or bio. Voice is NisCorp AI as a software and AI engineering company. Capabilities and stack appear on Home under “What we're good at” and on About under Capabilities. Time-zone coverage stays company-level (IST and US), not tied to an individual.
 
 Later, not this build
 - /services/enterprise once that section is promoted.

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactActions } from "@/components/ContactActions";
+import { LiquidGlass } from "@/components/LiquidGlass";
 import { getCaseStudies, getCompany } from "@/lib/data";
 
 export function generateMetadata(): Metadata {
@@ -29,16 +30,19 @@ export default function CaseStudiesPage() {
 
   return (
     <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-28 pt-10 max-sm:pl-16 sm:px-6 sm:pb-32 sm:pt-14">
-      <header>
-        <p className="text-sm font-semibold tracking-wide text-accent uppercase">
-          Selected work
-        </p>
-        <h1 className="mt-3 max-w-3xl text-4xl leading-tight font-semibold tracking-tight sm:text-5xl">
-          {cases.title}
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          {cases.summary}
-        </p>
+      <header className="relative">
+        <LiquidGlass variant="title" />
+        <div className="relative z-10">
+          <p className="text-sm font-semibold tracking-wide text-accent uppercase">
+            Selected work
+          </p>
+          <h1 className="mt-3 max-w-3xl text-4xl leading-tight font-semibold tracking-tight sm:text-5xl">
+            {cases.title}
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            {cases.summary}
+          </p>
+        </div>
       </header>
 
       {cases.items.map((item) => (

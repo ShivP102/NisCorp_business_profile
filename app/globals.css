@@ -52,8 +52,7 @@
 
 @media (max-width: 639px) {
   :root {
-    /* Wrapped nav on very narrow / high-zoom layouts */
-    --site-header-height: 7.25rem;
+    --site-header-height: 4.75rem;
   }
 }
 
@@ -134,13 +133,13 @@ body {
 }
 
 .surface-clay {
-  background: #f6d7c3;
+  background: #f3ebe4;
   border: 0;
   border-radius: 1.75rem;
   box-shadow:
-    inset 8px 8px 16px rgba(255, 255, 255, 0.75),
-    inset -8px -10px 16px rgba(176, 112, 72, 0.28),
-    0 12px 24px rgba(176, 112, 72, 0.16);
+    inset 8px 8px 16px rgba(255, 253, 248, 0.9),
+    inset -8px -10px 16px rgba(207, 198, 182, 0.45),
+    0 12px 24px rgba(20, 20, 20, 0.06);
 }
 
 .surface-neo {
@@ -180,8 +179,16 @@ body {
   backdrop-filter: blur(16px);
 }
 
+.liquid-glass-still {
+  opacity: 0.4;
+  animation: none;
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.35),
+    0 12px 24px rgba(22, 56, 107, 0.08);
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .liquid-glass {
+  .liquid-glass:not(.liquid-glass-still) {
     animation: liquid-morph 16s ease-in-out infinite;
   }
 }

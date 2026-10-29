@@ -1,4 +1,5 @@
 import type { Faq } from "@/lib/data";
+import { DisclosureList } from "@/components/DisclosureList";
 
 type FaqListProps = {
   faqs: Faq[];
@@ -15,6 +16,12 @@ export function FaqList({
     return null;
   }
 
+  const items = faqs.map((faq) => ({
+    id: faq.question,
+    summary: faq.question,
+    body: faq.answer,
+  }));
+
   return (
     <section aria-labelledby={id} className="scroll-mt-24">
       <h2
@@ -23,18 +30,10 @@ export function FaqList({
       >
         {heading}
       </h2>
-      <div className="mt-6 divide-y divide-border border-y border-border">
-        {faqs.map((faq) => (
-          <details key={faq.question} className="group py-4">
-            <summary className="cursor-pointer text-base font-medium text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-              {faq.question}
-            </summary>
-            <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              {faq.answer}
-            </p>
-          </details>
-        ))}
-      </div>
+      <DisclosureList
+        className="mt-6 divide-y divide-border border-y border-border"
+        items={items}
+      />
     </section>
   );
 }
