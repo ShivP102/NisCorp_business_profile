@@ -4,6 +4,7 @@ import { DiscoveryLink } from "@/components/DiscoveryLink";
 import { EngagementShapes } from "@/components/EngagementShapes";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
+import { LiquidGlass } from "@/components/LiquidGlass";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import type { Company, Faq, Offering } from "@/lib/data";
 import { cn } from "cn";
@@ -45,18 +46,21 @@ export function OfferingDetail({
     <>
       <JsonLd data={serviceLd} />
       <main className="mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 gap-4 px-4 pb-28 pt-10 max-sm:pl-16 sm:px-6 sm:pb-32 sm:pt-14 md:grid-cols-6 md:gap-5">
-        <header className="md:col-span-6">
-          <p className="text-sm font-semibold tracking-wide text-accent uppercase">
-            {eyebrow}
-          </p>
-          <h1 className="mt-3 max-w-3xl text-4xl leading-tight font-semibold tracking-tight sm:text-5xl">
-            {heading ?? offering.title}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            {offering.summary}
-          </p>
-          <div className="mt-6">
-            <DiscoveryLink company={company} label={ctaLabel} />
+        <header className="relative md:col-span-6">
+          <LiquidGlass variant="title" />
+          <div className="relative z-10">
+            <p className="text-sm font-semibold tracking-wide text-accent uppercase">
+              {eyebrow}
+            </p>
+            <h1 className="mt-3 max-w-3xl text-4xl leading-tight font-semibold tracking-tight sm:text-5xl">
+              {heading ?? offering.title}
+            </h1>
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              {offering.summary}
+            </p>
+            <div className="mt-6">
+              <DiscoveryLink company={company} label={ctaLabel} />
+            </div>
           </div>
         </header>
 

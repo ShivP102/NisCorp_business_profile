@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ContactActions } from "@/components/ContactActions";
 import { DiscoveryLink } from "@/components/DiscoveryLink";
 import { EngagementShapes } from "@/components/EngagementShapes";
+import { LiquidGlass } from "@/components/LiquidGlass";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { getCompany, getOfferings } from "@/lib/data";
 import { cn } from "cn";
@@ -43,28 +44,31 @@ export default function ServicesPage() {
 
   return (
     <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-28 pt-10 max-sm:pl-16 sm:px-6 sm:pb-32 sm:pt-14">
-      <header>
-        <p className="text-sm font-semibold tracking-wide text-accent uppercase">
-          What we build
-        </p>
-        <h1 className="mt-3 max-w-3xl text-4xl leading-tight font-semibold tracking-tight sm:text-5xl">
-          Services
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          {company.servicesIntro}
-        </p>
-        <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
-          {offerings.map((offering) => (
-            <li key={offering.slug}>
-              <a
-                href={`#${offering.slug}`}
-                className="text-sm font-semibold text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-              >
-                {offering.title}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <header className="relative">
+        <LiquidGlass variant="title" />
+        <div className="relative z-10">
+          <p className="text-sm font-semibold tracking-wide text-accent uppercase">
+            What we build
+          </p>
+          <h1 className="mt-3 max-w-3xl text-4xl leading-tight font-semibold tracking-tight sm:text-5xl">
+            Services
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            {company.servicesIntro}
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+            {offerings.map((offering) => (
+              <li key={offering.slug}>
+                <a
+                  href={`#${offering.slug}`}
+                  className="text-sm font-semibold text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  {offering.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </header>
 
       <div className="mt-12 space-y-16">
