@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import Link from "next/link";
+import { useCallback, useId, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,6 +14,12 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  buildMailtoHref,
+  buildWhatsAppHref,
+  formatConsentLine,
+  setSessionPrivacyConsent,
+} from "@/lib/privacy-consent";
 
 const PATH_OPTIONS = [
   { value: "ai", label: "AI and LLM work" },
@@ -26,6 +33,8 @@ type PathValue = (typeof PATH_OPTIONS)[number]["value"];
 export type ContactFormProps = {
   email: string;
   whatsappE164: string;
+  privacyLastUpdated: string;
+  privacyPolicyUrl: string;
 };
 
 const fieldLabel = "text-muted-foreground";
@@ -42,6 +51,8 @@ function composeMessage(
   visitorEmail: string,
   path: PathValue,
   message: string,
+  privacyLastUpdated: string,
+  privacyPolicyUrl: string,
 ): string {
   const lines = [
     `Name: ${name.trim()}`,
@@ -49,49 +60,78 @@ function composeMessage(
     `Work: ${pathLabel(path)}`,
     "",
     message.trim(),
+    "",
+    formatConsentLine(privacyLastUpdated, privacyPolicyUrl),
   ];
   return lines.join("\n");
 }
 
-function buildWhatsAppHref(whatsappE164: string, text: string): string {
-  return `https://wa.me/${whatsappE164}?text=${encodeURIComponent(text)}`;
-}
-
-function buildMailtoHref(
-  companyEmail: string,
-  name: string,
-  body: string,
-): string {
-  const subject = encodeURIComponent(
-    `Message from ${name.trim() || "visitor"}`,
-  );
-  return `mailto:${companyEmail}?subject=${subject}&body=${encodeURIComponent(body)}`;
-}
-
-export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
+export function ContactForm({
+  email,
+  whatsappE164,
+  privacyLastUpdated,
+  privacyPolicyUrl,
+}: ContactFormProps) {
   const [name, setName] = useState("");
   const [visitorEmail, setVisitorEmail] = useState("");
   const [path, setPath] = useState<PathValue>("ai");
   const [message, setMessage] = useState("");
+  const [privacyConsent, setPrivacyConsent] = useState(false);
+  const consentHintId = useId();
 
   const getBody = useCallback(
-    () => composeMessage(name, visitorEmail, path, message),
-    [message, name, path, visitorEmail],
+    () =>
+      composeMessage(
+        name,
+        visitorEmail,
+        path,
+        message,
+        privacyLastUpdated,
+        privacyPolicyUrl,
+      ),
+    [message, name, path, privacyLastUpdated, privacyPolicyUrl, visitorEmail],
   );
 
   const openWhatsApp = useCallback(() => {
+    if (!privacyConsent) {
+      return;
+    }
+    setSessionPrivacyConsent();
     const href = buildWhatsAppHref(whatsappE164, getBody());
     window.open(href, "_blank", "noopener,noreferrer");
-  }, [getBody, whatsappE164]);
+  }, [getBody, privacyConsent, whatsappE164]);
 
   const openEmail = useCallback(() => {
-    const href = buildMailtoHref(email, name, getBody());
+    if (!privacyConsent) {
+      return;
+    }
+    setSessionPrivacyConsent();
+    const subject = `Message from ${name.trim() || "visitor"}`;
+    const href = buildMailtoHref(email, subject, getBody());
     window.location.href = href;
-  }, [email, getBody, name]);
+  }, [email, getBody, name, privacyConsent]);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget;
+    if (!privacyConsent || !form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
     openWhatsApp();
+  };
+
+  const handleEmailClick = () => {
+    const form = document.getElementById("contact-message-form");
+    if (form instanceof HTMLFormElement) {
+      if (!privacyConsent || !form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+    } else if (!privacyConsent) {
+      return;
+    }
+    openEmail();
   };
 
   return (
@@ -104,13 +144,14 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
         Send a message
       </h2>
       <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
-        Your message opens in WhatsApp or email on your device—we do not store
-        it on this site.
+        Your message opens in WhatsApp or email on your device. This site does
+        not operate a server-side inbox; NisCorp AI processes what you send so
+        we can reply.
       </p>
       <form
+        id="contact-message-form"
         className="surface-glass mt-8 max-w-xl space-y-6 rounded-xl p-5 sm:p-8"
         onSubmit={handleSubmit}
-        noValidate
       >
         <div>
           <Label htmlFor="contact-name" className={fieldLabel}>
@@ -180,18 +221,47 @@ export function ContactForm({ email, whatsappE164 }: ContactFormProps) {
             className={`${fieldClass} field-sizing-fixed min-h-32`}
           />
         </div>
+        <div className="flex items-start gap-3">
+          <input
+            id="contact-privacy-consent"
+            name="privacyConsent"
+            type="checkbox"
+            required
+            checked={privacyConsent}
+            onChange={(event) => setPrivacyConsent(event.target.checked)}
+            aria-describedby={consentHintId}
+            className="mt-1 size-4 shrink-0 rounded border-border accent-accent"
+          />
+          <Label
+            htmlFor="contact-privacy-consent"
+            id={consentHintId}
+            className="block min-w-0 flex-1 text-sm leading-relaxed font-normal text-foreground"
+          >
+            I have read the{" "}
+            <Link
+              href="/privacy"
+              className="font-semibold text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            >
+              Privacy Policy
+            </Link>{" "}
+            and consent to NisCorp AI processing my details to respond to this
+            inquiry.
+          </Label>
+        </div>
         <div className="flex flex-col gap-3 max-sm:pl-16 sm:flex-row sm:flex-wrap sm:pr-[4.75rem] sm:pb-2 sm:pl-0">
           <Button
             type="submit"
-            className="min-h-11 bg-whatsapp px-4 text-base font-semibold text-white hover:bg-whatsapp/90"
+            disabled={!privacyConsent}
+            className="min-h-11 bg-whatsapp px-4 text-base font-semibold text-white hover:bg-whatsapp/90 disabled:opacity-50"
           >
             Send on WhatsApp
           </Button>
           <Button
             type="button"
             variant="outline"
-            onClick={openEmail}
-            className="min-h-11 border-border bg-white px-4 text-base font-semibold text-foreground shadow-none hover:bg-foreground/5 hover:text-foreground"
+            disabled={!privacyConsent}
+            onClick={handleEmailClick}
+            className="min-h-11 border-border bg-white px-4 text-base font-semibold text-foreground shadow-none hover:bg-foreground/5 hover:text-foreground disabled:opacity-50"
           >
             Send by email
           </Button>

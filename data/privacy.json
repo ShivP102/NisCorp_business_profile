@@ -1,0 +1,111 @@
+{
+  "title": "Privacy Policy",
+  "lastUpdated": "October 30, 2026",
+  "metaTitle": "Privacy Policy | NisCorp AI",
+  "metaDescription": "How NisCorp AI collects, uses, and protects information when you use our website and contact form.",
+  "introParagraphs": [
+    "This Privacy Policy describes how NisCorp AI (\"we,\" \"us,\" or \"our\") collects, uses, and protects your information when you visit and interact with our website (\"Website\")."
+  ],
+  "complianceIntro": "This Privacy Policy is published in compliance with:",
+  "complianceBullets": [
+    "Section 43A of the Information Technology Act, 2000;",
+    "The Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011; and",
+    "Rule 3(1) of the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021 (as amended)."
+  ],
+  "sections": [
+    {
+      "heading": "1. Information We Collect",
+      "paragraphs": [
+        "We adhere to the principle of data minimization. We only collect personal information that you voluntarily provide when you use the contact form on this Website.",
+        "We do not collect any sensitive personal data or information (such as passwords, financial data, or biometric information) through our Website."
+      ],
+      "bullets": [
+        "Name",
+        "Email address",
+        "Kind of work (the path you select on the form)",
+        "Message"
+      ]
+    },
+    {
+      "heading": "2. Purpose of Collection and Use of Information",
+      "paragraphs": [
+        "The personal data you provide through the contact form is used strictly for the following purposes:"
+      ],
+      "bullets": [
+        "To respond to inquiries, queries, or requests submitted by you via the contact form.",
+        "To communicate with you regarding our services, updates, or business operations.",
+        "To comply with applicable legal obligations under Indian law."
+      ]
+    },
+    {
+      "heading": "3. Intermediary Due Diligence & User Code of Conduct",
+      "paragraphs": [
+        "In compliance with Rule 3(1)(b) of the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021, users of this computer resource are hereby notified that they shall not host, display, upload, modify, publish, transmit, store, update, or share any information that:"
+      ],
+      "orderedItems": [
+        "Belongs to another person and to which the user does not have any right;",
+        "Is obscene, pornographic, paedophilic, invasive of another's privacy (including bodily privacy), insulting or harassing on the basis of gender, racially or ethnically objectionable, relating to or encouraging money laundering or gambling, an online game that causes user harm, or promoting enmity between different groups on the grounds of religion or caste with the intent to incite violence;",
+        "Is harmful to a child;",
+        "Infringes any patent, trademark, copyright, or other proprietary rights;",
+        "Deceives or misleads the addressee about the origin of the message or knowingly and intentionally communicates any misinformation or information which is patently false and untrue or misleading in nature;",
+        "Impersonates another person;",
+        "Threatens the unity, integrity, defence, security or sovereignty of India, friendly relations with foreign States, or public order, or causes incitement to the commission of any cognisable offence, or prevents investigation of any offence, or is insulting to any other nation;",
+        "Contains software viruses or any other computer code, file, or program designed to interrupt, destroy, or limit the functionality of any computer resource;",
+        "Is in the nature of an online game that is not verified as a permissible online game;",
+        "Is in the nature of an advertisement, surrogate advertisement, or promotion of an online game that is not a permissible online game; or",
+        "Violates any law for the time being in force."
+      ]
+    },
+    {
+      "heading": "4. Consequences of Non-Compliance",
+      "paragraphs": [
+        "In accordance with Rule 3(1)(c) of the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021:"
+      ],
+      "bullets": [
+        "In case of non-compliance with these rules, terms, or privacy policy, we reserve the right to immediately terminate or suspend your access or usage rights to our Website or computer resource, or disable access to non-compliant information.",
+        "Any non-compliance involving unlawful activity or creation or dissemination of prohibited information may subject the responsible user to penalties or punishment under the Information Technology Act, 2000, the Bharatiya Nyaya Sanhita, 2023, the Bharatiya Nagarik Suraksha Sanhita, 2023, or any other applicable law.",
+        "Where any violation constitutes a mandatory reportable offence under applicable law, we reserve the right to report such offences to the appropriate law enforcement authorities."
+      ]
+    },
+    {
+      "heading": "5. Disclosure and Sharing of Data",
+      "paragraphs": [
+        "We do not sell, trade, or rent your personal information to third parties. We may disclose your personal information only under the following conditions:"
+      ],
+      "bullets": [
+        "Legal obligations: If required to do so by law, court order, or upon receiving a lawful request from a government or investigative agency under the Information Technology Act, 2000.",
+        "Protection of rights: To enforce our Privacy Policy or protect the security, integrity, and rights of our website and users."
+      ]
+    },
+    {
+      "heading": "6. Security Practices and Retention",
+      "bullets": [
+        "Data security: We implement reasonable security practices and procedures as required under the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011 to protect your personal information against unauthorized access, alteration, disclosure, or destruction.",
+        "Data retention: Personal data provided via the contact form is retained only as long as necessary to fulfill the purpose for which it was collected or as required under applicable Indian legal standards."
+      ]
+    },
+    {
+      "heading": "7. Rights of the User",
+      "paragraphs": [
+        "You have the right to review the personal information you have provided to us and request correction or updates if any information is inaccurate. You may also withdraw your consent to our processing of your information by contacting our Grievance Officer."
+      ]
+    },
+    {
+      "heading": "8. Grievance Redressal Mechanism",
+      "paragraphs": [
+        "In compliance with Rule 3(2) of the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021, if you have any grievances or questions regarding this Privacy Policy or the handling of your personal data, you may contact our designated Grievance Officer.",
+        "Our registered postal address in India will be published here when available. Until then, you may request it by email using the contact details below."
+      ],
+      "grievanceTimelines": [
+        "We will acknowledge receipt of your complaint or grievance within 24 hours.",
+        "We will dispose of or resolve your grievance within 7 days from the date of receipt."
+      ]
+    },
+    {
+      "heading": "9. Changes to This Policy",
+      "paragraphs": [
+        "We reserve the right to update or modify this Privacy Policy at any time. Any changes will be published on this page. In accordance with applicable regulations, users will be periodically informed of this policy and any significant modifications."
+      ]
+    }
+  ]
+}

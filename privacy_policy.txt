@@ -1,0 +1,5 @@
+# Privacy Policy (draft source)
+
+Published copy for the website lives in data/privacy.json and renders at /privacy.
+
+Edit data/privacy.json for site updates, then sync any legal review copies from that file.
