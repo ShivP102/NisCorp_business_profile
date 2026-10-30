@@ -18,7 +18,10 @@ const companyLinks = [
   { href: "/case-studies", label: "Case studies" },
 ] as const;
 
-const supportLinks = [{ href: "/contact", label: "Send a message" }] as const;
+const supportLinks = [
+  { href: "/privacy", label: "Privacy policy" },
+  { href: "/contact", label: "Send a message" },
+] as const;
 
 export function Footer({ company, offerings }: FooterProps) {
   const tagline = company.servicesIntro.split(". ")[0] + ".";

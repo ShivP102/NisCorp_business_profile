@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { PrivacyConsentProvider } from "@/components/PrivacyConsentProvider";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { buildWhatsAppUrl, getCompany, getOfferings } from "@/lib/data";
+import { buildPrivacyPolicyUrl } from "@/lib/privacy-consent";
+import { getCompany, getOfferings, getPrivacy } from "@/lib/data";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,14 +32,24 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const company = getCompany();
   const offerings = getOfferings();
+  const privacy = getPrivacy();
+  const privacyPolicyUrl = buildPrivacyPolicyUrl(company.siteUrl);
 
   return (
     <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
-        <Header companyName={company.name} />
-        {children}
-        <Footer company={company} offerings={offerings} />
-        <WhatsAppButton href={buildWhatsAppUrl(company)} />
+        <PrivacyConsentProvider
+          email={company.email}
+          whatsappE164={company.whatsappE164}
+          whatsappDefaultText={company.whatsappDefaultText}
+          privacyLastUpdated={privacy.lastUpdated}
+          privacyPolicyUrl={privacyPolicyUrl}
+        >
+          <Header companyName={company.name} />
+          {children}
+          <Footer company={company} offerings={offerings} />
+          <WhatsAppButton company={company} />
+        </PrivacyConsentProvider>
       </body>
     </html>
   );

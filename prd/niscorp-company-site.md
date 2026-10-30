@@ -3,8 +3,8 @@
 |            |                                                                                   |
 | ---------- | --------------------------------------------------------------------------------- |
 | Status     | Draft. Do not start the app until a coding agent is asked to implement this file. |
-| Version    | 1.8                                                                               |
-| Updated    | 29 October 2026                                                                   |
+| Version    | 1.10                                                                              |
+| Updated    | 30 October 2026                                                                   |
 | Source     | `plan/niscorp-company-site.md`, then `plan/website-content-enhancement.md`        |
 | Supersedes | Those plans, for requirements. The plans stay as the briefs.                      |
 
@@ -26,7 +26,7 @@ Tone is specific and calm. Name the work and the result. Leave out hype, fake pr
 
 ## v1 scope
 
-In this revision: Home, a services overview, two service detail pages, About, one case study, and Contact. Three contact actions, and a form that opens WhatsApp or email on the visitor’s device.
+In this revision: Home, a services overview, two service detail pages, About, one case study, Contact, and Privacy. Three contact actions, and a form that opens WhatsApp or email on the visitor’s device after privacy consent.
 
 Out until this PRD moves the item in:
 
@@ -70,7 +70,7 @@ flowchart TD
   cases --> contact
 ```
 
-Header and footer on every page. The header is logo (Home), a Services menu, About, and Contact. The menu lists All services, AI and LLM, and Websites and SEO. It is a **relative dropdown** (not inline links): closed by default, toggled from the Services control, dismissed on outside click and Escape. On viewports below `md`, primary links live in a **menu button panel** (hidden until opened); desktop keeps a single-row nav. Case studies stay out of the header. The footer is four columns in one row: the mark and a one-sentence tagline with the copyright under it, the three offers, Company (About and the case study), and Support (a link to Contact). Phone, email, and WhatsApp stay on the contact actions above the footer, not repeated as plain text under it. Contact actions use a quiet label-and-value layout, not heavy card boxes. WhatsApp green is only the WhatsApp button. A floating WhatsApp button sits on every page.
+Header and footer on every page. The header is logo (Home), a Services menu, About, and Contact. The menu lists All services, AI and LLM, and Websites and SEO. It is a **relative dropdown** (not inline links): closed by default, toggled from the Services control, dismissed on outside click and Escape. On viewports below `md`, primary links live in a **menu button panel** (hidden until opened); desktop keeps a single-row nav. Case studies stay out of the header. The footer is four columns in one row: the mark and a one-sentence tagline with the copyright under it, the three offers, Company (About and the case study), and Support (Privacy policy and a link to Contact). Phone, email, and WhatsApp stay on the contact actions above the footer, not repeated as plain text under it. Contact actions use a quiet label-and-value layout, not heavy card boxes. WhatsApp green is only the WhatsApp button. A floating WhatsApp button sits on every page.
 
 Home order: hero (company line, H1, subhead, CTAs, company intro, three direction cards), **What we're good at** from `trustFacts`, how a project starts, FAQ, contact. The direction cards are not repeated lower on the page.
 
@@ -126,9 +126,15 @@ One unnamed B2B operations platform: context, problem, approach, impact, stack. 
 
 Phone, email, WhatsApp, and a short form: name, email, path, message. Paths: AI and LLM work, an individual website, enterprise software, or something else. The page says we reply within one business day.
 
-One line says the message opens in WhatsApp or email on the visitor’s device.
+One line says the message opens in WhatsApp or email on the visitor’s device. NisCorp AI processes what the visitor sends; the site does not operate a server-side inbox.
+
+The form includes a required consent checkbox and a link to the Privacy policy. Submit and the email action stay blocked until consent is given.
 
 Primary action: send the message through WhatsApp or email.
+
+### Privacy `/privacy`
+
+Full privacy policy from `data/privacy.json`: last updated date, compliance intro, numbered sections (collection, use, intermediary rules, disclosure, security, user rights, grievance redressal, changes). Grievance contact uses `email` and `phoneDisplay` from `company.json`; registered postal address is available on request via that email until a formal address is added to JSON. Same inner-page shell as About (title glass, readable prose). Linked from the footer Support column and from the contact form.
 
 ### Retired routes
 
@@ -141,11 +147,11 @@ The site cannot receive a form into an inbox by itself. There is no form backend
 | Action             | Behavior                                                                                                            |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------- |
 | Phone              | `tel:` link. The number is shown as people dial it.                                                                 |
-| Email              | `mailto:` link. The address is shown on the page.                                                                   |
-| WhatsApp           | `https://wa.me/<E.164 without plus>?text=...`. A tap opens the WhatsApp app on a phone and WhatsApp Web on desktop. |
-| Floating button    | Same number and the default message from `whatsappDefaultText`.                                                     |
-| Form submit        | Does not post. Opens WhatsApp with the visitor’s name, path, and message filled in.                                 |
-| Second form action | Opens the same text in the visitor’s email app.                                                                     |
+| Email              | Opens the visitor’s email app after privacy consent (dialog or same-tab session). Appends the consent line to the message body. |
+| WhatsApp           | Opens WhatsApp after privacy consent (dialog or same-tab session). Appends the consent line to the prefilled text. |
+| Floating button    | Same as WhatsApp: consent gate, then default text plus consent line. |
+| Form submit        | Does not post. Requires privacy consent (checkbox and native validation). Opens WhatsApp with the visitor’s name, path, message, and consent line. Sets session consent for the tab. |
+| Second form action | Same consent rules as form submit. Opens the same text in the visitor’s email app. |
 
 Real phone, email, and `siteUrl` live in `data/company.json`. `calendarUrl` stays empty until it is a real `https` booking link. The discovery-call control uses that URL when it is present, and `/contact` otherwise.
 
@@ -192,7 +198,7 @@ Sitemap and robots come from `next-sitemap` after the production build, written 
 
 - `next-sitemap.config.js` sets `siteUrl` from `data/company.json`, `generateRobotsTxt: true`, and `outDir: './out'`.
 - `package.json` has `"postbuild": "next-sitemap"`.
-- `out/sitemap.xml` lists `/`, `/services`, `/services/ai-llm`, `/services/websites`, `/about`, `/case-studies`, and `/contact`.
+- `out/sitemap.xml` lists `/`, `/services`, `/services/ai-llm`, `/services/websites`, `/about`, `/case-studies`, `/contact`, and `/privacy`.
 - `out/sitemap.xml` does not list `/websites` or `/enterprise`.
 - `out/robots.txt` points at that sitemap.
 
@@ -228,6 +234,7 @@ app/
   case-studies/page.tsx
   contact/page.tsx
   contact/ContactForm.tsx
+  privacy/page.tsx
   globals.css
 components/
   Header.tsx
@@ -235,6 +242,8 @@ components/
   Footer.tsx
   WhatsAppButton.tsx
   AboutSections.tsx
+  PrivacySections.tsx
+  PrivacyConsentProvider.tsx
   ProcessChevronBanner.tsx
   DisclosureList.tsx
   DirectionCards.tsx
@@ -252,8 +261,10 @@ data/
   about.json
   faqs.json
   case-studies.json
+  privacy.json
 lib/
   data.ts
+  privacy-consent.ts
 public/
 next.config.ts
 next-sitemap.config.js
@@ -289,16 +300,16 @@ Not part of the first coding task. When the site is deployed:
 
 ## Acceptance
 
-Run the production build and open the static output. Walk Home, Services, AI, Websites, About, Case studies, and Contact.
+Run the production build and open the static output. Walk Home, Services, AI, Websites, About, Case studies, Contact, and Privacy.
 
 - The company reads as software, practical AI, and consulting. Home and About do not name an individual or show a founder bio.
 - Aperio does not appear. Neither do PowerSchool or PowerBuddy.
 - SEO and digital marketing read as services on the websites page.
 - Phone, email, and WhatsApp links use `company.json`. The email is not `hello@example.com`.
 - The discovery call goes to Contact while `calendarUrl` is empty.
-- The floating button and the form open a prefilled WhatsApp chat. The email action opens a prefilled message. The form does not post. The path list includes AI and LLM work.
+- The floating button and the form open a prefilled WhatsApp chat. The email action opens a prefilled message. The form does not post. The path list includes AI and LLM work. The contact form requires privacy consent before WhatsApp or email opens. The footer links to Privacy policy.
 - View source shows full HTML, a unique title and description per page, Organization and FAQPage on Home, Service on the two detail pages, and no ratings.
-- After `next build`, `out/sitemap.xml` lists `/`, `/services`, `/services/ai-llm`, `/services/websites`, `/about`, `/case-studies`, and `/contact`. It does not list `/websites` or `/enterprise`. `out/robots.txt` references the sitemap.
+- After `next build`, `out/sitemap.xml` lists `/`, `/services`, `/services/ai-llm`, `/services/websites`, `/about`, `/case-studies`, `/contact`, and `/privacy`. It does not list `/websites` or `/enterprise`. `out/robots.txt` references the sitemap.
 - The first viewport shows the company line and the three directions. The ten design languages from Visual requirements are each present in their assigned role, and the AI card uses the paper rule. The choice stays obvious.
 - A narrow viewport still shows the header, the three direction cards, and the floating button without covering the main actions. The Services menu opens from the keyboard and from a tap, closes on an outside click, and does not block the main actions when dismissed.
 
@@ -315,3 +326,5 @@ Run the production build and open the static output. Walk Home, Services, AI, We
 | 1.6     | 29 October 2026 | Company-first Home and About copy in JSON; **What we're good at** on Home; Services menu with outside dismiss; muted enterprise clay; contact and AI detail use quiet glass; still title glass on inner pages. |
 | 1.7     | 29 October 2026 | About layout: bento glass for narrative sections, three principle cells, capabilities in FAQ-style disclosure; remove duplicate Get in touch section. |
 | 1.8     | 29 October 2026 | About **How we work**: chevron progression banner (`ProcessChevronBanner`), JSON `steps`; **Where we work** full width below; mobile nav panel (`SiteNav`). Home **How a project starts** uses the same chevron banner for `processSteps`. |
+| 1.9     | 30 October 2026 | Privacy route `/privacy` from `data/privacy.json`; footer Support link; contact form privacy consent and link; sitemap includes `/privacy`. |
+| 1.10    | 30 October 2026 | Shared `PrivacyConsentProvider`: dialog + session consent for email/WhatsApp on `ContactActions` and floating button; consent line on all outbound messages; form uses native validation. |
