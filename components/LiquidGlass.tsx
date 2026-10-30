@@ -7,15 +7,17 @@ type LiquidGlassProps = {
 };
 
 export function LiquidGlass({ variant = "hero" }: LiquidGlassProps) {
-  const shapeRef = useRef<HTMLDivElement>(null);
+  const primaryRef = useRef<HTMLDivElement>(null);
+  const ambientRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (variant !== "hero") {
       return;
     }
 
-    const node = shapeRef.current;
-    if (!node) {
+    const primary = primaryRef.current;
+    const ambient = ambientRef.current;
+    if (!primary || !ambient) {
       return;
     }
 
@@ -24,11 +26,14 @@ export function LiquidGlass({ variant = "hero" }: LiquidGlassProps) {
 
     const place = () => {
       if (media.matches) {
-        node.style.transform = "translate3d(-50%, 0, 0)";
+        primary.style.transform = "translate3d(-50%, 0, 0)";
+        ambient.style.transform = "translate3d(0, 0, 0)";
         return;
       }
+
       const travel = Math.min(window.scrollY / 6, 72);
-      node.style.transform = `translate3d(calc(-50% + ${travel * 0.35}px), ${travel}px, 0)`;
+      primary.style.transform = `translate3d(calc(-50% + ${travel * 0.35}px), ${travel}px, 0)`;
+      ambient.style.transform = `translate3d(${travel * -0.2}px, ${travel * 0.55}px, 0)`;
     };
 
     const onScroll = () => {
@@ -60,11 +65,21 @@ export function LiquidGlass({ variant = "hero" }: LiquidGlassProps) {
 
   return (
     <div
-      ref={shapeRef}
       aria-hidden
-      className="pointer-events-none absolute bottom-6 left-1/2 -z-0 h-56 w-56 -translate-x-1/2 sm:h-80 sm:w-[32rem]"
+      className="pointer-events-none absolute inset-0 -z-0 overflow-hidden"
     >
-      <div className="liquid-glass h-full w-full" />
+      <div
+        ref={ambientRef}
+        className="absolute top-2 right-0 h-36 w-36 sm:top-4 sm:right-4 sm:h-44 sm:w-44 md:h-52 md:w-52"
+      >
+        <div className="liquid-glass-ambient h-full w-full" />
+      </div>
+      <div
+        ref={primaryRef}
+        className="absolute bottom-6 left-1/2 h-56 w-56 -translate-x-1/2 sm:h-80 sm:w-[32rem]"
+      >
+        <div className="liquid-glass h-full w-full" />
+      </div>
     </div>
   );
 }

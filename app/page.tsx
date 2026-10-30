@@ -7,6 +7,7 @@ import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { LiquidGlass } from "@/components/LiquidGlass";
 import { ProcessChevronBanner } from "@/components/ProcessChevronBanner";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { TrustStrip } from "@/components/TrustStrip";
 import {
   buildWhatsAppUrl,
@@ -107,7 +108,7 @@ export default function HomePage() {
                   href={buildWhatsAppUrl(company)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-whatsapp px-4 text-base font-semibold text-white hover:bg-whatsapp/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-whatsapp px-4 text-base font-semibold text-white transition-transform duration-200 hover:bg-whatsapp/90 hover:shadow-md active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent motion-reduce:transition-none motion-reduce:active:scale-100"
                 >
                   WhatsApp us
                 </a>
@@ -119,51 +120,50 @@ export default function HomePage() {
             </div>
           </section>
 
-          <div className="md:col-span-6 md:px-2 md:pt-4">
+          <RevealOnScroll className="md:col-span-6 md:px-2 md:pt-4">
             <TrustStrip
               facts={company.trustFacts}
               heading="What we're good at"
             />
-          </div>
+          </RevealOnScroll>
 
-          <section
-            aria-labelledby="about-heading"
-            className="px-1 py-8 md:col-span-6 md:px-2 md:py-12"
-          >
-            <h2
-              id="about-heading"
-              className="text-xl font-semibold tracking-tight sm:text-2xl"
-            >
-              {company.processHeading ?? "How a project starts"}
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              {company.about}{" "}
-              <Link
-                href="/about"
-                className="font-semibold text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          <RevealOnScroll className="px-1 py-8 md:col-span-6 md:px-2 md:py-12">
+            <section aria-labelledby="about-heading">
+              <h2
+                id="about-heading"
+                className="text-xl font-semibold tracking-tight sm:text-2xl"
               >
-                About NisCorp AI
-              </Link>
-            </p>
-            <ProcessChevronBanner
-              idPrefix="home-process"
-              compact
-              steps={homeProcessSteps(company)}
-            />
-            {company.processAssurance ? (
-              <p className="mt-6 max-w-3xl text-sm leading-relaxed text-foreground sm:text-base">
-                {company.processAssurance}
+                {company.processHeading ?? "How a project starts"}
+              </h2>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+                {company.about}{" "}
+                <Link
+                  href="/about"
+                  className="font-semibold text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  About NisCorp AI
+                </Link>
               </p>
-            ) : null}
-          </section>
+              <ProcessChevronBanner
+                idPrefix="home-process"
+                compact
+                steps={homeProcessSteps(company)}
+              />
+              {company.processAssurance ? (
+                <p className="mt-6 max-w-3xl text-sm leading-relaxed text-foreground sm:text-base">
+                  {company.processAssurance}
+                </p>
+              ) : null}
+            </section>
+          </RevealOnScroll>
 
-          <div className="md:col-span-6 md:px-2">
+          <RevealOnScroll className="md:col-span-6 md:px-2">
             <FaqList faqs={faqs} />
-          </div>
+          </RevealOnScroll>
 
-          <div className="md:col-span-6 md:px-2 md:pt-4">
+          <RevealOnScroll className="md:col-span-6 md:px-2 md:pt-4">
             <ContactActions company={company} />
-          </div>
+          </RevealOnScroll>
         </div>
       </main>
     </>

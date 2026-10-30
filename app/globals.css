@@ -169,14 +169,31 @@ body {
   border-radius: 42% 58% 63% 37% / 42% 38% 62% 58%;
   background: linear-gradient(
     145deg,
-    rgba(255, 255, 255, 0.72),
-    rgba(22, 56, 107, 0.22) 48%,
-    rgba(255, 255, 255, 0.28)
+    rgba(255, 255, 255, 0.78),
+    rgba(22, 56, 107, 0.28) 45%,
+    rgba(15, 110, 125, 0.18) 72%,
+    rgba(255, 255, 255, 0.32)
   );
   box-shadow:
     inset 0 0 36px rgba(255, 255, 255, 0.55),
     0 24px 48px rgba(22, 56, 107, 0.16);
   backdrop-filter: blur(16px);
+}
+
+.liquid-glass-ambient {
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 58% 42% 35% 65% / 48% 52% 48% 52%;
+  opacity: 0.42;
+  background: linear-gradient(
+    160deg,
+    rgba(15, 110, 125, 0.22),
+    rgba(255, 255, 255, 0.5) 55%,
+    rgba(22, 56, 107, 0.12)
+  );
+  box-shadow:
+    inset 0 0 28px rgba(255, 255, 255, 0.4),
+    0 16px 32px rgba(15, 110, 125, 0.12);
+  backdrop-filter: blur(14px);
 }
 
 .liquid-glass-still {
@@ -189,12 +206,17 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   .liquid-glass:not(.liquid-glass-still) {
-    animation: liquid-morph 16s ease-in-out infinite;
+    animation: liquid-morph 14s ease-in-out infinite;
+  }
+
+  .liquid-glass-ambient:not(.liquid-glass-still) {
+    animation: liquid-ambient-drift 22s ease-in-out infinite;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .liquid-glass {
+  .liquid-glass,
+  .liquid-glass-ambient {
     animation: none;
   }
 }
@@ -206,5 +228,35 @@ body {
   }
   50% {
     border-radius: 62% 38% 30% 70% / 58% 42% 58% 42%;
+  }
+}
+
+@keyframes liquid-ambient-drift {
+  0%,
+  100% {
+    border-radius: 58% 42% 35% 65% / 48% 52% 48% 52%;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    border-radius: 40% 60% 55% 45% / 52% 48% 58% 42%;
+    transform: translate3d(6px, -10px, 0) scale(1.04);
+  }
+}
+
+.home-scroll-reveal[data-reveal="pending"] {
+  @apply translate-y-4 opacity-0;
+}
+
+.home-scroll-reveal[data-reveal="visible"] {
+  @apply animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-scroll-reveal[data-reveal="pending"] {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .home-scroll-reveal[data-reveal="visible"] {
+    @apply animate-none;
   }
 }

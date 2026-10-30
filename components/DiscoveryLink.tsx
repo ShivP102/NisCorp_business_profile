@@ -11,7 +11,7 @@ export function DiscoveryLink({ company, label }: DiscoveryLinkProps) {
   const href = discoveryHref(company);
   const external = href.startsWith("https://");
   const className =
-    "min-h-11 bg-accent px-4 text-base font-semibold text-accent-foreground hover:bg-accent/90";
+    "min-h-11 bg-accent px-4 text-base font-semibold text-accent-foreground transition-transform duration-200 hover:bg-accent/90 hover:shadow-md active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100";
 
   if (external) {
     return (

@@ -24,7 +24,7 @@ export function DirectionCards({ offerings }: DirectionCardsProps) {
         <li key={offering.slug} className="min-w-0">
           <Card
             className={cn(
-              "group relative h-full gap-4 py-5 transition-transform duration-200 hover:-translate-y-1 focus-within:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-none sm:py-6",
+              "group relative h-full gap-4 py-5 transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lg focus-within:-translate-y-1 focus-within:shadow-lg active:scale-[0.99] motion-reduce:transition-none motion-reduce:hover:translate-none motion-reduce:hover:shadow-none motion-reduce:active:scale-100 sm:py-6",
               surfaceFor(offering.slug),
             )}
           >

@@ -3,7 +3,7 @@
 |            |                                                                                   |
 | ---------- | --------------------------------------------------------------------------------- |
 | Status     | Draft. Do not start the app until a coding agent is asked to implement this file. |
-| Version    | 1.11                                                                              |
+| Version    | 1.12                                                                              |
 | Updated    | 30 October 2026                                                                   |
 | Source     | `plan/niscorp-company-site.md`, then `plan/website-content-enhancement.md`        |
 | Supersedes | Those plans, for requirements. The plans stay as the briefs.                      |
@@ -172,7 +172,7 @@ Ten design languages are in scope. Each has one job so the choice stays readable
 - The AI direction card is paper fill with a 2px near-black border. AI detail sections on `/services/ai-llm` use a quiet frosted glass surface. They do not use clay or the maximalist hue.
 - **Neomorphism** is only the three process tiles. Labels are near-black on a surface close to the page ground.
 - **Spatial UI** puts the company line above a liquid shape. Cards lift on hover and on focus.
-- **Liquid glass** is one organic shape behind the home hero. Scroll moves it. Inner pages may use a **still, smaller** echo behind the page title (lower opacity, no scroll travel, no morph). `prefers-reduced-motion: reduce` freezes morph and scroll-driven motion.
+- **Liquid glass** is **two** organic ambient shapes behind the home hero only: a primary morphing blob and a smaller secondary layer (lower opacity, slower drift). Scroll parallax moves both; the secondary layer may travel at a different rate. Inner pages use a **still, smaller** echo behind the page title (lower opacity, no scroll travel, no morph). `prefers-reduced-motion: reduce` freezes morph, drift, and scroll-driven motion on all layers.
 - **Skeuomorphism** is a light paper grain on the page background.
 - **Maximalism** is one display line in the hero: weight, tracking, and a second hue. It does not spread into body copy.
 - **Brutalism** is not used on the contact form in this revision. The contact form and shared contact row use the same quiet **glass** family as other softened surfaces: rounded panel, sentence-case labels, and reachable fields.
@@ -186,6 +186,17 @@ Other visual rules:
 - Mobile-first. On a narrow viewport the header, the three direction cards, and the floating button remain usable. The button does not cover those actions.
 
 Leave out dark mode, downloaded or reskinned themes, counters, logo bars, testimonial carousels, pricing tables, and placeholder portfolios.
+
+### Motion (v1)
+
+Motion stays **specific and calm**. It supports the home narrative; it does not delay the company line or the three direction cards in the first viewport.
+
+- **Stack:** Tailwind CSS, `tw-animate-css`, and small client hooks (for example Intersection Observer). **Framer Motion is out of v1 scope.** No autoplay video, particle fields, or full-site route transitions.
+- **Home hero:** Primary and secondary liquid-glass ambient layers only (see Liquid glass above). Hero copy and direction cards render immediately with no entrance delay.
+- **Home below the fold:** Scroll-triggered reveal on **What we're good at**, **How a project starts** (process block), FAQ, and contact actions only. One entrance per block (fade plus a short upward move, about 400–600ms). No stagger that hides content from crawlers; copy stays in the static HTML.
+- **Micro-interactions:** Primary CTAs and direction cards use hover, focus, and active feedback (lift, shadow, or slight scale) consistent with Spatial UI.
+- **Overlays:** Shadcn/Radix open and close animations on dialogs, menus, and selects stay as implemented.
+- **Reduced motion:** When `prefers-reduced-motion: reduce` is set, ambient motion and scroll parallax stop; scroll reveals show the final state with no entrance animation.
 
 ## SEO requirements
 
@@ -260,6 +271,7 @@ components/
   FaqList.tsx
   OfferingDetail.tsx
   LiquidGlass.tsx
+  RevealOnScroll.tsx
   ui/
 data/
   company.json
@@ -319,6 +331,7 @@ Run the production build and open the static output. Walk Home, Services, AI, We
 - After `next build`, `out/sitemap.xml` lists `/`, `/services`, `/services/ai-llm`, `/services/websites`, `/about`, `/case-studies`, `/contact`, `/privacy`, and `/terms`. It does not list `/websites` or `/enterprise`. `out/robots.txt` references the sitemap.
 - The first viewport shows the company line and the three directions. The ten design languages from Visual requirements are each present in their assigned role, and the AI card uses the paper rule. The choice stays obvious.
 - A narrow viewport still shows the header, the three direction cards, and the floating button without covering the main actions. The Services menu opens from the keyboard and from a tap, closes on an outside click, and does not block the main actions when dismissed.
+- On Home, two ambient liquid-glass layers sit behind the hero; lower sections use scroll reveal only below the fold. With `prefers-reduced-motion: reduce`, ambient motion and reveals are disabled while content stays readable.
 
 ## Revision log
 
@@ -336,3 +349,4 @@ Run the production build and open the static output. Walk Home, Services, AI, We
 | 1.9     | 30 October 2026 | Privacy route `/privacy` from `data/privacy.json`; footer Support link; contact form privacy consent and link; sitemap includes `/privacy`. |
 | 1.10    | 30 October 2026 | Shared `PrivacyConsentProvider`: dialog + session consent for email/WhatsApp on `ContactActions` and floating button; consent line on all outbound messages; form uses native validation. |
 | 1.11    | 30 October 2026 | Terms route `/terms` from `data/terms.json`; footer Support link; sitemap includes `/terms`; cross-link to Privacy on Terms page. |
+| 1.12    | 30 October 2026 | Motion v1: dual home hero ambient liquid glass, home-only scroll reveal below the fold, micro-interactions; Framer Motion and route transitions out of scope. |
