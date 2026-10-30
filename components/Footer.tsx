@@ -20,6 +20,7 @@ const companyLinks = [
 
 const supportLinks = [
   { href: "/privacy", label: "Privacy policy" },
+  { href: "/terms", label: "Terms and conditions" },
   { href: "/contact", label: "Send a message" },
 ] as const;
 

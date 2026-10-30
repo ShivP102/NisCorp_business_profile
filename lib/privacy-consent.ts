@@ -1,23 +1,43 @@
 export const PRIVACY_CONSENT_SESSION_KEY = "niscorp-privacy-consent";
 
+export type LegalConsentRefs = {
+  privacyLastUpdated: string;
+  privacyPolicyUrl: string;
+  termsLastUpdated: string;
+  termsUrl: string;
+};
+
 export function buildPrivacyPolicyUrl(siteUrl: string): string {
   return `${siteUrl.replace(/\/$/, "")}/privacy`;
 }
 
-export function formatConsentLine(
+export function buildTermsUrl(siteUrl: string): string {
+  return `${siteUrl.replace(/\/$/, "")}/terms`;
+}
+
+export function buildLegalConsentRefs(
+  siteUrl: string,
   privacyLastUpdated: string,
-  privacyPolicyUrl: string,
-): string {
-  return `Privacy consent: I have read the NisCorp AI Privacy Policy (last updated ${privacyLastUpdated}) at ${privacyPolicyUrl} and consent to processing of my details to respond to this inquiry.`;
+  termsLastUpdated: string,
+): LegalConsentRefs {
+  return {
+    privacyLastUpdated,
+    privacyPolicyUrl: buildPrivacyPolicyUrl(siteUrl),
+    termsLastUpdated,
+    termsUrl: buildTermsUrl(siteUrl),
+  };
+}
+
+export function formatConsentLine(refs: LegalConsentRefs): string {
+  return `Privacy consent: I have read the NisCorp AI Privacy Policy (last updated ${refs.privacyLastUpdated}) at ${refs.privacyPolicyUrl} and the Terms and Conditions (last updated ${refs.termsLastUpdated}) at ${refs.termsUrl}, and consent to processing of my details to respond to this inquiry.`;
 }
 
 export function appendConsentToMessage(
   message: string,
-  privacyLastUpdated: string,
-  privacyPolicyUrl: string,
+  refs: LegalConsentRefs,
 ): string {
   const trimmed = message.trim();
-  const consent = formatConsentLine(privacyLastUpdated, privacyPolicyUrl);
+  const consent = formatConsentLine(refs);
   return trimmed ? `${trimmed}\n\n${consent}` : consent;
 }
 

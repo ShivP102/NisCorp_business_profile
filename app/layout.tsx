@@ -4,8 +4,8 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PrivacyConsentProvider } from "@/components/PrivacyConsentProvider";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { buildPrivacyPolicyUrl } from "@/lib/privacy-consent";
-import { getCompany, getOfferings, getPrivacy } from "@/lib/data";
+import { buildLegalConsentRefs } from "@/lib/privacy-consent";
+import { getCompany, getOfferings, getPrivacy, getTerms } from "@/lib/data";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -33,7 +33,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   const company = getCompany();
   const offerings = getOfferings();
   const privacy = getPrivacy();
-  const privacyPolicyUrl = buildPrivacyPolicyUrl(company.siteUrl);
+  const terms = getTerms();
+  const legalConsent = buildLegalConsentRefs(
+    company.siteUrl,
+    privacy.lastUpdated,
+    terms.lastUpdated,
+  );
 
   return (
     <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
@@ -42,8 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           email={company.email}
           whatsappE164={company.whatsappE164}
           whatsappDefaultText={company.whatsappDefaultText}
-          privacyLastUpdated={privacy.lastUpdated}
-          privacyPolicyUrl={privacyPolicyUrl}
+          legalConsent={legalConsent}
         >
           <Header companyName={company.name} />
           {children}

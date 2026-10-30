@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import {
   createContext,
   useCallback,
@@ -11,6 +10,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { LegalConsentLabel } from "@/components/LegalConsentLabel";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
@@ -19,6 +19,7 @@ import {
   buildWhatsAppHref,
   hasSessionPrivacyConsent,
   setSessionPrivacyConsent,
+  type LegalConsentRefs,
 } from "@/lib/privacy-consent";
 
 type PendingAction =
@@ -49,8 +50,7 @@ type PrivacyConsentProviderProps = {
   email: string;
   whatsappE164: string;
   whatsappDefaultText: string;
-  privacyLastUpdated: string;
-  privacyPolicyUrl: string;
+  legalConsent: LegalConsentRefs;
 };
 
 export function PrivacyConsentProvider({
@@ -58,8 +58,7 @@ export function PrivacyConsentProvider({
   email,
   whatsappE164,
   whatsappDefaultText,
-  privacyLastUpdated,
-  privacyPolicyUrl,
+  legalConsent,
 }: PrivacyConsentProviderProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [pending, setPending] = useState<PendingAction | null>(null);
@@ -70,11 +69,7 @@ export function PrivacyConsentProvider({
   const runAction = useCallback(
     (action: PendingAction) => {
       if (action.kind === "whatsapp") {
-        const text = appendConsentToMessage(
-          action.baseText,
-          privacyLastUpdated,
-          privacyPolicyUrl,
-        );
+        const text = appendConsentToMessage(action.baseText, legalConsent);
         window.open(
           buildWhatsAppHref(whatsappE164, text),
           "_blank",
@@ -82,14 +77,10 @@ export function PrivacyConsentProvider({
         );
         return;
       }
-      const body = appendConsentToMessage(
-        action.baseBody,
-        privacyLastUpdated,
-        privacyPolicyUrl,
-      );
+      const body = appendConsentToMessage(action.baseBody, legalConsent);
       window.location.href = buildMailtoHref(email, action.subject, body);
     },
-    [email, privacyLastUpdated, privacyPolicyUrl, whatsappE164],
+    [email, legalConsent, whatsappE164],
   );
 
   const closeDialog = useCallback(() => {
@@ -178,7 +169,7 @@ export function PrivacyConsentProvider({
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Before we open WhatsApp or email on your device, confirm you agree
-              to our Privacy Policy.
+              to our Privacy Policy and Terms and Conditions.
             </p>
           </div>
           <div className="flex items-start gap-3">
@@ -195,15 +186,7 @@ export function PrivacyConsentProvider({
               id={consentHintId}
               className="block min-w-0 flex-1 text-sm leading-relaxed font-normal text-foreground"
             >
-              I have read the{" "}
-              <Link
-                href="/privacy"
-                className="font-semibold text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-              >
-                Privacy Policy
-              </Link>{" "}
-              and consent to NisCorp AI processing my details to respond to this
-              inquiry.
+              <LegalConsentLabel />
             </Label>
           </div>
           <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
