@@ -1,0 +1,5 @@
+# Terms and Conditions (draft source)
+
+Published copy for the website lives in data/terms.json and renders at /terms.
+
+Edit data/terms.json for site updates, then sync any legal review copies from that file.

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Company, PrivacyPage } from "@/lib/data";
 
 type PrivacySectionsProps = {
@@ -27,6 +28,16 @@ export function PrivacySections({ privacy, company }: PrivacySectionsProps) {
             <li key={item}>{item}</li>
           ))}
         </ul>
+        <p className={proseClass}>
+          See also our{" "}
+          <Link
+            href="/terms"
+            className="font-semibold text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            Terms and Conditions
+          </Link>
+          .
+        </p>
       </div>
 
       {privacy.sections.map((section) => {

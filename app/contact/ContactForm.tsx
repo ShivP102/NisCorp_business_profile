@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useId, useState } from "react";
+import { LegalConsentLabel } from "@/components/LegalConsentLabel";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,6 +19,7 @@ import {
   buildWhatsAppHref,
   formatConsentLine,
   setSessionPrivacyConsent,
+  type LegalConsentRefs,
 } from "@/lib/privacy-consent";
 
 const PATH_OPTIONS = [
@@ -33,8 +34,7 @@ type PathValue = (typeof PATH_OPTIONS)[number]["value"];
 export type ContactFormProps = {
   email: string;
   whatsappE164: string;
-  privacyLastUpdated: string;
-  privacyPolicyUrl: string;
+  legalConsent: LegalConsentRefs;
 };
 
 const fieldLabel = "text-muted-foreground";
@@ -51,8 +51,7 @@ function composeMessage(
   visitorEmail: string,
   path: PathValue,
   message: string,
-  privacyLastUpdated: string,
-  privacyPolicyUrl: string,
+  legalConsent: LegalConsentRefs,
 ): string {
   const lines = [
     `Name: ${name.trim()}`,
@@ -61,7 +60,7 @@ function composeMessage(
     "",
     message.trim(),
     "",
-    formatConsentLine(privacyLastUpdated, privacyPolicyUrl),
+    formatConsentLine(legalConsent),
   ];
   return lines.join("\n");
 }
@@ -69,8 +68,7 @@ function composeMessage(
 export function ContactForm({
   email,
   whatsappE164,
-  privacyLastUpdated,
-  privacyPolicyUrl,
+  legalConsent,
 }: ContactFormProps) {
   const [name, setName] = useState("");
   const [visitorEmail, setVisitorEmail] = useState("");
@@ -80,16 +78,8 @@ export function ContactForm({
   const consentHintId = useId();
 
   const getBody = useCallback(
-    () =>
-      composeMessage(
-        name,
-        visitorEmail,
-        path,
-        message,
-        privacyLastUpdated,
-        privacyPolicyUrl,
-      ),
-    [message, name, path, privacyLastUpdated, privacyPolicyUrl, visitorEmail],
+    () => composeMessage(name, visitorEmail, path, message, legalConsent),
+    [legalConsent, message, name, path, visitorEmail],
   );
 
   const openWhatsApp = useCallback(() => {
@@ -237,15 +227,7 @@ export function ContactForm({
             id={consentHintId}
             className="block min-w-0 flex-1 text-sm leading-relaxed font-normal text-foreground"
           >
-            I have read the{" "}
-            <Link
-              href="/privacy"
-              className="font-semibold text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            >
-              Privacy Policy
-            </Link>{" "}
-            and consent to NisCorp AI processing my details to respond to this
-            inquiry.
+            <LegalConsentLabel />
           </Label>
         </div>
         <div className="flex flex-col gap-3 max-sm:pl-16 sm:flex-row sm:flex-wrap sm:pr-[4.75rem] sm:pb-2 sm:pl-0">

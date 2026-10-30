@@ -116,6 +116,23 @@ export type PrivacyPage = {
   sections: PrivacySection[];
 };
 
+export type TermsSection = {
+  heading: string;
+  paragraphs?: string[];
+  bullets?: string[];
+  orderedItems?: string[];
+  grievanceTimelines?: string[];
+};
+
+export type TermsPage = {
+  title: string;
+  lastUpdated: string;
+  metaTitle: string;
+  metaDescription: string;
+  introParagraphs: string[];
+  sections: TermsSection[];
+};
+
 const dataDir = path.join(process.cwd(), "data");
 
 function readJson<T>(filename: string): T {
@@ -150,6 +167,10 @@ export function getCaseStudies(): CaseStudiesPage {
 
 export function getPrivacy(): PrivacyPage {
   return readJson<PrivacyPage>("privacy.json");
+}
+
+export function getTerms(): TermsPage {
+  return readJson<TermsPage>("terms.json");
 }
 
 export function buildWhatsAppUrl(company: Company): string {

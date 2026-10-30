@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { ContactActions } from "@/components/ContactActions";
 import { LiquidGlass } from "@/components/LiquidGlass";
 import { ContactForm } from "@/app/contact/ContactForm";
-import { buildPrivacyPolicyUrl } from "@/lib/privacy-consent";
-import { getCompany, getPrivacy } from "@/lib/data";
+import { buildLegalConsentRefs } from "@/lib/privacy-consent";
+import { getCompany, getPrivacy, getTerms } from "@/lib/data";
 
 export function generateMetadata(): Metadata {
   const company = getCompany();
@@ -28,7 +28,12 @@ export function generateMetadata(): Metadata {
 export default function ContactPage() {
   const company = getCompany();
   const privacy = getPrivacy();
-  const privacyPolicyUrl = buildPrivacyPolicyUrl(company.siteUrl);
+  const terms = getTerms();
+  const legalConsent = buildLegalConsentRefs(
+    company.siteUrl,
+    privacy.lastUpdated,
+    terms.lastUpdated,
+  );
 
   return (
     <main className="mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 gap-4 px-4 pb-28 pt-10 max-sm:pl-16 sm:px-6 sm:pb-32 sm:pt-14 md:grid-cols-6 md:gap-5">
@@ -58,8 +63,7 @@ export default function ContactPage() {
         <ContactForm
           email={company.email}
           whatsappE164={company.whatsappE164}
-          privacyLastUpdated={privacy.lastUpdated}
-          privacyPolicyUrl={privacyPolicyUrl}
+          legalConsent={legalConsent}
         />
       </div>
     </main>
